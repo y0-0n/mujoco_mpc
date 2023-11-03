@@ -32,6 +32,12 @@
 #include "mjpc/tasks/quadruped/quadruped.h"
 #include "mjpc/tasks/swimmer/swimmer.h"
 #include "mjpc/tasks/walker/walker.h"
+// RILAB IMPORT
+#include "mjpc/tasks/smpl/stand/stand.h"
+#include "mjpc/tasks/smpl/walk/walk.h"
+#include "mjpc/tasks/common_rig/walk/walk.h"
+
+// #include "mjpc/tasks/smpl_stand/smpl_stand.h"
 
 namespace mjpc {
 
@@ -53,6 +59,10 @@ std::vector<std::shared_ptr<Task>> GetTasks() {
     std::make_shared<QuadrupedHill>(),
     std::make_shared<Swimmer>(),
     std::make_shared<Walker>(),
+    // RILAB TASKS
+    std::make_shared<smpl::Stand>(),
+    std::make_shared<smpl::Walk>(),
+    std::make_shared<common_rig::Walk>(),
   };
 }
 }  // namespace mjpc
