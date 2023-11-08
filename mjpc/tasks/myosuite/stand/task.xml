@@ -1,0 +1,38 @@
+<mujoco model="Humanoid">
+  <include file="../../common.xml"/>
+  <include file="../scene_smpl_rig.xml" />
+  <size memory="1000K"/>
+
+  <custom>
+    <numeric name="agent_planner" data="0" />
+    <numeric name="agent_horizon" data="0.35" />
+    <numeric name="agent_timestep" data="0.015" />
+    <numeric name="sampling_spline_points" data="3" />
+    <numeric name="sampling_exploration" data="0.05" />
+    <numeric name="gradient_spline_points" data="5" />
+    <numeric name="residual_Height Goal" data="1.55 0.0 2.0" />
+  </custom>
+
+  <sensor>
+    <user name="Height" dim="1" user="6 100.0 0.0 500.0 0.1" />
+    <user name="Balance" dim="1" user="6 50.0 0.0 500.0 0.1" />
+    <user name="CoM Vel." dim="2" user="0 10.0 0.0 100.0" />
+    <user name="Joint Vel." dim="43" user="0 0.01 0.0 0.1" />
+    <user name="Control" dim="23" user="3 0.025 0.0 0.1 0.3" />
+    <user name="Posture" dim="43" user="0 0.025 0 1.0" />
+    <framepos name="trace0" objtype="body" objname="pelvis"/>
+    <framepos name="torso_position" objtype="body" objname="pelvis"/>
+    <framepos name="head_position" objtype="body" objname="head"/>
+    <framequat name="head_orientation" objtype="body" objname="head"/>
+    <framezaxis name="torso_zaxis" objtype="body" objname="pelvis"/>
+    <framelinvel name="torso_subtreelinvel" objtype="body" objname="pelvis" />
+    <subtreecom name="torso_subtreecom" body="pelvis"/>
+    <framexaxis name="torso_forward" objtype="body" objname="pelvis" />
+    <framepos name="sp0" objtype="site" objname="sp0"/>
+    <framepos name="sp1" objtype="site" objname="sp1"/>
+    <framepos name="sp2" objtype="site" objname="sp2"/>
+    <framepos name="sp3" objtype="site" objname="sp3"/>
+    <subtreelinvel name="foot_right_vel" body="right_ankle"/>
+    <subtreelinvel name="foot_left_vel" body="left_ankle"/>
+  </sensor>
+</mujoco>

@@ -1,0 +1,1200 @@
+<?xml version="1.0"?>
+<mujoco>
+	<worldbody>
+		<body name="root" pos="0 0 1" quat="0.707388 0 0 -0.706825">
+			<body name="torso" pos="0 0 0" quat="1 0 0 0">
+				<body name="head" pos="-0.21 0 0.09" quat="0.703854 0.703294 0.0705648 -0.070621">
+					<inertial mass="5" pos="0 0 0" quat="1 0 0 0" diaginertia="0 0 0" />
+					<geom name="hat_spine_coll" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.055 0.1 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.01 0.51 0" quat="0.703854 0.703294 0.070621 0.0705648" />
+					<geom name="hat_jaw_coll2" type="ellipsoid" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.07 0.12 0.065" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.025 0.545 0" quat="0.939373 0 0 0.342898" />
+					<geom name="hat_skull_coll" type="ellipsoid" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.1 0.1 0.075" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0 0.575 0" quat="1 0 0 0" />
+				</body>
+				<inertial mass="37.399999999999999" pos="-0.07 0 0.287572" quat="1 0 0 0" diaginertia="0.910036 0.839113 0.34246" />
+				<geom name="torso" type="mesh" mesh="torso" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.103844 0.259719 0.571951" material="mat_myotorso" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0" gap="0" pos="-0.100718 -0.000359382 0.318329" quat="0.999975 0.000131936 -0.00699321 0.00109121" />
+				<geom type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.08 0.077 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.065 0 0.06" quat="0.707388 0.706825 0 0" />
+				<geom type="ellipsoid" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.095 0.14 0.14" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.085 0 0.2" quat="0.707388 0.706825 0 0" />
+				<geom type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.11 0.065 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.09 0 0.33" quat="0.707388 0.706825 0 0" />
+				<geom type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.075 0.145 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.11 0 0.415" quat="0.707388 0.706825 0 0" />
+				<geom name="humerus_r" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.042 0.139684 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.091 -0.1685 0.3055" quat="0.999671 -0.0232745 -0.0107421 0" />
+				<geom name="ulna_rv" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.03 0.129743 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.094 -0.1875 0.037" quat="0.998567 -0.0482413 0.0231558 0" />
+				<geom name="humerus_l" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.042 0.139684 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.091 0.1685 0.3055" quat="0.999671 0.0232745 -0.0107421 0" />
+				<geom name="ulna_lv" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.03 0.129743 0" material="MatSkin_myotorso" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.094 0.1875 0.037" quat="0.998567 0.0482413 0.0231558 -0" />
+			</body>
+			<body name="pelvis" pos="0 0 0" quat="0.707107 0.707107 0 0">
+				<body name="femur_r" pos="-0.056276 -0.07849 0.07726" quat="1 0 0 0">
+					<body name="tibia_r" pos="-4.6e-07 -0.404425 -0.00126526" quat="1 0 0 0">
+						<body name="talus_r" pos="-0.01 -0.4 0" quat="1 0 0 0">
+							<body name="calcn_r" pos="-0.04877 -0.04195 0.00792" quat="1 0 0 0">
+								<body name="toes_r" pos="0.1788 -0.002 0.00108" quat="1 0 0 0">
+									<inertial mass="0.27814736499855502" pos="0.0229033 -0.00017843 0.00513553" quat="0.285844 0.650431 0.64236 0.287414" diaginertia="0.000369003 0.000311872 9.91924e-05" />
+									<joint name="mtp_angle_r" type="hinge" pos="0 0 0" group="0" axis="0.580954 0 -0.813936" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.523599 0.523599" margin="0" user="0" />
+									<geom name="r_bofoot_col1" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.0175 0.045 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.04 0 0.01" quat="0.400864 -0 0.916138 0" />
+									<geom name="r_bofoot_col2" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.02 0.04 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.01 0 0" quat="0.305011 -0 0.952349 0" />
+									<geom name="r_bofoot" type="mesh" mesh="r_bofoot" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.00699847 0.0394977 0.0642822" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.019064 -0.0014153 0.00963989" quat="0.28297 0.681244 0.609455 0.290514" />
+									<site name="r_toes_touch" type="box" group="3" rgba="0.8 0.2 0.2 0.4" size="0.04 0.01 0.0675" pos="0.0275 -0.01 0" quat="0.939373 0 -0.342898 0" />
+									<site name="edl_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0003 0.0047 0.0153" quat="1 0 0 0" />
+									<site name="edl_r-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0443 -0.0004 0.025" quat="1 0 0 0" />
+									<site name="ehl_r-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0298 0.0041 -0.0245" quat="1 0 0 0" />
+									<site name="ehl_r-P8" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0563 0.0034 -0.0186" quat="1 0 0 0" />
+									<site name="fdl_r-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0019 -0.0078 0.0147" quat="1 0 0 0" />
+									<site name="fdl_r-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0285 -0.0071 0.0215" quat="1 0 0 0" />
+									<site name="fdl_r-P8" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0441 -0.006 0.0242" quat="1 0 0 0" />
+									<site name="fhl_r-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0155 -0.0064 -0.0265" quat="1 0 0 0" />
+									<site name="fhl_r-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0562 -0.0102 -0.0181" quat="1 0 0 0" />
+								</body>
+								<inertial mass="1.1399999999999999" pos="0.0821377 0.0108024 -0.000944392" quat="0.502987 0.541341 0.493601 0.458598" diaginertia="0.00313636 0.00297113 0.000941737" />
+								<joint name="subtalar_angle_r" type="hinge" pos="0 0 0" group="0" axis="0.78718 0.604747 -0.120949" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.349066 0.349066" margin="0" user="0" />
+								<geom name="r_foot" type="mesh" mesh="r_foot" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0294323 0.0515484 0.101403" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0834488 0.0161595 -0.00362138" quat="0.488403 0.530894 0.484737 0.494615" />
+								<geom name="r_foot_col1" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.02 0.0831039 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0925 0 -0.02" quat="0.6632 -0 0.748442 0" />
+								<geom name="r_foot_col3" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.02 0.0657647 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.075 0 0.02" quat="0.758965 0 0.651131 0" />
+								<geom name="r_foot_col4" type="ellipsoid" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.085 0.035 0.04" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.08 0.02 0" quat="0.995004 0 0 -0.0998334" />
+								<site name="edl_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0919 0.036 0.0008" quat="1 0 0 0" />
+								<site name="edl_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1616 0.0055 0.013" quat="1 0 0 0" />
+								<site name="ehl_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.097 0.0389 -0.0211" quat="1 0 0 0" />
+								<site name="ehl_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1293 0.0309 -0.0257" quat="1 0 0 0" />
+								<site name="ehl_r-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1734 0.0139 -0.028" quat="1 0 0 0" />
+								<site name="fdl_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0436 0.0315 -0.028" quat="1 0 0 0" />
+								<site name="fdl_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0708 0.0176 -0.0263" quat="1 0 0 0" />
+								<site name="fdl_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1658 -0.0081 0.0116" quat="1 0 0 0" />
+								<site name="fhl_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0374 0.0276 -0.0241" quat="1 0 0 0" />
+								<site name="fhl_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1038 0.0068 -0.0256" quat="1 0 0 0" />
+								<site name="fhl_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1726 -0.0053 -0.0269" quat="1 0 0 0" />
+								<site name="gaslat_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0044 0.031 -0.0053" quat="1 0 0 0" />
+								<site name="gasmed_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0044 0.031 -0.0053" quat="1 0 0 0" />
+								<site name="perbrev_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0471 0.027 0.0233" quat="1 0 0 0" />
+								<site name="perbrev_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0677 0.0219 0.0343" quat="1 0 0 0" />
+								<site name="perlong_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0438 0.023 0.0221" quat="1 0 0 0" />
+								<site name="perlong_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0681 0.0106 0.0284" quat="1 0 0 0" />
+								<site name="perlong_r-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0852 0.0069 0.0118" quat="1 0 0 0" />
+								<site name="perlong_r-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1203 0.0085 -0.0184" quat="1 0 0 0" />
+								<site name="soleus_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0044 0.031 -0.0053" quat="1 0 0 0" />
+								<site name="tibant_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1166 0.0178 -0.0305" quat="1 0 0 0" />
+								<site name="tibpost_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0417 0.0334 -0.0286" quat="1 0 0 0" />
+								<site name="tibpost_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0772 0.0159 -0.0281" quat="1 0 0 0" />
+								<site name="RCAL" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.025 0.02 -0.005" quat="1 0 0 0" />
+								<site name="RTOE" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.205 0.0297 -0.03" quat="1 0 0 0" />
+								<site name="RMT5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.145 0.0249 0.059" quat="1 0 0 0" />
+								<site name="r_foot_touch" type="box" group="3" rgba="0.8 0.2 0.2 0.4" size="0.1 0.01 0.055" pos="0.09 -0.01 0" quat="1 0 0 0" />
+							</body>
+							<inertial mass="0.022372324887888536" pos="0.00593729 0.000343512 -0.00168399" quat="0.467409 0.473348 0.54532 0.509997" diaginertia="4.44391e-06 3.16478e-06 2.61358e-06" />
+							<joint name="ankle_angle_r" type="hinge" pos="0 0 0" group="0" axis="-0.105014 -0.174022 0.979126" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.698132 0.523599" margin="0" user="0" />
+							<geom name="r_talus" type="mesh" mesh="r_talus" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0167806 0.021706 0.0239934" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00593729 0.000343512 -0.00168399" quat="0.467409 0.473348 0.54532 0.509997" />
+							<site name="RAJC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 0 0" quat="1 0 0 0" />
+						</body>
+						<inertial mass="3.7999999999999998" pos="-0.005 -0.175 0.0025" quat="0.70204 -0.711847 0.0203385 0" diaginertia="0.0771589 0.0771589 0.00690387" />
+						<joint name="knee_angle_r_translation2" type="slide" pos="0 0 0" group="0" axis="0.992246 0.123982 -0.00878916" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="7.69254e-11 0.006792" margin="0" user="0" />
+						<joint name="knee_angle_r_translation1" type="slide" pos="0 0 0" group="0" axis="-0.124293 0.989762 -0.0701648" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="9.53733e-08 0.00159883" margin="0" user="0" />
+						<joint name="knee_angle_r" type="hinge" pos="0 0 0" group="0" axis="-3.98373e-10 -0.0707131 -0.997497" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="0 2.0944" margin="0" user="0" />
+						<joint name="knee_angle_r_rotation2" type="hinge" pos="0 0 0" group="0" axis="0.992246 0.123982 -0.00878916" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.00167821 0.0335354" margin="0" user="0" />
+						<joint name="knee_angle_r_rotation3" type="hinge" pos="0 0 0" group="0" axis="-0.124293 0.989762 -0.0701648" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="1.08939e-08 0.262788" margin="0" user="0" />
+						<geom name="r_tibia1_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.056 0.0701895 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.005 -0.07 0.00125" quat="0.700782 -0.711563 0.0508259 0" />
+						<geom name="r_tibia2_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.048 0.105007 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.01 -0.245 0.00375" quat="0.702886 -0.711303 0 0" />
+						<geom name="r_tibia" type="mesh" mesh="r_tibia" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0290325 0.0401085 0.226064" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.00168161 -0.168417 0.00295836" quat="0.687382 0.705651 0.1249 -0.118165" />
+						<geom name="r_fibula" type="mesh" mesh="r_fibula" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0162371 0.0159569 0.182538" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0190819 -0.225556 0.02241" quat="0.704589 0.70905 0.0255163 -0.0122645" />
+						<geom name="GasLat_at_shank_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.055 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0074 -0.074 -0.0033" quat="-0.0298211 0.737282 0.655511 -0.160722" />
+						<geom name="GasMed_at_shank_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.055 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0074 -0.074 -0.0033" quat="0.073733 0.735403 0.67187 -0.048347" />
+						<geom name="GR_at_condyles_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.036 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.003 -0.02 0" quat="0.980067 0 -0.198669 0" />
+						<geom name="SM_at_condyles_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0352 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.001 -0.02 0" quat="0.99875 0 -0.0499792 0" />
+						<geom name="ST_at_condyles_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0425 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.002 -0.0205 0" quat="0.995004 0 -0.0998334 0" />
+						<geom name="BF_at_gastroc_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.03 0.075 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.058 -0.06 0" quat="1 0 0 0" />
+						<site name="bflh_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0337 -0.035 0.0253" quat="1 0 0 0" />
+						<site name="bflh_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0287 -0.0455 0.0303" quat="1 0 0 0" />
+						<site name="bfsh_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0301 -0.0419 0.0318" quat="1 0 0 0" />
+						<site name="edl_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.016 -0.1157 0.0205" quat="1 0 0 0" />
+						<site name="edl_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0164 -0.376 0.0112" quat="1 0 0 0" />
+						<site name="ehl_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.014 -0.155 0.0189" quat="1 0 0 0" />
+						<site name="ehl_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0071 -0.2909 0.0164" quat="1 0 0 0" />
+						<site name="ehl_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.02 -0.3693 -0.0028" quat="1 0 0 0" />
+						<site name="fdl_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0023 -0.1832 -0.0018" quat="1 0 0 0" />
+						<site name="fdl_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0176 -0.3645 -0.0124" quat="1 0 0 0" />
+						<site name="fhl_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.031 -0.2163 0.02" quat="1 0 0 0" />
+						<site name="fhl_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0242 -0.3671 -0.0076" quat="1 0 0 0" />
+						<site name="grac_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0184 -0.0476 -0.0296" quat="1 0 0 0" />
+						<site name="grac_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0018 -0.0696 -0.0157" quat="1 0 0 0" />
+						<site name="perbrev_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0243 -0.2532 0.0251" quat="1 0 0 0" />
+						<site name="perbrev_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0339 -0.3893 0.0249" quat="1 0 0 0" />
+						<site name="perbrev_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0285 -0.4004 0.0255" quat="1 0 0 0" />
+						<site name="perlong_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.02 -0.1373 0.0282" quat="1 0 0 0" />
+						<site name="perlong_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0317 -0.39 0.0237" quat="1 0 0 0" />
+						<site name="perlong_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0272 -0.4014 0.024" quat="1 0 0 0" />
+						<site name="recfem_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0326 -0.0631 -0.0005" quat="1 0 0 0" />
+						<site name="sart_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0251 -0.0401 -0.0365" quat="1 0 0 0" />
+						<site name="sart_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0159 -0.0599 -0.0264" quat="1 0 0 0" />
+						<site name="sart_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0136 -0.081 -0.0026" quat="1 0 0 0" />
+						<site name="semimem_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.029 -0.0417 -0.0196" quat="1 0 0 0" />
+						<site name="semiten_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0312 -0.0508 -0.0229" quat="1 0 0 0" />
+						<site name="semiten_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0019 -0.0773 -0.0117" quat="1 0 0 0" />
+						<site name="soleus_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0076 -0.0916 0.0098" quat="1 0 0 0" />
+						<site name="tfl_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0108 -0.041 0.0346" quat="1 0 0 0" />
+						<site name="tibant_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0154 -0.1312 0.0162" quat="1 0 0 0" />
+						<site name="tibant_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0251 -0.1906 0.0128" quat="1 0 0 0" />
+						<site name="tibant_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0233 -0.3659 -0.0132" quat="1 0 0 0" />
+						<site name="tibpost_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0041 -0.1304 0.0103" quat="1 0 0 0" />
+						<site name="tibpost_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0164 -0.3655 -0.0175" quat="1 0 0 0" />
+						<site name="vasint_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0326 -0.0632 0.0004" quat="1 0 0 0" />
+						<site name="vaslat_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0325 -0.0634 0.0051" quat="1 0 0 0" />
+						<site name="vasmed_r-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0319 -0.0636 -0.0068" quat="1 0 0 0" />
+						<site name="RKJC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0017 -0.0024 -0.0085" quat="1 0 0 0" />
+						<site name="RTB1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0017 -0.1565 0.0492" quat="1 0 0 0" />
+						<site name="RTB2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.037 -0.2301 -0.0039" quat="1 0 0 0" />
+						<site name="RTB3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0114 -0.2952 0.0554" quat="1 0 0 0" />
+						<site name="RLMAL" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.005 -0.3888 0.053" quat="1 0 0 0" />
+						<site name="RMMAL" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.006 -0.3888 -0.038" quat="1 0 0 0" />
+						<site name="R_tibial_plateau" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0081 -0.017 -0.0015" quat="1 0 0 0" />
+						<site name="GasLat_at_shank_r_site_gaslat_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0512647 -0.0235815 -0.0514609" quat="1 0 0 0" />
+						<site name="GasMed_at_shank_r_site_gasmed_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0226964 -0.1301 0.0498879" quat="1 0 0 0" />
+						<site name="GR_at_condyles_r_site_grac_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0513804 -0.042587 0.0198669" quat="1 0 0 0" />
+						<site name="SM_at_condyles_r_site_semimem_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0387876 -0.035171 -0.0182577" quat="1 0 0 0" />
+						<site name="ST_at_condyles_r_site_semiten_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0428471 -0.0468901 -0.0181631" quat="1 0 0 0" />
+						<site name="BF_at_gastroc_r_site_bfsh_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0687049 -0.0256284 0.0426731" quat="1 0 0 0" />
+					</body>
+					<body name="patella_r" pos="-0.00809 -0.40796 0" quat="1 0 0 0">
+						<inertial mass="0.026991901484406926" pos="0.00247467 0.0279667 0.000739699" quat="0.732438 0.679894 -0.0254545 -0.0251097" diaginertia="6.55967e-06 4.62336e-06 3.52251e-06" />
+						<joint name="knee_angle_r_beta_translation2" type="slide" pos="0 0 0" group="0" axis="0 1 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.0408267 -0.0108281" margin="0" user="0" />
+						<joint name="knee_angle_r_beta_translation1" type="slide" pos="0 0 0" group="0" axis="1 0 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.0227731 0.0524192" margin="0" user="0" />
+						<joint name="knee_angle_r_beta_rotation1" type="hinge" pos="0 0 0" group="0" axis="0 0 1" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-1.79241 0.010506" margin="0" user="0" />
+						<geom name="r_patella" type="mesh" mesh="r_patella" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0130534 0.0265432 0.0279399" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00247467 0.0279667 0.000739699" quat="0.732438 0.679894 -0.0254545 -0.0251097" />
+						<site name="recfem_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.01 0.049 0.0007" quat="1 0 0 0" />
+						<site name="recfem_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0121 0.0437 -0.001" quat="1 0 0 0" />
+						<site name="recfem_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 0" quat="1 0 0 0" />
+						<site name="vasint_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0058 0.048 -0.0006" quat="1 0 0 0" />
+						<site name="vasint_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 -0.0004" quat="1 0 0 0" />
+						<site name="vaslat_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0103 0.0423 0.0141" quat="1 0 0 0" />
+						<site name="vaslat_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 0.0073" quat="1 0 0 0" />
+						<site name="vasmed_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0063 0.0445 -0.017" quat="1 0 0 0" />
+						<site name="vasmed_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 -0.0085" quat="1 0 0 0" />
+					</body>
+					<inertial mass="8.4000000000000004" pos="0 -0.195 -0.0005" quat="0.708013 -0.7062 0 0" diaginertia="0.1694 0.1694 0.0245269" />
+					<joint name="hip_flexion_r" type="hinge" pos="0 0 0" group="0" axis="0 0 1" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.523599 2.0944" margin="0" user="0" />
+					<joint name="hip_adduction_r" type="hinge" pos="0 0 0" group="0" axis="1 0 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.872665 0.523599" margin="0" user="0" />
+					<joint name="hip_rotation_r" type="hinge" pos="0 0 0" group="0" axis="0 1 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.698132 0.698132" margin="0" user="0" />
+					<geom name="r_femur1_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.08 0.100031 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0 -0.1 0.0175" quat="0.715888 -0.698215 0 0" />
+					<geom name="r_femur2_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.067 0.0951315 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0 -0.295 0.01" quat="0.725451 -0.688274 0 0" />
+					<geom name="r_femur" type="mesh" mesh="r_femur" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0325466 0.0433322 0.229215" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.000862865 -0.207554 0.011923" quat="0.691172 0.720868 -0.0272657 0.0434402" />
+					<geom name="Gastroc_at_condyles_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.025 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.005 -0.41 0" quat="1 0 0 0" />
+					<geom name="KnExt_at_fem_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.025 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00358828 -0.402732 0.00209111" quat="0.999192 -0.0311532 0.025365 -0.00079084" />
+					<geom name="AB_at_femshaft_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0165 0.035 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0146434 -0.112595 0.023365" quat="0.671362 0.735248 0.0628354 0.0688147" />
+					<geom name="AL_at_femshaft_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0201 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0307327 -0.231909 0.0151137" quat="0.629067 0.774355 0.0429971 0.0529276" />
+					<geom name="AMprox_at_femshaft_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0211 0.035 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00518299 -0.0728948 0.025403" quat="0.689646 0.718132 0.0645174 0.0671823" />
+					<geom name="AMmid_at_femshaft_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0214 0.06 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0230125 -0.160711 0.0205842" quat="0.690996 0.719631 0.0472547 0.0492129" />
+					<geom name="AMdist_at_femshaft_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0218 0.1 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0316065 -0.260736 0.0093646" quat="0.652657 0.751902 0.061082 0.0703703" />
+					<geom name="AMisch_at_condyles_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.12 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0226511 -0.376831 -0.00315437" quat="0.638263 0.734777 -0.150578 -0.173347" />
+					<geom name="PECT_at_femshaft_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.015 0.025 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00608573 -0.0845029 0.0304405" quat="0.610649 0.779832 0.0849157 0.108442" />
+					<site name="addbrev_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.002 -0.118 0.0249" quat="1 0 0 0" />
+					<site name="addlong_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0113 -0.2394 0.0158" quat="1 0 0 0" />
+					<site name="addmagDist_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0112 -0.2625 0.0193" quat="1 0 0 0" />
+					<site name="addmagIsch_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0048 -0.388 -0.0327" quat="1 0 0 0" />
+					<site name="addmagMid_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0024 -0.1624 0.0292" quat="1 0 0 0" />
+					<site name="addmagProx_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0153 -0.0789 0.032" quat="1 0 0 0" />
+					<site name="bfsh_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 -0.2111 0.0234" quat="1 0 0 0" />
+					<site name="gaslat_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.003 -0.3814 0.0277" quat="1 0 0 0" />
+					<site name="gasmed_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.008 -0.3788 -0.0208" quat="1 0 0 0" />
+					<site name="glmax1_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0444 -0.0326 0.0302" quat="1 0 0 0" />
+					<site name="glmax1_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0277 -0.0566 0.047" quat="1 0 0 0" />
+					<site name="glmax2_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.045 -0.0584 0.0252" quat="1 0 0 0" />
+					<site name="glmax2_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0156 -0.1016 0.0419" quat="1 0 0 0" />
+					<site name="glmax3_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0281 -0.1125 0.0094" quat="1 0 0 0" />
+					<site name="glmax3_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.006 -0.1419 0.0411" quat="1 0 0 0" />
+					<site name="glmed1_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0218 -0.0117 0.0555" quat="1 0 0 0" />
+					<site name="glmed2_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0258 -0.0058 0.0527" quat="1 0 0 0" />
+					<site name="glmed3_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0309 -0.0047 0.0518" quat="1 0 0 0" />
+					<site name="glmin1_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0072 -0.0104 0.056" quat="1 0 0 0" />
+					<site name="glmin2_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0096 -0.0104 0.056" quat="1 0 0 0" />
+					<site name="glmin3_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0135 -0.0083 0.055" quat="1 0 0 0" />
+					<site name="iliacus_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0023 -0.0565 0.0139" quat="1 0 0 0" />
+					<site name="iliacus_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0122 -0.0637 0.0196" quat="1 0 0 0" />
+					<site name="piri_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0148 -0.0036 0.0437" quat="1 0 0 0" />
+					<site name="psoas_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0132 -0.0467 0.0046" quat="1 0 0 0" />
+					<site name="psoas_r-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0235 -0.0524 0.0088" quat="1 0 0 0" />
+					<site name="sart_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.003 -0.3568 -0.0421" quat="1 0 0 0" />
+					<site name="tfl_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0294 -0.0995 0.0597" quat="1 0 0 0" />
+					<site name="tfl_r-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0107 -0.405 0.0324" quat="1 0 0 0" />
+					<site name="vasint_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.029 -0.1924 0.031" quat="1 0 0 0" />
+					<site name="vasint_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0335 -0.2084 0.0285" quat="1 0 0 0" />
+					<site name="vaslat_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0048 -0.1854 0.0349" quat="1 0 0 0" />
+					<site name="vaslat_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0269 -0.2591 0.0409" quat="1 0 0 0" />
+					<site name="vasmed_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.014 -0.2099 0.0188" quat="1 0 0 0" />
+					<site name="vasmed_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0356 -0.2769 0.0009" quat="1 0 0 0" />
+					<site name="RHJC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 0 0" quat="1 0 0 0" />
+					<site name="RTH1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.018 -0.15 0.064" quat="1 0 0 0" />
+					<site name="RTH2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.08 -0.23 0.0047" quat="1 0 0 0" />
+					<site name="RTH3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.01 -0.3 0.06" quat="1 0 0 0" />
+					<site name="RLFC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 -0.404 0.05" quat="1 0 0 0" />
+					<site name="RMFC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 -0.404 -0.05" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_r_site_recfem_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.028412 -0.418795 -0.0326861" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_r_site_vasint_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0140493 -0.375075 -0.00469312" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_r_site_vaslat_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0164816 -0.378983 -0.0366504" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_r_site_vasmed_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0179815 -0.374402 0.023524" quat="1 0 0 0" />
+					<site name="AB_at_femshaft_r_site_addbrev_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.00249969 -0.126567 0.0261656" quat="1 0 0 0" />
+					<site name="AL_at_femshaft_r_site_addlong_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0113183 -0.263228 0.00405212" quat="1 0 0 0" />
+					<site name="AMprox_at_femshaft_r_site_addmagProx_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0232677 -0.056978 0.0222299" quat="1 0 0 0" />
+					<site name="AMmid_at_femshaft_r_site_addmagMid_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0100694 -0.108641 0.0230602" quat="1 0 0 0" />
+					<site name="AMdist_at_femshaft_r_site_addmagDist_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0146959 -0.298529 0.0158276" quat="1 0 0 0" />
+					<site name="AMisch_at_condyles_r_site_addmagIsch_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0360341 -0.49032 -0.0446456" quat="1 0 0 0" />
+				</body>
+				<body name="femur_l" pos="-0.056276 -0.07849 -0.07726" quat="1 0 0 0">
+					<body name="tibia_l" pos="-4.6e-07 -0.404425 0.00126526" quat="1 0 0 0">
+						<body name="talus_l" pos="-0.01 -0.4 0" quat="1 0 0 0">
+							<body name="calcn_l" pos="-0.04877 -0.04195 -0.00792" quat="1 0 0 0">
+								<body name="toes_l" pos="0.1788 -0.002 -0.00108" quat="1 0 0 0">
+									<inertial mass="0.27814736526292816" pos="0.0229033 -0.00017843 -0.00513553" quat="0.650431 0.285844 0.287414 0.64236" diaginertia="0.000369003 0.000311872 9.91924e-05" />
+									<joint name="mtp_angle_l" type="hinge" pos="0 0 0" group="0" axis="-0.580954 0 -0.813936" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.523599 0.523599" margin="0" user="0" />
+									<geom name="l_bofoot_col1" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.0175 0.045 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.04 0 -0.01" quat="0.400864 -0 -0.916138 0" />
+									<geom name="l_bofoot_col2" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.02 0.04 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.01 0 0" quat="0.305011 -0 -0.952349 0" />
+									<geom name="l_bofoot" type="mesh" mesh="l_bofoot" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.00699847 0.0394977 0.0642822" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.019064 -0.0014153 -0.00963989" quat="0.681244 0.28297 0.290514 0.609455" />
+									<site name="l_toes_touch" type="box" group="3" rgba="0.8 0.2 0.2 0.4" size="0.04 0.01 0.0675" pos="0.0275 -0.01 -0" quat="0.939373 0 0.342898 0" />
+									<site name="edl_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0003 0.0047 -0.0153" quat="1 0 0 0" />
+									<site name="edl_l-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0443 -0.0004 -0.025" quat="1 0 0 0" />
+									<site name="ehl_l-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0298 0.0041 0.0245" quat="1 0 0 0" />
+									<site name="ehl_l-P8" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0563 0.0034 0.0186" quat="1 0 0 0" />
+									<site name="fdl_l-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0019 -0.0078 -0.0147" quat="1 0 0 0" />
+									<site name="fdl_l-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0285 -0.0071 -0.0215" quat="1 0 0 0" />
+									<site name="fdl_l-P8" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0441 -0.006 -0.0242" quat="1 0 0 0" />
+									<site name="fhl_l-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0155 -0.0064 0.0265" quat="1 0 0 0" />
+									<site name="fhl_l-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0562 -0.0102 0.0181" quat="1 0 0 0" />
+								</body>
+								<inertial mass="1.1399999999999999" pos="0.0821377 0.0108024 0.000944392" quat="0.541341 0.502987 0.458598 0.493601" diaginertia="0.00313636 0.00297113 0.000941737" />
+								<joint name="subtalar_angle_l" type="hinge" pos="0 0 0" group="0" axis="-0.78718 -0.604747 -0.120949" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.349066 0.349066" margin="0" user="0" />
+								<geom name="l_foot" type="mesh" mesh="l_foot" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0294323 0.0515484 0.101403" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0834488 0.0161595 0.00362138" quat="0.530894 0.488403 0.494615 0.484737" />
+								<geom name="l_foot_col1" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.02 0.0831039 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0925 0 0.02" quat="0.748442 0 0.6632 0" />
+								<geom name="l_foot_col3" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.02 0.0657647 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.075 0 -0.02" quat="0.651131 -0 0.758965 0" />
+								<geom name="l_foot_col4" type="ellipsoid" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.085 0.035 0.04" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.08 0.02 0" quat="0.995004 0 0 -0.0998334" />
+								<site name="edl_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0919 0.036 -0.0008" quat="1 0 0 0" />
+								<site name="edl_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1616 0.0055 -0.013" quat="1 0 0 0" />
+								<site name="ehl_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.097 0.0389 0.0211" quat="1 0 0 0" />
+								<site name="ehl_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1293 0.0309 0.0257" quat="1 0 0 0" />
+								<site name="ehl_l-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1734 0.0139 0.028" quat="1 0 0 0" />
+								<site name="fdl_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0436 0.0315 0.028" quat="1 0 0 0" />
+								<site name="fdl_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0708 0.0176 0.0263" quat="1 0 0 0" />
+								<site name="fdl_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1658 -0.0081 -0.0116" quat="1 0 0 0" />
+								<site name="fhl_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0374 0.0276 0.0241" quat="1 0 0 0" />
+								<site name="fhl_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1038 0.0068 0.0256" quat="1 0 0 0" />
+								<site name="fhl_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1726 -0.0053 0.0269" quat="1 0 0 0" />
+								<site name="gaslat_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0044 0.031 0.0053" quat="1 0 0 0" />
+								<site name="gasmed_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0044 0.031 0.0053" quat="1 0 0 0" />
+								<site name="perbrev_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0471 0.027 -0.0233" quat="1 0 0 0" />
+								<site name="perbrev_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0677 0.0219 -0.0343" quat="1 0 0 0" />
+								<site name="perlong_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0438 0.023 -0.0221" quat="1 0 0 0" />
+								<site name="perlong_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0681 0.0106 -0.0284" quat="1 0 0 0" />
+								<site name="perlong_l-P6" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0852 0.0069 -0.0118" quat="1 0 0 0" />
+								<site name="perlong_l-P7" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1203 0.0085 0.0184" quat="1 0 0 0" />
+								<site name="soleus_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0044 0.031 0.0053" quat="1 0 0 0" />
+								<site name="tibant_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.1166 0.0178 0.0305" quat="1 0 0 0" />
+								<site name="tibpost_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0417 0.0334 0.0286" quat="1 0 0 0" />
+								<site name="tibpost_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0772 0.0159 0.0281" quat="1 0 0 0" />
+								<site name="LCAL" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.025 0.02 0.005" quat="1 0 0 0" />
+								<site name="LTOE" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.205 0.0297 0.03" quat="1 0 0 0" />
+								<site name="LMT5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.145 0.0249 -0.059" quat="1 0 0 0" />
+								<site name="l_foot_touch" type="box" group="3" rgba="0.8 0.2 0.2 0.4" size="0.1 0.01 0.055" pos="0.09 -0.01 0" quat="1 0 0 0" />
+							</body>
+							<inertial mass="0.022372325060296738" pos="0.00593729 0.000343512 0.00168399" quat="0.473348 0.467409 0.509997 0.54532" diaginertia="4.44391e-06 3.16478e-06 2.61358e-06" />
+							<joint name="ankle_angle_l" type="hinge" pos="0 0 0" group="0" axis="0.105014 0.174022 0.979126" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.698132 0.523599" margin="0" user="0" />
+							<geom name="l_talus" type="mesh" mesh="l_talus" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0167806 0.021706 0.0239934" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00593729 0.000343512 0.00168399" quat="0.473348 0.467409 0.509997 0.54532" />
+							<site name="LAJC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 0 0" quat="1 0 0 0" />
+						</body>
+						<inertial mass="3.7999999999999998" pos="-0.005 -0.175 -0.0025" quat="0.712137 -0.701754 0.0200501 0" diaginertia="0.0771589 0.0771589 0.00690387" />
+						<joint name="knee_angle_l_translation2" type="slide" pos="0 0 0" group="0" axis="-0.992246 -0.123982 -0.00878916" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.006792 -7.69254e-11" margin="0" user="0" />
+						<joint name="knee_angle_l_translation1" type="slide" pos="0 0 0" group="0" axis="-0.124293 0.989762 0.0701648" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="9.53733e-08 0.00159883" margin="0" user="0" />
+						<joint name="knee_angle_l" type="hinge" pos="0 0 0" group="0" axis="3.98373e-10 0.0707131 -0.997497" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="0 2.0944" margin="0" user="0" />
+						<joint name="knee_angle_l_rotation2" type="hinge" pos="0 0 0" group="0" axis="-0.992246 -0.123982 -0.00878916" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.00167821 0.0335354" margin="0" user="0" />
+						<joint name="knee_angle_l_rotation3" type="hinge" pos="0 0 0" group="0" axis="-0.124293 0.989762 0.0701648" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.262788 -1.08939e-08" margin="0" user="0" />
+						<geom name="l_tibia1_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.056 0.0701895 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.005 -0.07 -0.00125" quat="0.713375 -0.699001 0.0499287 0" />
+						<geom name="l_tibia2_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.048 0.105007 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.01 -0.245 -0.00375" quat="0.711303 -0.702886 0 0" />
+						<geom name="l_tibia" type="mesh" mesh="l_tibia" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0290325 0.0401085 0.226064" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.00168161 -0.168417 -0.00295836" quat="0.705651 0.687382 -0.118165 0.1249" />
+						<geom name="l_fibula" type="mesh" mesh="l_fibula" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0162371 0.0159569 0.182538" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0190819 -0.225556 -0.02241" quat="0.70905 0.704589 -0.0122645 0.0255163" />
+						<geom name="GasLat_at_shank_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.055 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0074 -0.074 0.0033" quat="-0.0298211 -0.737282 -0.655511 -0.160722" />
+						<geom name="GasMed_at_shank_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.055 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0074 -0.074 0.0033" quat="0.073733 -0.735403 -0.67187 -0.048347" />
+						<geom name="GR_at_condyles_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.036 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.003 -0.02 0" quat="0.980067 0 0.198669 0" />
+						<geom name="SM_at_condyles_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0352 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.001 -0.02 0" quat="0.99875 0 0.0499792 0" />
+						<geom name="ST_at_condyles_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0425 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.002 -0.0205 0" quat="0.995004 0 0.0998334 0" />
+						<geom name="BF_at_gastroc_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.03 0.075 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.058 -0.06 0" quat="1 0 0 0" />
+						<site name="bflh_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0337 -0.035 -0.0253" quat="1 0 0 0" />
+						<site name="bflh_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0287 -0.0455 -0.0303" quat="1 0 0 0" />
+						<site name="bfsh_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0301 -0.0419 -0.0318" quat="1 0 0 0" />
+						<site name="edl_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.016 -0.1157 -0.0205" quat="1 0 0 0" />
+						<site name="edl_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0164 -0.376 -0.0112" quat="1 0 0 0" />
+						<site name="ehl_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.014 -0.155 -0.0189" quat="1 0 0 0" />
+						<site name="ehl_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0071 -0.2909 -0.0164" quat="1 0 0 0" />
+						<site name="ehl_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.02 -0.3693 0.0028" quat="1 0 0 0" />
+						<site name="fdl_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0023 -0.1832 0.0018" quat="1 0 0 0" />
+						<site name="fdl_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0176 -0.3645 0.0124" quat="1 0 0 0" />
+						<site name="fhl_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.031 -0.2163 -0.02" quat="1 0 0 0" />
+						<site name="fhl_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0242 -0.3671 0.0076" quat="1 0 0 0" />
+						<site name="grac_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0184 -0.0476 0.0296" quat="1 0 0 0" />
+						<site name="grac_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0018 -0.0696 0.0157" quat="1 0 0 0" />
+						<site name="perbrev_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0243 -0.2532 -0.0251" quat="1 0 0 0" />
+						<site name="perbrev_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0339 -0.3893 -0.0249" quat="1 0 0 0" />
+						<site name="perbrev_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0285 -0.4004 -0.0255" quat="1 0 0 0" />
+						<site name="perlong_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.02 -0.1373 -0.0282" quat="1 0 0 0" />
+						<site name="perlong_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0317 -0.39 -0.0237" quat="1 0 0 0" />
+						<site name="perlong_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0272 -0.4014 -0.024" quat="1 0 0 0" />
+						<site name="recfem_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0326 -0.0631 0.0005" quat="1 0 0 0" />
+						<site name="sart_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0251 -0.0401 0.0365" quat="1 0 0 0" />
+						<site name="sart_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0159 -0.0599 0.0264" quat="1 0 0 0" />
+						<site name="sart_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0136 -0.081 0.0026" quat="1 0 0 0" />
+						<site name="semimem_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.029 -0.0417 0.0196" quat="1 0 0 0" />
+						<site name="semiten_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0312 -0.0508 0.0229" quat="1 0 0 0" />
+						<site name="semiten_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0019 -0.0773 0.0117" quat="1 0 0 0" />
+						<site name="soleus_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0076 -0.0916 -0.0098" quat="1 0 0 0" />
+						<site name="tfl_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0108 -0.041 -0.0346" quat="1 0 0 0" />
+						<site name="tibant_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0154 -0.1312 -0.0162" quat="1 0 0 0" />
+						<site name="tibant_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0251 -0.1906 -0.0128" quat="1 0 0 0" />
+						<site name="tibant_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0233 -0.3659 0.0132" quat="1 0 0 0" />
+						<site name="tibpost_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0041 -0.1304 -0.0103" quat="1 0 0 0" />
+						<site name="tibpost_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0164 -0.3655 0.0175" quat="1 0 0 0" />
+						<site name="vasint_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0326 -0.0632 -0.0004" quat="1 0 0 0" />
+						<site name="vaslat_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0325 -0.0634 -0.0051" quat="1 0 0 0" />
+						<site name="vasmed_l-P5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0319 -0.0636 0.0068" quat="1 0 0 0" />
+						<site name="LKJC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0017 -0.0024 0.0085" quat="1 0 0 0" />
+						<site name="LTB1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0017 -0.1565 -0.0492" quat="1 0 0 0" />
+						<site name="LTB2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.037 -0.2301 0.0039" quat="1 0 0 0" />
+						<site name="LTB3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0114 -0.2952 -0.0554" quat="1 0 0 0" />
+						<site name="LLMAL" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.005 -0.3888 -0.053" quat="1 0 0 0" />
+						<site name="LMMAL" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.006 -0.3888 0.038" quat="1 0 0 0" />
+						<site name="L_tibial_plateau" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0081 -0.017 0.0015" quat="1 0 0 0" />
+						<site name="GasLat_at_shank_l_site_gaslat_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0512647 -0.0235815 0.0514609" quat="1 0 0 0" />
+						<site name="GasMed_at_shank_l_site_gasmed_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0226964 -0.1301 -0.0498879" quat="1 0 0 0" />
+						<site name="GR_at_condyles_l_site_grac_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0513804 -0.042587 -0.0198669" quat="1 0 0 0" />
+						<site name="SM_at_condyles_l_site_semimem_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0387876 -0.035171 0.0182577" quat="1 0 0 0" />
+						<site name="ST_at_condyles_l_site_semiten_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0428471 -0.0468901 0.0181631" quat="1 0 0 0" />
+						<site name="BF_at_gastroc_l_site_bfsh_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0687049 -0.0256284 -0.0426731" quat="1 0 0 0" />
+					</body>
+					<body name="patella_l" pos="-0.00809 -0.40796 0" quat="1 0 0 0">
+						<inertial mass="0.026991901413768647" pos="0.00247467 0.0279667 -0.000739699" quat="0.679894 0.732438 -0.0251097 -0.0254545" diaginertia="6.55967e-06 4.62336e-06 3.52251e-06" />
+						<joint name="knee_angle_l_beta_translation2" type="slide" pos="0 0 0" group="0" axis="0 1 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.0408267 -0.0108281" margin="0" user="0" />
+						<joint name="knee_angle_l_beta_translation1" type="slide" pos="0 0 0" group="0" axis="1 0 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.0227731 0.0524192" margin="0" user="0" />
+						<joint name="knee_angle_l_beta_rotation1" type="hinge" pos="0 0 0" group="0" axis="0 0 1" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-1.79241 0.010506" margin="0" user="0" />
+						<geom name="l_patella" type="mesh" mesh="l_patella" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0130534 0.0265432 0.0279399" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00247467 0.0279667 -0.000739699" quat="0.679894 0.732438 -0.0251097 -0.0254545" />
+						<site name="recfem_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.01 0.049 -0.0007" quat="1 0 0 0" />
+						<site name="recfem_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0121 0.0437 0.001" quat="1 0 0 0" />
+						<site name="recfem_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 0" quat="1 0 0 0" />
+						<site name="vasint_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0058 0.048 0.0006" quat="1 0 0 0" />
+						<site name="vasint_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 0.0004" quat="1 0 0 0" />
+						<site name="vaslat_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0103 0.0423 -0.0141" quat="1 0 0 0" />
+						<site name="vaslat_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 -0.0073" quat="1 0 0 0" />
+						<site name="vasmed_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0063 0.0445 0.017" quat="1 0 0 0" />
+						<site name="vasmed_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 0.0025 0.0085" quat="1 0 0 0" />
+					</body>
+					<inertial mass="8.4000000000000004" pos="0 -0.195 0.0005" quat="0.7062 -0.708013 0 0" diaginertia="0.1694 0.1694 0.0245269" />
+					<joint name="hip_flexion_l" type="hinge" pos="0 0 0" group="0" axis="0 0 1" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.523599 2.0944" margin="0" user="0" />
+					<joint name="hip_adduction_l" type="hinge" pos="0 0 0" group="0" axis="-1 0 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.872665 0.523599" margin="0" user="0" />
+					<joint name="hip_rotation_l" type="hinge" pos="0 0 0" group="0" axis="0 -1 0" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.698132 0.698132" margin="0" user="0" />
+					<geom name="l_femur1_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.08 0.100031 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0 -0.1 -0.0175" quat="0.698215 -0.715888 0 0" />
+					<geom name="l_femur2_col" type="capsule" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.067 0.0951315 0" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0 -0.295 -0.01" quat="0.688274 -0.725451 0 0" />
+					<geom name="l_femur" type="mesh" mesh="l_femur" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0325466 0.0433322 0.229215" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.000862865 -0.207554 -0.011923" quat="0.720868 0.691172 0.0434402 -0.0272657" />
+					<geom name="Gastroc_at_condyles_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.025 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.005 -0.41 0" quat="1 0 0 0" />
+					<geom name="KnExt_at_fem_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.025 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00358828 -0.402732 -0.00209111" quat="0.999192 0.0311532 -0.025365 -0.00079084" />
+					<geom name="AB_at_femshaft_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0165 0.035 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0146434 -0.112595 -0.023365" quat="0.671362 -0.735248 -0.0628354 0.0688147" />
+					<geom name="AL_at_femshaft_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0201 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0307327 -0.231909 -0.0151137" quat="0.629067 -0.774355 -0.0429971 0.0529276" />
+					<geom name="AMprox_at_femshaft_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0211 0.035 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00518299 -0.0728948 -0.025403" quat="0.689646 -0.718132 -0.0645174 0.0671823" />
+					<geom name="AMmid_at_femshaft_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0214 0.06 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0230125 -0.160711 -0.0205842" quat="0.690996 -0.719631 -0.0472547 0.0492129" />
+					<geom name="AMdist_at_femshaft_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0218 0.1 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.0316065 -0.260736 -0.0093646" quat="0.652657 -0.751902 -0.061082 0.0703703" />
+					<geom name="AMisch_at_condyles_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.12 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0226511 -0.376831 0.00315437" quat="0.638263 -0.734777 0.150578 -0.173347" />
+					<geom name="PECT_at_femshaft_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.015 0.025 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="0.00608573 -0.0845029 -0.0304405" quat="0.610649 -0.779832 -0.0849157 0.108442" />
+					<site name="addbrev_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.002 -0.118 -0.0249" quat="1 0 0 0" />
+					<site name="addlong_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0113 -0.2394 -0.0158" quat="1 0 0 0" />
+					<site name="addmagDist_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0112 -0.2625 -0.0193" quat="1 0 0 0" />
+					<site name="addmagIsch_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0048 -0.388 0.0327" quat="1 0 0 0" />
+					<site name="addmagMid_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0024 -0.1624 -0.0292" quat="1 0 0 0" />
+					<site name="addmagProx_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0153 -0.0789 -0.032" quat="1 0 0 0" />
+					<site name="bfsh_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.005 -0.2111 -0.0234" quat="1 0 0 0" />
+					<site name="gaslat_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.003 -0.3814 -0.0277" quat="1 0 0 0" />
+					<site name="gasmed_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.008 -0.3788 0.0208" quat="1 0 0 0" />
+					<site name="glmax1_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0444 -0.0326 -0.0302" quat="1 0 0 0" />
+					<site name="glmax1_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0277 -0.0566 -0.047" quat="1 0 0 0" />
+					<site name="glmax2_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.045 -0.0584 -0.0252" quat="1 0 0 0" />
+					<site name="glmax2_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0156 -0.1016 -0.0419" quat="1 0 0 0" />
+					<site name="glmax3_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0281 -0.1125 -0.0094" quat="1 0 0 0" />
+					<site name="glmax3_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.006 -0.1419 -0.0411" quat="1 0 0 0" />
+					<site name="glmed1_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0218 -0.0117 -0.0555" quat="1 0 0 0" />
+					<site name="glmed2_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0258 -0.0058 -0.0527" quat="1 0 0 0" />
+					<site name="glmed3_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0309 -0.0047 -0.0518" quat="1 0 0 0" />
+					<site name="glmin1_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0072 -0.0104 -0.056" quat="1 0 0 0" />
+					<site name="glmin2_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0096 -0.0104 -0.056" quat="1 0 0 0" />
+					<site name="glmin3_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0135 -0.0083 -0.055" quat="1 0 0 0" />
+					<site name="iliacus_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0023 -0.0565 -0.0139" quat="1 0 0 0" />
+					<site name="iliacus_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0122 -0.0637 -0.0196" quat="1 0 0 0" />
+					<site name="piri_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0148 -0.0036 -0.0437" quat="1 0 0 0" />
+					<site name="psoas_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0132 -0.0467 -0.0046" quat="1 0 0 0" />
+					<site name="psoas_l-P4" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0235 -0.0524 -0.0088" quat="1 0 0 0" />
+					<site name="sart_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.003 -0.3568 0.0421" quat="1 0 0 0" />
+					<site name="tfl_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0294 -0.0995 -0.0597" quat="1 0 0 0" />
+					<site name="tfl_l-P3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0107 -0.405 -0.0324" quat="1 0 0 0" />
+					<site name="vasint_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.029 -0.1924 -0.031" quat="1 0 0 0" />
+					<site name="vasint_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0335 -0.2084 -0.0285" quat="1 0 0 0" />
+					<site name="vaslat_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0048 -0.1854 -0.0349" quat="1 0 0 0" />
+					<site name="vaslat_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0269 -0.2591 -0.0409" quat="1 0 0 0" />
+					<site name="vasmed_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.014 -0.2099 -0.0188" quat="1 0 0 0" />
+					<site name="vasmed_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0356 -0.2769 -0.0009" quat="1 0 0 0" />
+					<site name="LHJC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 0 0" quat="1 0 0 0" />
+					<site name="LTH1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.018 -0.15 -0.064" quat="1 0 0 0" />
+					<site name="LTH2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.08 -0.23 -0.0047" quat="1 0 0 0" />
+					<site name="LTH3" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.01 -0.3 -0.06" quat="1 0 0 0" />
+					<site name="LLFC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 -0.404 -0.05" quat="1 0 0 0" />
+					<site name="LMFC" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0 -0.404 0.05" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_l_site_recfem_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.028412 -0.418795 0.0326861" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_l_site_vasint_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0140493 -0.375075 0.00469312" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_l_site_vaslat_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0164816 -0.378983 0.0366504" quat="1 0 0 0" />
+					<site name="KnExt_at_fem_l_site_vasmed_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0179815 -0.374402 -0.023524" quat="1 0 0 0" />
+					<site name="AB_at_femshaft_l_site_addbrev_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.00249969 -0.126567 -0.0261656" quat="1 0 0 0" />
+					<site name="AL_at_femshaft_l_site_addlong_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0113183 -0.263228 -0.00405212" quat="1 0 0 0" />
+					<site name="AMprox_at_femshaft_l_site_addmagProx_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0232677 -0.056978 -0.0222299" quat="1 0 0 0" />
+					<site name="AMmid_at_femshaft_l_site_addmagMid_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0100694 -0.108641 -0.0230602" quat="1 0 0 0" />
+					<site name="AMdist_at_femshaft_l_site_addmagDist_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0146959 -0.298529 -0.0158276" quat="1 0 0 0" />
+					<site name="AMisch_at_condyles_l_site_addmagIsch_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0360341 -0.49032 0.0446456" quat="1 0 0 0" />
+				</body>
+				<inertial mass="10.960000000000001" pos="-0.07 -0.03 0" quat="1 0 0 0" diaginertia="0.0622075 0.0532711 0.0299242" />
+				<geom name="r_pelvis_col" type="ellipsoid" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.095 0.13 0.11" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.07 -0.03 0.07" quat="0.995004 0.0998334 0 0" />
+				<geom name="l_pelvis_col" type="ellipsoid" contype="1" conaffinity="0" condim="3" group="1" priority="0" size="0.095 0.13 0.11" material="MatSkin" rgba="0.8 0.7 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.07 -0.03 -0.07" quat="0.995004 -0.0998334 0 0" />
+				<geom name="r_pelvis" type="mesh" mesh="r_pelvis" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0608318 0.0849004 0.114645" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0650317 -0.0306897 0.0621793" quat="0.246755 0.436228 -0.680233 0.534884" />
+				<geom name="l_pelvis" type="mesh" mesh="l_pelvis" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0608318 0.0849004 0.114645" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.0650317 -0.0306897 -0.0621793" quat="0.680233 0.534884 -0.246755 0.436228" />
+				<geom name="sacrum" type="mesh" mesh="sacrum" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="0.0404941 0.047089 0.0844644" material="mat_myolegs" rgba="0.8 0.85 0.8 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.113198 0.0184269 9.23093e-06" quat="0.694832 0.695196 -0.127635 -0.132739" />
+				<geom name="Gmax1_at_pelvis_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.075 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.077 -0.099 0.061" quat="0.931256 -0.288071 0.213142 -0.0659324" />
+				<geom name="Gmax2_at_pelvis_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.08 -0.083 0.068" quat="0.912872 -0.359331 0.180301 -0.0709714" />
+				<geom name="Gmax3_at_pelvis_r_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.083 -0.088 0.068" quat="0.99875 -0.0499792 0 0" />
+				<geom name="Gmax1_at_pelvis_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.075 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.077 -0.099 -0.061" quat="0.931256 0.288071 -0.213142 -0.0659324" />
+				<geom name="Gmax2_at_pelvis_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.08 -0.083 -0.068" quat="0.912872 0.359331 -0.180301 -0.0709714" />
+				<geom name="Gmax3_at_pelvis_l_wrap" type="cylinder" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.04 0.05 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.083 -0.088 -0.068" quat="0.99875 0.0499792 0 0" />
+				<geom name="PS_at_brim_r_wrap" type="sphere" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.05 0 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.074 -0.06 0.0656" quat="0.981103 -0.13006 -0.127199 0.0658971" />
+				<geom name="PS_at_brim_l_wrap" type="sphere" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.05 0 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.074 -0.06 -0.0656" quat="0.981103 0.13006 0.127199 0.0658971" />
+				<geom name="IL_at_brim_r_wrap" type="sphere" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0549 0 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.071 -0.065 0.0756" quat="0.874257 -0.193832 -0.0376181 0.443495" />
+				<geom name="IL_at_brim_l_wrap" type="sphere" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0549 0 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.071 -0.065 -0.0756" quat="0.874257 0.193832 0.0376181 0.443495" />
+				<site name="addbrev_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0191 -0.094 0.0154" quat="1 0 0 0" />
+				<site name="addlong_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0076 -0.0889 0.0189" quat="1 0 0 0" />
+				<site name="addmagDist_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.074 -0.1277 0.0398" quat="1 0 0 0" />
+				<site name="addmagIsch_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0896 -0.1298 0.0417" quat="1 0 0 0" />
+				<site name="addmagMid_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0527 -0.1208 0.0285" quat="1 0 0 0" />
+				<site name="addmagProx_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.031 -0.1076 0.0136" quat="1 0 0 0" />
+				<site name="bflh_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.104 -0.1191 0.0586" quat="1 0 0 0" />
+				<site name="glmax1_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1231 0.0345 0.0563" quat="1 0 0 0" />
+				<site name="glmax1_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1257 -0.0242 0.0779" quat="1 0 0 0" />
+				<site name="glmax2_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1317 0.0087 0.0462" quat="1 0 0 0" />
+				<site name="glmax2_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1344 -0.0609 0.0813" quat="1 0 0 0" />
+				<site name="glmax3_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.13 -0.0525 0.009" quat="1 0 0 0" />
+				<site name="glmax3_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1273 -0.1263 0.0435" quat="1 0 0 0" />
+				<site name="glmed1_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0445 0.0245 0.1172" quat="1 0 0 0" />
+				<site name="glmed2_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.085 0.0316 0.0675" quat="1 0 0 0" />
+				<site name="glmed3_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1152 -0.0073 0.0526" quat="1 0 0 0" />
+				<site name="glmin1_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0464 -0.0149 0.1042" quat="1 0 0 0" />
+				<site name="glmin2_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0616 -0.0142 0.0971" quat="1 0 0 0" />
+				<site name="glmin3_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0789 -0.0155 0.0798" quat="1 0 0 0" />
+				<site name="grac_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0474 -0.1293 0.0246" quat="1 0 0 0" />
+				<site name="iliacus_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0605 0.0309 0.0843" quat="1 0 0 0" />
+				<site name="iliacus_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0135 -0.0557 0.0756" quat="1 0 0 0" />
+				<site name="piri_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1018 -0.0065 0.0135" quat="1 0 0 0" />
+				<site name="piri_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.102 -0.0307 0.0609" quat="1 0 0 0" />
+				<site name="psoas_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0606 0.062 0.039" quat="1 0 0 0" />
+				<site name="psoas_r-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0205 -0.0654 0.0656" quat="1 0 0 0" />
+				<site name="recfem_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.024 -0.0388 0.0933" quat="1 0 0 0" />
+				<site name="sart_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0195 -0.0156 0.1056" quat="1 0 0 0" />
+				<site name="semimem_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0987 -0.114 0.0614" quat="1 0 0 0" />
+				<site name="semiten_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1038 -0.1253 0.0515" quat="1 0 0 0" />
+				<site name="tfl_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0311 0.0214 0.1241" quat="1 0 0 0" />
+				<site name="addbrev_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0191 -0.094 -0.0154" quat="1 0 0 0" />
+				<site name="addlong_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0076 -0.0889 -0.0189" quat="1 0 0 0" />
+				<site name="addmagDist_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.074 -0.1277 -0.0398" quat="1 0 0 0" />
+				<site name="addmagIsch_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0896 -0.1298 -0.0417" quat="1 0 0 0" />
+				<site name="addmagMid_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0527 -0.1208 -0.0285" quat="1 0 0 0" />
+				<site name="addmagProx_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.031 -0.1076 -0.0136" quat="1 0 0 0" />
+				<site name="bflh_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.104 -0.1191 -0.0586" quat="1 0 0 0" />
+				<site name="glmax1_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1231 0.0345 -0.0563" quat="1 0 0 0" />
+				<site name="glmax1_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1257 -0.0242 -0.0779" quat="1 0 0 0" />
+				<site name="glmax2_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1317 0.0087 -0.0462" quat="1 0 0 0" />
+				<site name="glmax2_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1344 -0.0609 -0.0813" quat="1 0 0 0" />
+				<site name="glmax3_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.13 -0.0525 -0.009" quat="1 0 0 0" />
+				<site name="glmax3_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1273 -0.1263 -0.0435" quat="1 0 0 0" />
+				<site name="glmed1_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0445 0.0245 -0.1172" quat="1 0 0 0" />
+				<site name="glmed2_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.085 0.0316 -0.0675" quat="1 0 0 0" />
+				<site name="glmed3_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1152 -0.0073 -0.0526" quat="1 0 0 0" />
+				<site name="glmin1_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0464 -0.0149 -0.1042" quat="1 0 0 0" />
+				<site name="glmin2_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0616 -0.0142 -0.0971" quat="1 0 0 0" />
+				<site name="glmin3_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0789 -0.0155 -0.0798" quat="1 0 0 0" />
+				<site name="grac_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0474 -0.1293 -0.0246" quat="1 0 0 0" />
+				<site name="iliacus_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0605 0.0309 -0.0843" quat="1 0 0 0" />
+				<site name="iliacus_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0135 -0.0557 -0.0756" quat="1 0 0 0" />
+				<site name="piri_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1018 -0.0065 -0.0135" quat="1 0 0 0" />
+				<site name="piri_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.102 -0.0307 -0.0609" quat="1 0 0 0" />
+				<site name="psoas_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0606 0.062 -0.039" quat="1 0 0 0" />
+				<site name="psoas_l-P2" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0205 -0.0654 -0.0656" quat="1 0 0 0" />
+				<site name="recfem_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.024 -0.0388 -0.0933" quat="1 0 0 0" />
+				<site name="sart_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0195 -0.0156 -0.1056" quat="1 0 0 0" />
+				<site name="semimem_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0987 -0.114 -0.0614" quat="1 0 0 0" />
+				<site name="semiten_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.1038 -0.1253 -0.0515" quat="1 0 0 0" />
+				<site name="tfl_l-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0311 0.0214 -0.1241" quat="1 0 0 0" />
+				<site name="RASI" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0095 0.0181 0.1285" quat="1 0 0 0" />
+				<site name="LASI" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.0095 0.0181 -0.1285" quat="1 0 0 0" />
+				<site name="RPSI" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.155 0.035 0.045" quat="1 0 0 0" />
+				<site name="LPSI" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.155 0.035 -0.045" quat="1 0 0 0" />
+				<site name="Gmax1_at_pelvis_r_site_glmax1_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0929654 -0.0868446 0.124923" quat="1 0 0 0" />
+				<site name="Gmax2_at_pelvis_r_site_glmax2_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.13018 -0.123216 0.121918" quat="1 0 0 0" />
+				<site name="Gmax3_at_pelvis_r_site_glmax3_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0530013 -0.127251 0.0521302" quat="1 0 0 0" />
+				<site name="Gmax1_at_pelvis_l_site_glmax1_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0929654 -0.0868446 -0.124923" quat="1 0 0 0" />
+				<site name="Gmax2_at_pelvis_l_site_glmax2_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.13018 -0.123216 -0.121918" quat="1 0 0 0" />
+				<site name="Gmax3_at_pelvis_l_site_glmax3_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0530013 -0.127251 -0.0521302" quat="1 0 0 0" />
+				<site name="PS_at_brim_r_site_psoas_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0209166 -0.0856869 0.0790765" quat="1 0 0 0" />
+				<site name="PS_at_brim_l_site_psoas_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0209166 -0.0856869 -0.0790765" quat="1 0 0 0" />
+				<site name="IL_at_brim_r_site_iliacus_r_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0252603 -0.0256276 0.0928915" quat="1 0 0 0" />
+				<site name="IL_at_brim_l_site_iliacus_l_side" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.00526034 -0.0756276 -0.0828915" quat="1 0 0 0" />
+			</body>
+			<inertial mass="0" pos="0 0 1" quat="0.707388 0 0 -0.706825" diaginertia="0 0 0" />
+			<joint type="free" pos="0 0 0" group="0" axis="0 0 1" limited="false" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="0 0" margin="0" user="0" />
+			<site name="pelvis" type="sphere" group="4" rgba="0.5 0.5 0.5 1" size="0.02 0.005 0.005" pos="0 0 0" quat="1 0 0 0" />
+		</body>
+		<geom name="floor" type="plane" contype="1" conaffinity="1" condim="3" group="0" priority="0" size="7 7 0.1" material="matfloor" rgba="0.5 0.5 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0" gap="0" pos="0 0 0" quat="1 0 0 0" />
+		<geom type="mesh" mesh="meshscene" contype="0" conaffinity="0" condim="3" group="0" priority="0" size="2.58719 8.54481 8.49965" material="matscene" rgba="0.5 0.5 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0" gap="0" pos="0.0202099 -0.0670873 2.50682" quat="-0.0901015 0.702313 0.0837736 0.701156" />
+		<geom type="mesh" mesh="logo" contype="0" conaffinity="0" condim="3" group="1" priority="0" size="0.0275 0.255069 1.32088" material="matlogo" rgba="0.5 0.5 0.5 1" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0" gap="0" pos="-0.285054 6.97503 2.13521" quat="-0.502516 0.497471 -0.497071 0.502912" />
+		<geom name="terrain" type="hfield" hfield="terrain" contype="1" conaffinity="1" condim="3" group="0" priority="0" size="7 7 1" material="matfloor" rgba="1 1 1 0" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0" gap="0" pos="0 0 -1" quat="1 0 0 0" />
+		<site name="pelvis_target" type="sphere" group="4" rgba="0.5 0.5 0.5 1" size="0.02 0.005 0.005" pos="0 0 0.92" quat="1 0 0 0" />
+		<camera name="side_view" mode="trackcom" fovy="45" ipd="0.068000000000000005" pos="-3 0 2.25" quat="0.601501 0.371748 -0.371748 -0.601501" />
+		<camera name="front_view" mode="trackcom" fovy="45" ipd="0.068000000000000005" pos="0 -3 2.25" quat="0.850651 0.525731 0 0" />
+		<light mode="trackcom" directional="false" castshadow="true" active="true" pos="0 -3 3" dir="0 0.707107 -0.707107" attenuation="1 0 0" cutoff="45" exponent="10" ambient="0 0 0" diffuse="0.5 0.5 0.5" specular="0.25 0.25 0.25" />
+	</worldbody>
+	<compiler angle="radian" autolimits="true" />
+	<asset>
+		<texture name="textscene" type="2d" height="1024" width="1024" file="textscene.png" />
+		<texture name="texfloor" type="2d" height="1000" width="1000" file="texfloor.png" />
+		<texture name="textlogo" type="2d" height="1024" width="1024" file="textlogo.png" />
+		<texture name="tex_myotorso" type="cube" gridsize="3 3" gridlayout="...ULFRBD" height="762" width="762" file="tex_myotorso.png" />
+		<texture name="tex_myolegs" type="cube" gridsize="3 3" gridlayout="...ULFRBD" height="762" width="762" file="tex_myolegs.png" />
+		<hfield name="terrain" nrow="100" ncol="100" size="7 7 1 1" />
+		<mesh name="meshscene" file="meshscene.stl" />
+		<mesh name="logo" file="logo.stl" />
+		<mesh name="torso" file="torso.stl" />
+		<mesh name="r_pelvis" file="r_pelvis.stl" />
+		<mesh name="l_pelvis" file="l_pelvis.stl" />
+		<mesh name="sacrum" file="sacrum.stl" />
+		<mesh name="r_femur" file="r_femur.stl" />
+		<mesh name="r_tibia" file="r_tibia.stl" />
+		<mesh name="r_fibula" file="r_fibula.stl" />
+		<mesh name="r_talus" file="r_talus.stl" />
+		<mesh name="r_foot" file="r_foot.stl" />
+		<mesh name="r_bofoot" file="r_bofoot.stl" />
+		<mesh name="r_patella" file="r_patella.stl" />
+		<mesh name="l_femur" file="l_femur.stl" />
+		<mesh name="l_tibia" file="l_tibia.stl" />
+		<mesh name="l_fibula" file="l_fibula.stl" />
+		<mesh name="l_talus" file="l_talus.stl" />
+		<mesh name="l_foot" file="l_foot.stl" />
+		<mesh name="l_bofoot" file="l_bofoot.stl" />
+		<mesh name="l_patella" file="l_patella.stl" />
+		<material name="matscene" texture="textscene" texrepeat="1 1" texuniform="false" emission="0" specular="0.5" shininess="0.5" reflectance="0" rgba="1 1 1 1" />
+		<material name="matfloor" texture="texfloor" texrepeat="1 1" texuniform="true" emission="0" specular="0.5" shininess="0.5" reflectance="0.01" rgba="1 1 1 1" />
+		<material name="matlogo" texture="textlogo" texrepeat="1 1" texuniform="false" emission="0" specular="0.5" shininess="0.5" reflectance="0" rgba="1 1 1 1" />
+		<material name="mat_myotorso" texture="tex_myotorso" texrepeat="1 1" texuniform="true" emission="0" specular="0.5" shininess="0.5" reflectance="0" rgba="1 1 1 1" />
+		<material name="MatSkin_myotorso" texrepeat="1 1" texuniform="false" emission="0" specular="0.2" shininess="0.1" reflectance="0.5" rgba="0.9 0.7 1 1" />
+		<material name="mat_myolegs" texture="tex_myolegs" texrepeat="1 1" texuniform="true" emission="0" specular="0.5" shininess="0.5" reflectance="0" rgba="1 1 1 1" />
+		<material name="MatSkin" texrepeat="1 1" texuniform="false" emission="0" specular="0.2" shininess="0.1" reflectance="0.5" rgba="0.9 0.7 1 1" />
+	</asset>
+	<contact>
+		<pair geom1="r_femur1_col" geom2="l_femur1_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_femur2_col" geom2="l_femur2_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_femur1_col" geom2="l_tibia1_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_femur2_col" geom2="l_tibia1_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_femur1_col" geom2="l_tibia2_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_femur2_col" geom2="l_tibia2_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_tibia1_col" geom2="l_femur1_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_tibia1_col" geom2="l_femur2_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_tibia2_col" geom2="l_femur1_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_tibia2_col" geom2="l_femur2_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_tibia1_col" geom2="l_tibia1_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_tibia2_col" geom2="l_tibia2_col" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_foot_col1" geom2="l_foot_col1" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+		<pair geom1="r_foot_col4" geom2="l_foot_col4" condim="1" friction="1 1 0.005 0.0001 0.0001" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" solreffriction="0 0" margin="0" gap="0" />
+	</contact>
+	<equality>
+		<joint joint1="knee_angle_r_translation2" joint2="knee_angle_r" polycoef="7.69254e-11 0.00587971 -0.00125622 -2.61846e-06 6.24355e-07" name="knee_angle_r_translation2_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_r_translation1" joint2="knee_angle_r" polycoef="9.53733e-08 0.00312879 -0.00230804 0.000561561 5.68366e-07" name="knee_angle_r_translation1_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_r_rotation2" joint2="knee_angle_r" polycoef="-1.47325e-08 0.0791 -0.0328478 -0.0252183 0.0108321" name="knee_angle_r_rotation2_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_r_rotation3" joint2="knee_angle_r" polycoef="1.08939e-08 0.369499 -0.169478 0.0251643 3.50498e-07" name="knee_angle_r_rotation3_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_r_beta_translation2" joint2="knee_angle_r" polycoef="-0.0108281 -0.0487847 0.00927644 0.0131673 -0.00349673" name="knee_angle_r_beta_translation2_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_r_beta_translation1" joint2="knee_angle_r" polycoef="0.0524192 -0.0150188 -0.0340522 0.0133393 -0.000879151" name="knee_angle_r_beta_translation1_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_r_beta_rotation1" joint2="knee_angle_r" polycoef="0.010506 0.0247615 -1.31647 0.716337 -0.138302" name="knee_angle_r_beta_rotation1_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_l_translation2" joint2="knee_angle_l" polycoef="-7.69254e-11 -0.00587971 0.00125622 2.61846e-06 -6.24355e-07" name="knee_angle_l_translation2_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_l_translation1" joint2="knee_angle_l" polycoef="9.53733e-08 0.00312879 -0.00230804 0.000561561 5.68366e-07" name="knee_angle_l_translation1_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_l_rotation2" joint2="knee_angle_l" polycoef="-1.47325e-08 0.0791 -0.0328478 -0.0252183 0.0108321" name="knee_angle_l_rotation2_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_l_rotation3" joint2="knee_angle_l" polycoef="-1.08939e-08 -0.369499 0.169478 -0.0251643 -3.50498e-07" name="knee_angle_l_rotation3_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_l_beta_translation2" joint2="knee_angle_l" polycoef="-0.0108281 -0.0487847 0.00927644 0.0131673 -0.00349673" name="knee_angle_l_beta_translation2_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_l_beta_translation1" joint2="knee_angle_l" polycoef="0.0524192 -0.0150188 -0.0340522 0.0133393 -0.000879151" name="knee_angle_l_beta_translation1_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+		<joint joint1="knee_angle_l_beta_rotation1" joint2="knee_angle_l" polycoef="0.010506 0.0247615 -1.31647 0.716337 -0.138302" name="knee_angle_l_beta_rotation1_constraint" active="true" solref="0.02 1" solimp="0.9999 0.9999 0.001 0.5 2" />
+	</equality>
+	<tendon>
+		<spatial name="addbrev_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0354503 0.0354503" stiffness="0" damping="0">
+			<site site="addbrev_r-P1" />
+			<geom geom="AB_at_femshaft_r_wrap" sidesite="AB_at_femshaft_r_site_addbrev_r_side" />
+			<site site="addbrev_r-P2" />
+		</spatial>
+		<spatial name="addlong_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.131799 0.131799" stiffness="0" damping="0">
+			<site site="addlong_r-P1" />
+			<geom geom="AL_at_femshaft_r_wrap" sidesite="AL_at_femshaft_r_site_addlong_r_side" />
+			<site site="addlong_r-P2" />
+		</spatial>
+		<spatial name="addmagDist_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0873807 0.0873807" stiffness="0" damping="0">
+			<site site="addmagDist_r-P1" />
+			<geom geom="AMdist_at_femshaft_r_wrap" sidesite="AMdist_at_femshaft_r_site_addmagDist_r_side" />
+			<site site="addmagDist_r-P2" />
+		</spatial>
+		<spatial name="addmagIsch_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.216343 0.216343" stiffness="0" damping="0">
+			<site site="addmagIsch_r-P1" />
+			<geom geom="AMisch_at_condyles_r_wrap" sidesite="AMisch_at_condyles_r_site_addmagIsch_r_side" />
+			<site site="addmagIsch_r-P2" />
+		</spatial>
+		<spatial name="addmagMid_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0466277 0.0466277" stiffness="0" damping="0">
+			<site site="addmagMid_r-P1" />
+			<geom geom="AMmid_at_femshaft_r_wrap" sidesite="AMmid_at_femshaft_r_site_addmagMid_r_side" />
+			<site site="addmagMid_r-P2" />
+		</spatial>
+		<spatial name="addmagProx_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0403241 0.0403241" stiffness="0" damping="0">
+			<site site="addmagProx_r-P1" />
+			<geom geom="AMprox_at_femshaft_r_wrap" sidesite="AMprox_at_femshaft_r_site_addmagProx_r_side" />
+			<site site="addmagProx_r-P2" />
+		</spatial>
+		<spatial name="bflh_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.325227 0.325227" stiffness="0" damping="0">
+			<site site="bflh_r-P1" />
+			<site site="bflh_r-P2" />
+			<site site="bflh_r-P3" />
+		</spatial>
+		<spatial name="bfsh_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.105817 0.105817" stiffness="0" damping="0">
+			<site site="bfsh_r-P1" />
+			<geom geom="BF_at_gastroc_r_wrap" sidesite="BF_at_gastroc_r_site_bfsh_r_side" />
+			<site site="bfsh_r-P2" />
+		</spatial>
+		<spatial name="edl_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.368875 0.368875" stiffness="0" damping="0">
+			<site site="edl_r-P1" />
+			<site site="edl_r-P2" />
+			<site site="edl_r-P3" />
+			<site site="edl_r-P4" />
+			<site site="edl_r-P5" />
+			<site site="edl_r-P6" />
+		</spatial>
+		<spatial name="ehl_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.326795 0.326795" stiffness="0" damping="0">
+			<site site="ehl_r-P1" />
+			<site site="ehl_r-P2" />
+			<site site="ehl_r-P3" />
+			<site site="ehl_r-P4" />
+			<site site="ehl_r-P5" />
+			<site site="ehl_r-P6" />
+			<site site="ehl_r-P7" />
+			<site site="ehl_r-P8" />
+		</spatial>
+		<spatial name="fdl_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.378773 0.378773" stiffness="0" damping="0">
+			<site site="fdl_r-P1" />
+			<site site="fdl_r-P2" />
+			<site site="fdl_r-P3" />
+			<site site="fdl_r-P4" />
+			<site site="fdl_r-P5" />
+			<site site="fdl_r-P6" />
+			<site site="fdl_r-P7" />
+			<site site="fdl_r-P8" />
+		</spatial>
+		<spatial name="fhl_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.35434 0.35434" stiffness="0" damping="0">
+			<site site="fhl_r-P1" />
+			<site site="fhl_r-P2" />
+			<site site="fhl_r-P3" />
+			<site site="fhl_r-P4" />
+			<site site="fhl_r-P5" />
+			<site site="fhl_r-P6" />
+			<site site="fhl_r-P7" />
+		</spatial>
+		<spatial name="gaslat_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.37607 0.37607" stiffness="0" damping="0">
+			<site site="gaslat_r-P1" />
+			<geom geom="GasLat_at_shank_r_wrap" sidesite="GasLat_at_shank_r_site_gaslat_r_side" />
+			<site site="gaslat_r-P2" />
+		</spatial>
+		<spatial name="gasmed_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.398716 0.398716" stiffness="0" damping="0">
+			<site site="gasmed_r-P1" />
+			<geom geom="GasMed_at_shank_r_wrap" sidesite="GasMed_at_shank_r_site_gasmed_r_side" />
+			<site site="gasmed_r-P2" />
+		</spatial>
+		<spatial name="glmax1_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0488409 0.0488409" stiffness="0" damping="0">
+			<site site="glmax1_r-P1" />
+			<site site="glmax1_r-P2" />
+			<site site="glmax1_r-P3" />
+			<site site="glmax1_r-P4" />
+		</spatial>
+		<spatial name="glmax2_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0678872 0.0678872" stiffness="0" damping="0">
+			<site site="glmax2_r-P1" />
+			<site site="glmax2_r-P2" />
+			<site site="glmax2_r-P3" />
+			<site site="glmax2_r-P4" />
+		</spatial>
+		<spatial name="glmax3_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0697166 0.0697166" stiffness="0" damping="0">
+			<site site="glmax3_r-P1" />
+			<site site="glmax3_r-P2" />
+			<geom geom="Gmax3_at_pelvis_r_wrap" sidesite="Gmax3_at_pelvis_r_site_glmax3_r_side" />
+			<site site="glmax3_r-P3" />
+			<site site="glmax3_r-P4" />
+		</spatial>
+		<spatial name="glmed1_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0558168 0.0558168" stiffness="0" damping="0">
+			<site site="glmed1_r-P1" />
+			<site site="glmed1_r-P2" />
+		</spatial>
+		<spatial name="glmed2_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0652488 0.0652488" stiffness="0" damping="0">
+			<site site="glmed2_r-P1" />
+			<site site="glmed2_r-P2" />
+		</spatial>
+		<spatial name="glmed3_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0452328 0.0452328" stiffness="0" damping="0">
+			<site site="glmed3_r-P1" />
+			<site site="glmed3_r-P2" />
+		</spatial>
+		<spatial name="glmin1_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0161378 0.0161378" stiffness="0" damping="0">
+			<site site="glmin1_r-P1" />
+			<site site="glmin1_r-P2" />
+		</spatial>
+		<spatial name="glmin2_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0260991 0.0260991" stiffness="0" damping="0">
+			<site site="glmin2_r-P1" />
+			<site site="glmin2_r-P2" />
+		</spatial>
+		<spatial name="glmin3_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0508725 0.0508725" stiffness="0" damping="0">
+			<site site="glmin3_r-P1" />
+			<site site="glmin3_r-P2" />
+		</spatial>
+		<spatial name="grac_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.172014 0.172014" stiffness="0" damping="0">
+			<site site="grac_r-P1" />
+			<geom geom="GR_at_condyles_r_wrap" sidesite="GR_at_condyles_r_site_grac_r_side" />
+			<site site="grac_r-P2" />
+			<site site="grac_r-P3" />
+		</spatial>
+		<spatial name="iliacus_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0961207 0.0961207" stiffness="0" damping="0">
+			<site site="iliacus_r-P1" />
+			<site site="iliacus_r-P2" />
+			<geom geom="IL_at_brim_r_wrap" sidesite="IL_at_brim_r_site_iliacus_r_side" />
+			<site site="iliacus_r-P3" />
+			<site site="iliacus_r-P4" />
+		</spatial>
+		<spatial name="perbrev_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.147528 0.147528" stiffness="0" damping="0">
+			<site site="perbrev_r-P1" />
+			<site site="perbrev_r-P2" />
+			<site site="perbrev_r-P3" />
+			<site site="perbrev_r-P4" />
+			<site site="perbrev_r-P5" />
+		</spatial>
+		<spatial name="perlong_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.332221 0.332221" stiffness="0" damping="0">
+			<site site="perlong_r-P1" />
+			<site site="perlong_r-P2" />
+			<site site="perlong_r-P3" />
+			<site site="perlong_r-P4" />
+			<site site="perlong_r-P5" />
+			<site site="perlong_r-P6" />
+			<site site="perlong_r-P7" />
+		</spatial>
+		<spatial name="piri_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.114906 0.114906" stiffness="0" damping="0">
+			<site site="piri_r-P1" />
+			<site site="piri_r-P2" />
+			<site site="piri_r-P3" />
+		</spatial>
+		<spatial name="psoas_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0995432 0.0995432" stiffness="0" damping="0">
+			<site site="psoas_r-P1" />
+			<site site="psoas_r-P2" />
+			<site site="psoas_r-P3" />
+			<site site="psoas_r-P4" />
+		</spatial>
+		<spatial name="recfem_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.448494 0.448494" stiffness="0" damping="0">
+			<site site="recfem_r-P1" />
+			<geom geom="KnExt_at_fem_r_wrap" sidesite="KnExt_at_fem_r_site_recfem_r_side" />
+			<site site="recfem_r-P2" />
+			<site site="recfem_r-P3" />
+			<site site="recfem_r-P4" />
+			<site site="recfem_r-P5" />
+		</spatial>
+		<spatial name="sart_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.124 0.124" stiffness="0" damping="0">
+			<site site="sart_r-P1" />
+			<site site="sart_r-P2" />
+			<site site="sart_r-P3" />
+			<site site="sart_r-P4" />
+			<site site="sart_r-P5" />
+		</spatial>
+		<spatial name="semimem_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.347586 0.347586" stiffness="0" damping="0">
+			<site site="semimem_r-P1" />
+			<geom geom="SM_at_condyles_r_wrap" sidesite="SM_at_condyles_r_site_semimem_r_side" />
+			<site site="semimem_r-P2" />
+		</spatial>
+		<spatial name="semiten_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.247199 0.247199" stiffness="0" damping="0">
+			<site site="semiten_r-P1" />
+			<geom geom="ST_at_condyles_r_wrap" sidesite="ST_at_condyles_r_site_semiten_r_side" />
+			<site site="semiten_r-P2" />
+			<site site="semiten_r-P3" />
+		</spatial>
+		<spatial name="soleus_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.276756 0.276756" stiffness="0" damping="0">
+			<site site="soleus_r-P1" />
+			<site site="soleus_r-P2" />
+		</spatial>
+		<spatial name="tfl_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.449497 0.449497" stiffness="0" damping="0">
+			<site site="tfl_r-P1" />
+			<site site="tfl_r-P2" />
+			<site site="tfl_r-P3" />
+			<site site="tfl_r-P4" />
+		</spatial>
+		<spatial name="tibant_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.240461 0.240461" stiffness="0" damping="0">
+			<site site="tibant_r-P1" />
+			<site site="tibant_r-P2" />
+			<site site="tibant_r-P3" />
+			<site site="tibant_r-P4" />
+		</spatial>
+		<spatial name="tibpost_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.28078 0.28078" stiffness="0" damping="0">
+			<site site="tibpost_r-P1" />
+			<site site="tibpost_r-P2" />
+			<site site="tibpost_r-P3" />
+			<site site="tibpost_r-P4" />
+		</spatial>
+		<spatial name="vasint_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.202211 0.202211" stiffness="0" damping="0">
+			<site site="vasint_r-P1" />
+			<site site="vasint_r-P2" />
+			<geom geom="KnExt_at_fem_r_wrap" sidesite="KnExt_at_fem_r_site_vasint_r_side" />
+			<site site="vasint_r-P3" />
+			<site site="vasint_r-P4" />
+			<site site="vasint_r-P5" />
+		</spatial>
+		<spatial name="vaslat_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.220601 0.220601" stiffness="0" damping="0">
+			<site site="vaslat_r-P1" />
+			<site site="vaslat_r-P2" />
+			<geom geom="KnExt_at_fem_r_wrap" sidesite="KnExt_at_fem_r_site_vaslat_r_side" />
+			<site site="vaslat_r-P3" />
+			<site site="vaslat_r-P4" />
+			<site site="vaslat_r-P5" />
+		</spatial>
+		<spatial name="vasmed_r_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.199904 0.199904" stiffness="0" damping="0">
+			<site site="vasmed_r-P1" />
+			<site site="vasmed_r-P2" />
+			<geom geom="KnExt_at_fem_r_wrap" sidesite="KnExt_at_fem_r_site_vasmed_r_side" />
+			<site site="vasmed_r-P3" />
+			<site site="vasmed_r-P4" />
+			<site site="vasmed_r-P5" />
+		</spatial>
+		<spatial name="addbrev_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0354503 0.0354503" stiffness="0" damping="0">
+			<site site="addbrev_l-P1" />
+			<geom geom="AB_at_femshaft_l_wrap" sidesite="AB_at_femshaft_l_site_addbrev_l_side" />
+			<site site="addbrev_l-P2" />
+		</spatial>
+		<spatial name="addlong_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.131799 0.131799" stiffness="0" damping="0">
+			<site site="addlong_l-P1" />
+			<geom geom="AL_at_femshaft_l_wrap" sidesite="AL_at_femshaft_l_site_addlong_l_side" />
+			<site site="addlong_l-P2" />
+		</spatial>
+		<spatial name="addmagDist_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0873807 0.0873807" stiffness="0" damping="0">
+			<site site="addmagDist_l-P1" />
+			<geom geom="AMdist_at_femshaft_l_wrap" sidesite="AMdist_at_femshaft_l_site_addmagDist_l_side" />
+			<site site="addmagDist_l-P2" />
+		</spatial>
+		<spatial name="addmagIsch_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.216343 0.216343" stiffness="0" damping="0">
+			<site site="addmagIsch_l-P1" />
+			<geom geom="AMisch_at_condyles_l_wrap" sidesite="AMisch_at_condyles_l_site_addmagIsch_l_side" />
+			<site site="addmagIsch_l-P2" />
+		</spatial>
+		<spatial name="addmagMid_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0466277 0.0466277" stiffness="0" damping="0">
+			<site site="addmagMid_l-P1" />
+			<geom geom="AMmid_at_femshaft_l_wrap" sidesite="AMmid_at_femshaft_l_site_addmagMid_l_side" />
+			<site site="addmagMid_l-P2" />
+		</spatial>
+		<spatial name="addmagProx_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0403241 0.0403241" stiffness="0" damping="0">
+			<site site="addmagProx_l-P1" />
+			<geom geom="AMprox_at_femshaft_l_wrap" sidesite="AMprox_at_femshaft_l_site_addmagProx_l_side" />
+			<site site="addmagProx_l-P2" />
+		</spatial>
+		<spatial name="bflh_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.325227 0.325227" stiffness="0" damping="0">
+			<site site="bflh_l-P1" />
+			<site site="bflh_l-P2" />
+			<site site="bflh_l-P3" />
+		</spatial>
+		<spatial name="bfsh_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.105817 0.105817" stiffness="0" damping="0">
+			<site site="bfsh_l-P1" />
+			<geom geom="BF_at_gastroc_l_wrap" sidesite="BF_at_gastroc_l_site_bfsh_l_side" />
+			<site site="bfsh_l-P2" />
+		</spatial>
+		<spatial name="edl_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.368875 0.368875" stiffness="0" damping="0">
+			<site site="edl_l-P1" />
+			<site site="edl_l-P2" />
+			<site site="edl_l-P3" />
+			<site site="edl_l-P4" />
+			<site site="edl_l-P5" />
+			<site site="edl_l-P6" />
+		</spatial>
+		<spatial name="ehl_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.326795 0.326795" stiffness="0" damping="0">
+			<site site="ehl_l-P1" />
+			<site site="ehl_l-P2" />
+			<site site="ehl_l-P3" />
+			<site site="ehl_l-P4" />
+			<site site="ehl_l-P5" />
+			<site site="ehl_l-P6" />
+			<site site="ehl_l-P7" />
+			<site site="ehl_l-P8" />
+		</spatial>
+		<spatial name="fdl_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.378773 0.378773" stiffness="0" damping="0">
+			<site site="fdl_l-P1" />
+			<site site="fdl_l-P2" />
+			<site site="fdl_l-P3" />
+			<site site="fdl_l-P4" />
+			<site site="fdl_l-P5" />
+			<site site="fdl_l-P6" />
+			<site site="fdl_l-P7" />
+			<site site="fdl_l-P8" />
+		</spatial>
+		<spatial name="fhl_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.35434 0.35434" stiffness="0" damping="0">
+			<site site="fhl_l-P1" />
+			<site site="fhl_l-P2" />
+			<site site="fhl_l-P3" />
+			<site site="fhl_l-P4" />
+			<site site="fhl_l-P5" />
+			<site site="fhl_l-P6" />
+			<site site="fhl_l-P7" />
+		</spatial>
+		<spatial name="gaslat_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.37607 0.37607" stiffness="0" damping="0">
+			<site site="gaslat_l-P1" />
+			<geom geom="GasLat_at_shank_l_wrap" sidesite="GasLat_at_shank_l_site_gaslat_l_side" />
+			<site site="gaslat_l-P2" />
+		</spatial>
+		<spatial name="gasmed_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.398716 0.398716" stiffness="0" damping="0">
+			<site site="gasmed_l-P1" />
+			<geom geom="GasMed_at_shank_l_wrap" sidesite="GasMed_at_shank_l_site_gasmed_l_side" />
+			<site site="gasmed_l-P2" />
+		</spatial>
+		<spatial name="glmax1_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0488409 0.0488409" stiffness="0" damping="0">
+			<site site="glmax1_l-P1" />
+			<site site="glmax1_l-P2" />
+			<site site="glmax1_l-P3" />
+			<site site="glmax1_l-P4" />
+		</spatial>
+		<spatial name="glmax2_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0678872 0.0678872" stiffness="0" damping="0">
+			<site site="glmax2_l-P1" />
+			<site site="glmax2_l-P2" />
+			<site site="glmax2_l-P3" />
+			<site site="glmax2_l-P4" />
+		</spatial>
+		<spatial name="glmax3_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0697166 0.0697166" stiffness="0" damping="0">
+			<site site="glmax3_l-P1" />
+			<site site="glmax3_l-P2" />
+			<geom geom="Gmax3_at_pelvis_l_wrap" sidesite="Gmax3_at_pelvis_l_site_glmax3_l_side" />
+			<site site="glmax3_l-P3" />
+			<site site="glmax3_l-P4" />
+		</spatial>
+		<spatial name="glmed1_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0558168 0.0558168" stiffness="0" damping="0">
+			<site site="glmed1_l-P1" />
+			<site site="glmed1_l-P2" />
+		</spatial>
+		<spatial name="glmed2_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0652488 0.0652488" stiffness="0" damping="0">
+			<site site="glmed2_l-P1" />
+			<site site="glmed2_l-P2" />
+		</spatial>
+		<spatial name="glmed3_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0452328 0.0452328" stiffness="0" damping="0">
+			<site site="glmed3_l-P1" />
+			<site site="glmed3_l-P2" />
+		</spatial>
+		<spatial name="glmin1_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0161378 0.0161378" stiffness="0" damping="0">
+			<site site="glmin1_l-P1" />
+			<site site="glmin1_l-P2" />
+		</spatial>
+		<spatial name="glmin2_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0260991 0.0260991" stiffness="0" damping="0">
+			<site site="glmin2_l-P1" />
+			<site site="glmin2_l-P2" />
+		</spatial>
+		<spatial name="glmin3_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0508725 0.0508725" stiffness="0" damping="0">
+			<site site="glmin3_l-P1" />
+			<site site="glmin3_l-P2" />
+		</spatial>
+		<spatial name="grac_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.172014 0.172014" stiffness="0" damping="0">
+			<site site="grac_l-P1" />
+			<geom geom="GR_at_condyles_l_wrap" sidesite="GR_at_condyles_l_site_grac_l_side" />
+			<site site="grac_l-P2" />
+			<site site="grac_l-P3" />
+		</spatial>
+		<spatial name="iliacus_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0961207 0.0961207" stiffness="0" damping="0">
+			<site site="iliacus_l-P1" />
+			<site site="iliacus_l-P2" />
+			<geom geom="IL_at_brim_l_wrap" sidesite="IL_at_brim_l_site_iliacus_l_side" />
+			<site site="iliacus_l-P3" />
+			<site site="iliacus_l-P4" />
+		</spatial>
+		<spatial name="perbrev_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.147528 0.147528" stiffness="0" damping="0">
+			<site site="perbrev_l-P1" />
+			<site site="perbrev_l-P2" />
+			<site site="perbrev_l-P3" />
+			<site site="perbrev_l-P4" />
+			<site site="perbrev_l-P5" />
+		</spatial>
+		<spatial name="perlong_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.332221 0.332221" stiffness="0" damping="0">
+			<site site="perlong_l-P1" />
+			<site site="perlong_l-P2" />
+			<site site="perlong_l-P3" />
+			<site site="perlong_l-P4" />
+			<site site="perlong_l-P5" />
+			<site site="perlong_l-P6" />
+			<site site="perlong_l-P7" />
+		</spatial>
+		<spatial name="piri_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.114906 0.114906" stiffness="0" damping="0">
+			<site site="piri_l-P1" />
+			<site site="piri_l-P2" />
+			<site site="piri_l-P3" />
+		</spatial>
+		<spatial name="psoas_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.0995432 0.0995432" stiffness="0" damping="0">
+			<site site="psoas_l-P1" />
+			<site site="psoas_l-P2" />
+			<site site="psoas_l-P3" />
+			<site site="psoas_l-P4" />
+		</spatial>
+		<spatial name="recfem_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.448494 0.448494" stiffness="0" damping="0">
+			<site site="recfem_l-P1" />
+			<geom geom="KnExt_at_fem_l_wrap" sidesite="KnExt_at_fem_l_site_recfem_l_side" />
+			<site site="recfem_l-P2" />
+			<site site="recfem_l-P3" />
+			<site site="recfem_l-P4" />
+			<site site="recfem_l-P5" />
+		</spatial>
+		<spatial name="sart_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.124 0.124" stiffness="0" damping="0">
+			<site site="sart_l-P1" />
+			<site site="sart_l-P2" />
+			<site site="sart_l-P3" />
+			<site site="sart_l-P4" />
+			<site site="sart_l-P5" />
+		</spatial>
+		<spatial name="semimem_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.347586 0.347586" stiffness="0" damping="0">
+			<site site="semimem_l-P1" />
+			<geom geom="SM_at_condyles_l_wrap" sidesite="SM_at_condyles_l_site_semimem_l_side" />
+			<site site="semimem_l-P2" />
+		</spatial>
+		<spatial name="semiten_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.247199 0.247199" stiffness="0" damping="0">
+			<site site="semiten_l-P1" />
+			<geom geom="ST_at_condyles_l_wrap" sidesite="ST_at_condyles_l_site_semiten_l_side" />
+			<site site="semiten_l-P2" />
+			<site site="semiten_l-P3" />
+		</spatial>
+		<spatial name="soleus_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.276756 0.276756" stiffness="0" damping="0">
+			<site site="soleus_l-P1" />
+			<site site="soleus_l-P2" />
+		</spatial>
+		<spatial name="tfl_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.449497 0.449497" stiffness="0" damping="0">
+			<site site="tfl_l-P1" />
+			<site site="tfl_l-P2" />
+			<site site="tfl_l-P3" />
+			<site site="tfl_l-P4" />
+		</spatial>
+		<spatial name="tibant_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.240461 0.240461" stiffness="0" damping="0">
+			<site site="tibant_l-P1" />
+			<site site="tibant_l-P2" />
+			<site site="tibant_l-P3" />
+			<site site="tibant_l-P4" />
+		</spatial>
+		<spatial name="tibpost_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.28078 0.28078" stiffness="0" damping="0">
+			<site site="tibpost_l-P1" />
+			<site site="tibpost_l-P2" />
+			<site site="tibpost_l-P3" />
+			<site site="tibpost_l-P4" />
+		</spatial>
+		<spatial name="vasint_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.202211 0.202211" stiffness="0" damping="0">
+			<site site="vasint_l-P1" />
+			<site site="vasint_l-P2" />
+			<geom geom="KnExt_at_fem_l_wrap" sidesite="KnExt_at_fem_l_site_vasint_l_side" />
+			<site site="vasint_l-P3" />
+			<site site="vasint_l-P4" />
+			<site site="vasint_l-P5" />
+		</spatial>
+		<spatial name="vaslat_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.220601 0.220601" stiffness="0" damping="0">
+			<site site="vaslat_l-P1" />
+			<site site="vaslat_l-P2" />
+			<geom geom="KnExt_at_fem_l_wrap" sidesite="KnExt_at_fem_l_site_vaslat_l_side" />
+			<site site="vaslat_l-P3" />
+			<site site="vaslat_l-P4" />
+			<site site="vaslat_l-P5" />
+		</spatial>
+		<spatial name="vasmed_l_tendon" group="0" limited="false" range="0 0" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" solreffriction="0.02 1" solimpfriction="0.9 0.95 0.001 0.5 2" margin="0" frictionloss="0" width="0.0030000000000000001" rgba="0.95 0.3 0.3 1" springlength="0.199904 0.199904" stiffness="0" damping="0">
+			<site site="vasmed_l-P1" />
+			<site site="vasmed_l-P2" />
+			<geom geom="KnExt_at_fem_l_wrap" sidesite="KnExt_at_fem_l_site_vasmed_l_side" />
+			<site site="vasmed_l-P3" />
+			<site site="vasmed_l-P4" />
+			<site site="vasmed_l-P5" />
+		</spatial>
+	</tendon>
+	<actuator>
+		<general tendon="addbrev_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0748245 0.186181" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.381903 1.46199 604.625 1 0.0669801 2.99607 10 1.34206 1.4 0" biasprm="0.381903 1.46199 604.625 1 0.0669801 2.99607 10 1.34206 1.4 0" />
+		<general tendon="addlong_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.170925 0.301499" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.361607 1.56839 881.938 1 0.126715 3.5 10 1.50984 1.4 0" biasprm="0.361607 1.56839 881.938 1 0.126715 3.5 10 1.50984 1.4 0" />
+		<general tendon="addmagDist_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.202042 0.322261" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.647072 1.32551 576.186 1 0.000543367 2.1578 10 1.60782 1.4 0" biasprm="0.647072 1.32551 576.186 1 0.000543367 2.1578 10 1.60782 1.4 0" />
+		<general tendon="addmagIsch_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.319889 0.458011" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.662907 1.54717 564.689 1 0.132471 3.5 10 1.6643 1.4 0" biasprm="0.662907 1.54717 564.689 1 0.132471 3.5 10 1.6643 1.4 0" />
+		<general tendon="addmagMid_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.112434 0.222784" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.477896 1.27927 577.178 1 0.0269359 2.05759 10 1.69396 1.4 0" biasprm="0.477896 1.27927 577.178 1 0.0269359 2.05759 10 1.69396 1.4 0" />
+		<general tendon="addmagProx_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0575158 0.156738" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1628 1.1024 575.376 1 0 1.50093 10 1.38182 1.4 0" biasprm="0.1628 1.1024 575.376 1 0 1.50093 10 1.38182 1.4 0" />
+		<general tendon="bflh_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.311093 0.518283" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 1328.94 1 0.05 3.5 10 1.98303 1.4 0" biasprm="0.1 1.8 1328.94 1 0.05 3.5 10 1.98303 1.4 0" />
+		<general tendon="bfsh_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.150634 0.237936" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.406318 1.19782 586.382 1 0 1.59685 10 1.58092 1.4 0" biasprm="0.406318 1.19782 586.382 1 0 1.59685 10 1.58092 1.4 0" />
+		<general tendon="edl_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.411859 0.466224" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.620259 1.40474 553.241 1 0.319949 3.12081 10 1.35486 1.4 0" biasprm="0.620259 1.40474 553.241 1 0.319949 3.12081 10 1.35486 1.4 0" />
+		<general tendon="ehl_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.378893 0.432312" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.696496 1.41065 265.537 1 0.344704 3.25853 10 1.48683 1.4 0" biasprm="0.696496 1.41065 265.537 1 0.344704 3.25853 10 1.48683 1.4 0" />
+		<general tendon="fdl_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.405466 0.433594" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.598501 1.22918 332.13 1 0.357129 3.24643 10 1.8954 1.4 0" biasprm="0.598501 1.22918 332.13 1 0.357129 3.24643 10 1.8954 1.4 0" />
+		<general tendon="fhl_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.383982 0.416918" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.562474 1.18745 749.779 1 0.292699 2.98554 10 1.03099 1.4 0" biasprm="0.562474 1.18745 749.779 1 0.292699 2.98554 10 1.03099 1.4 0" />
+		<general tendon="gaslat_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.366291 0.463723" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.49069 1318.66 1 0.05 3.5 10 1.90363 1.4 0" biasprm="0.1 1.49069 1318.66 1 0.05 3.5 10 1.90363 1.4 0" />
+		<general tendon="gasmed_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.371968 0.472667" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.45 2237.29 1 0.0989568 3.5 10 1.51773 1.4 0" biasprm="0.1 1.45 2237.29 1 0.0989568 3.5 10 1.51773 1.4 0" />
+		<general tendon="glmax1_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.148932 0.246694" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.680894 1.34594 1293.79 1 0 1.99579 10 1.86621 1.4 0" biasprm="0.680894 1.34594 1293.79 1 0 1.99579 10 1.86621 1.4 0" />
+		<general tendon="glmax2_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.175275 0.290891" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.684001 1.42041 1308.46 1 0 3.44601 10 1.22459 1.4 0" biasprm="0.684001 1.42041 1308.46 1 0 3.44601 10 1.22459 1.4 0" />
+		<general tendon="glmax3_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.297946 0.474778" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="1.36664 1.8 928.184 1 0.824721 3.5 10 1.37074 1.4 0" biasprm="1.36664 1.8 928.184 1 0.824721 3.5 10 1.37074 1.4 0" />
+		<general tendon="glmed1_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.063342 0.162068" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.103084 1.4555 1018.46 1 0 3.49286 10 1.55125 1.4 0" biasprm="0.103084 1.4555 1018.46 1 0 3.49286 10 1.55125 1.4 0" />
+		<general tendon="glmed2_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0760304 0.171887" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.147694 1.46079 715.019 1 0 3.5 10 1.62169 1.4 0" biasprm="0.147694 1.46079 715.019 1 0 3.5 10 1.62169 1.4 0" />
+		<general tendon="glmed3_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0544219 0.156121" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.125877 1.51901 828.084 1 0 3.5 10 1.38543 1.4 0" biasprm="0.125877 1.51901 828.084 1 0 3.5 10 1.38543 1.4 0" />
+		<general tendon="glmin1_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0229136 0.11449" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.44635 357.161 1 0.0576443 3.07057 10 1.2057 1.4 0" biasprm="0.1 1.44635 357.161 1 0.0576443 3.07057 10 1.2057 1.4 0" />
+		<general tendon="glmin2_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0298796 0.115728" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.60052 392.017 1 0.05 3.5 10 1.20071 1.4 0" biasprm="0.1 1.60052 392.017 1 0.05 3.5 10 1.20071 1.4 0" />
+		<general tendon="glmin3_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0345943 0.11994" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 386.063 1 0.0906571 3.5 10 1.40703 1.4 0" biasprm="0.1 1.8 386.063 1 0.0906571 3.5 10 1.40703 1.4 0" />
+		<general tendon="grac_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.320644 0.541993" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.652458 1.62414 280.917 1 0.00265608 3.5 10 0.938556 1.4 0" biasprm="0.652458 1.62414 280.917 1 0.00265608 3.5 10 0.938556 1.4 0" />
+		<general tendon="iliacus_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.122191 0.22798" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.24456 1.23695 977.408 1 0.0058227 1.83512 10 1.82107 1.4 0" biasprm="0.24456 1.23695 977.408 1 0.0058227 1.83512 10 1.82107 1.4 0" />
+		<general tendon="perbrev_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.185892 0.207535" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.845027 1.32175 496.045 1 0.461019 3.09903 10 1.80009 1.4 0" biasprm="0.845027 1.32175 496.045 1 0.461019 3.09903 10 1.80009 1.4 0" />
+		<general tendon="perlong_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.373688 0.398423" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.816281 1.3032 993.42 1 0.530617 3.45831 10 1.14971 1.4 0" biasprm="0.816281 1.3032 993.42 1 0.530617 3.45831 10 1.14971 1.4 0" />
+		<general tendon="piri_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0953594 0.167006" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 819.319 1 0.1 3.5 10 1.62632 1.4 0" biasprm="0.1 1.8 819.319 1 0.1 3.5 10 1.62632 1.4 0" />
+		<general tendon="psoas_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.157716 0.231585" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.497633 1.12953 1385.41 1 0.0134813 1.52019 10 1.47869 1.4 0" biasprm="0.497633 1.12953 1385.41 1 0.0134813 1.52019 10 1.47869 1.4 0" />
+		<general tendon="recfem_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.423402 0.713662" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 2211.57 1 0.1 3.5 10 1.78166 1.4 0" biasprm="0.1 1.8 2211.57 1 0.1 3.5 10 1.78166 1.4 0" />
+		<general tendon="sart_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.366668 0.595265" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.602155 1.16939 245.514 1 0 3.5 10 0.806615 1.4 0" biasprm="0.602155 1.16939 245.514 1 0 3.5 10 0.806615 1.4 0" />
+		<general tendon="semimem_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.299644 0.504801" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 2249.55 1 0.0886069 3.5 10 1.07055 1.4 0" biasprm="0.1 1.8 2249.55 1 0.0886069 3.5 10 1.07055 1.4 0" />
+		<general tendon="semiten_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.322408 0.572642" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.389685 1.68623 583.121 1 0 3.5 10 1.57478 1.4 0" biasprm="0.389685 1.68623 583.121 1 0 3.5 10 1.57478 1.4 0" />
+		<general tendon="soleus_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.292617 0.343605" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.360484 1.51929 5322.19 1 0.142043 3.39743 10 1.5467 1.4 0" biasprm="0.360484 1.51929 5322.19 1 0.142043 3.39743 10 1.5467 1.4 0" />
+		<general tendon="tfl_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.373121 0.588421" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.46235 265.756 1 0.1 3.28179 10 1.33831 1.4 0" biasprm="0.1 1.46235 265.756 1 0.1 3.28179 10 1.33831 1.4 0" />
+		<general tendon="tibant_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.28151 0.335308" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.601012 1.38869 1152.86 1 0.241731 2.70077 10 1.34727 1.4 0" biasprm="0.601012 1.38869 1152.86 1 0.241731 2.70077 10 1.34727 1.4 0" />
+		<general tendon="tibpost_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.304488 0.327305" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.627194 1.23083 1434.86 1 0.363757 2.9639 10 1.34057 1.4 0" biasprm="0.627194 1.23083 1434.86 1 0.363757 2.9639 10 1.34057 1.4 0" />
+		<general tendon="vasint_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.282067 0.454352" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.804197 1.8 1759.46 1 0.408078 3.5 10 0.993224 1.4 0" biasprm="0.804197 1.8 1759.46 1 0.408078 3.5 10 0.993224 1.4 0" />
+		<general tendon="vaslat_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.295592 0.476057" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.754438 1.8 5318.07 1 0.3408 3.5 10 2 1.4 0" biasprm="0.754438 1.8 5318.07 1 0.3408 3.5 10 2 1.4 0" />
+		<general tendon="vasmed_r_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.311214 0.356041" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="1.14989 1.61299 2423.69 1 0.682608 3.5 10 1.40617 1.4 0" biasprm="1.14989 1.61299 2423.69 1 0.682608 3.5 10 1.40617 1.4 0" />
+		<general tendon="addbrev_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0748245 0.186181" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.381903 1.46199 602.897 1 0.0683724 3.07879 10 1.3614 1.4 0" biasprm="0.381903 1.46199 602.897 1 0.0683724 3.07879 10 1.3614 1.4 0" />
+		<general tendon="addlong_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.170925 0.301499" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.361607 1.56839 881.343 1 0.125586 3.49915 10 1.54262 1.4 0" biasprm="0.361607 1.56839 881.343 1 0.125586 3.49915 10 1.54262 1.4 0" />
+		<general tendon="addmagDist_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.202042 0.322261" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.647072 1.32551 581.265 1 0.0381507 2.10964 10 1.23765 1.4 0" biasprm="0.647072 1.32551 581.265 1 0.0381507 2.10964 10 1.23765 1.4 0" />
+		<general tendon="addmagIsch_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.319889 0.458011" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.662907 1.54717 566.285 1 0.139716 3.49861 10 1.14344 1.4 0" biasprm="0.662907 1.54717 566.285 1 0.139716 3.49861 10 1.14344 1.4 0" />
+		<general tendon="addmagMid_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.112434 0.222784" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.477896 1.27927 578.677 1 0.0208952 2.02504 10 0.870476 1.4 0" biasprm="0.477896 1.27927 578.677 1 0.0208952 2.02504 10 0.870476 1.4 0" />
+		<general tendon="addmagProx_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0575158 0.156738" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1628 1.1024 568.695 1 0 2.16935 10 1.06805 1.4 0" biasprm="0.1628 1.1024 568.695 1 0 2.16935 10 1.06805 1.4 0" />
+		<general tendon="bflh_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.311093 0.518283" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 1327.75 1 0.05 3.5 10 1.75486 1.4 0" biasprm="0.1 1.8 1327.75 1 0.05 3.5 10 1.75486 1.4 0" />
+		<general tendon="bfsh_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.150634 0.237936" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.406318 1.19782 556.777 1 0 3.14497 10 0.922935 1.4 0" biasprm="0.406318 1.19782 556.777 1 0 3.14497 10 0.922935 1.4 0" />
+		<general tendon="edl_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.411859 0.466224" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.620259 1.40474 545.598 1 0.313821 3.47851 10 1.79438 1.4 0" biasprm="0.620259 1.40474 545.598 1 0.313821 3.47851 10 1.79438 1.4 0" />
+		<general tendon="ehl_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.378893 0.432312" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.696495 1.41066 266.688 1 0.343273 3.26938 10 1.3865 1.4 0" biasprm="0.696495 1.41066 266.688 1 0.343273 3.26938 10 1.3865 1.4 0" />
+		<general tendon="fdl_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.405466 0.433594" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.5985 1.22918 331.887 1 0.352282 3.35018 10 1.69894 1.4 0" biasprm="0.5985 1.22918 331.887 1 0.352282 3.35018 10 1.69894 1.4 0" />
+		<general tendon="fhl_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.383982 0.416918" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.562475 1.18745 746.517 1 0.288301 3.5 10 0.896858 1.4 0" biasprm="0.562475 1.18745 746.517 1 0.288301 3.5 10 0.896858 1.4 0" />
+		<general tendon="gaslat_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.366291 0.463723" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.49069 1324.37 1 0.05 3.5 10 1.93411 1.4 0" biasprm="0.1 1.49069 1324.37 1 0.05 3.5 10 1.93411 1.4 0" />
+		<general tendon="gasmed_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.371968 0.472667" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.45 2245.47 1 0.0869909 3.46941 10 1.38125 1.4 0" biasprm="0.1 1.45 2245.47 1 0.0869909 3.46941 10 1.38125 1.4 0" />
+		<general tendon="glmax1_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.148932 0.246694" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.680894 1.34594 1272.23 1 0 2.05861 10 1.422 1.4 0" biasprm="0.680894 1.34594 1272.23 1 0 2.05861 10 1.422 1.4 0" />
+		<general tendon="glmax2_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.175275 0.290891" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.684001 1.42041 1308.55 1 0.000794702 3.38516 10 0.806346 1.4 0" biasprm="0.684001 1.42041 1308.55 1 0.000794702 3.38516 10 0.806346 1.4 0" />
+		<general tendon="glmax3_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.297946 0.474778" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="1.36664 1.8 929.762 1 0.322928 3.5 10 1.93452 1.4 0" biasprm="1.36664 1.8 929.762 1 0.322928 3.5 10 1.93452 1.4 0" />
+		<general tendon="glmed1_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.063342 0.162068" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.103084 1.4555 1018.93 1 4.15271e-06 3.48299 10 1.46926 1.4 0" biasprm="0.103084 1.4555 1018.93 1 4.15271e-06 3.48299 10 1.46926 1.4 0" />
+		<general tendon="glmed2_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0760304 0.171887" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.147694 1.46079 716.963 1 0 3.39296 10 1.74572 1.4 0" biasprm="0.147694 1.46079 716.963 1 0 3.39296 10 1.74572 1.4 0" />
+		<general tendon="glmed3_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0544219 0.156121" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.125877 1.51901 826.643 1 0.000637198 3.49115 10 1.65163 1.4 0" biasprm="0.125877 1.51901 826.643 1 0.000637198 3.49115 10 1.65163 1.4 0" />
+		<general tendon="glmin1_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0229136 0.11449" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.44635 357.562 1 0.0602573 3.02127 10 1.3101 1.4 0" biasprm="0.1 1.44635 357.562 1 0.0602573 3.02127 10 1.3101 1.4 0" />
+		<general tendon="glmin2_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0298796 0.115728" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.60052 391.417 1 0.1 3.5 10 1.19315 1.4 0" biasprm="0.1 1.60052 391.417 1 0.1 3.5 10 1.19315 1.4 0" />
+		<general tendon="glmin3_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0345943 0.11994" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 389.612 1 0.0939983 3.5 10 1.15519 1.4 0" biasprm="0.1 1.8 389.612 1 0.0939983 3.5 10 1.15519 1.4 0" />
+		<general tendon="grac_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.320644 0.541993" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.652458 1.62414 280.263 1 0 3.5 10 1.68108 1.4 0" biasprm="0.652458 1.62414 280.263 1 0 3.5 10 1.68108 1.4 0" />
+		<general tendon="iliacus_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.122191 0.22798" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.24456 1.23695 974.831 1 0 1.8511 10 1.69465 1.4 0" biasprm="0.24456 1.23695 974.831 1 0 1.8511 10 1.69465 1.4 0" />
+		<general tendon="perbrev_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.185892 0.207535" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.845027 1.32175 496.73 1 0.467464 3.06759 10 1.61433 1.4 0" biasprm="0.845027 1.32175 496.73 1 0.467464 3.06759 10 1.61433 1.4 0" />
+		<general tendon="perlong_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.373688 0.398423" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.816281 1.3032 997.426 1 0.540714 3.40374 10 1.41808 1.4 0" biasprm="0.816281 1.3032 997.426 1 0.540714 3.40374 10 1.41808 1.4 0" />
+		<general tendon="piri_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.0953594 0.167006" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 822.575 1 0.0713008 3.5 10 0.992879 1.4 0" biasprm="0.1 1.8 822.575 1 0.0713008 3.5 10 0.992879 1.4 0" />
+		<general tendon="psoas_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.157716 0.231585" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.497633 1.12953 1366.97 1 0.0118191 1.73378 10 1.03401 1.4 0" biasprm="0.497633 1.12953 1366.97 1 0.0118191 1.73378 10 1.03401 1.4 0" />
+		<general tendon="recfem_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.423402 0.713662" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 2205.94 1 0.1 3.5 10 1.95607 1.4 0" biasprm="0.1 1.8 2205.94 1 0.1 3.5 10 1.95607 1.4 0" />
+		<general tendon="sart_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.366668 0.595265" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.602155 1.16939 248.635 1 0.00170046 1.82656 10 1.79532 1.4 0" biasprm="0.602155 1.16939 248.635 1 0.00170046 1.82656 10 1.79532 1.4 0" />
+		<general tendon="semimem_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.299644 0.504801" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.8 2196.22 1 0.05 3.49955 10 1.30483 1.4 0" biasprm="0.1 1.8 2196.22 1 0.05 3.49955 10 1.30483 1.4 0" />
+		<general tendon="semiten_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.322408 0.572642" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.389685 1.68623 579.776 1 0.0312812 3.5 10 1.94751 1.4 0" biasprm="0.389685 1.68623 579.776 1 0.0312812 3.5 10 1.94751 1.4 0" />
+		<general tendon="soleus_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.292617 0.343605" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.360484 1.51929 5284.56 1 0.130611 3.5 10 1.35441 1.4 0" biasprm="0.360484 1.51929 5284.56 1 0.130611 3.5 10 1.35441 1.4 0" />
+		<general tendon="tfl_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.373121 0.588421" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.1 1.46235 262.053 1 0.1 3.49308 10 1.13577 1.4 0" biasprm="0.1 1.46235 262.053 1 0.1 3.49308 10 1.13577 1.4 0" />
+		<general tendon="tibant_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.28151 0.335308" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.601012 1.38869 1143.45 1 0.235755 3.05219 10 1.36022 1.4 0" biasprm="0.601012 1.38869 1143.45 1 0.235755 3.05219 10 1.36022 1.4 0" />
+		<general tendon="tibpost_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.304488 0.327305" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.627194 1.23083 1429.97 1 0.35657 3.14947 10 1.76838 1.4 0" biasprm="0.627194 1.23083 1429.97 1 0.35657 3.14947 10 1.76838 1.4 0" />
+		<general tendon="vasint_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.282067 0.454352" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.804197 1.8 1759.59 1 0.403463 3.5 10 1.60134 1.4 0" biasprm="0.804197 1.8 1759.59 1 0.403463 3.5 10 1.60134 1.4 0" />
+		<general tendon="vaslat_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.295592 0.476057" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.754438 1.8 5322.59 1 0.340667 3.5 10 1.80773 1.4 0" biasprm="0.754438 1.8 5322.59 1 0.340667 3.5 10 1.80773 1.4 0" />
+		<general tendon="vasmed_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.311214 0.356041" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="1.14989 1.61299 2422.17 1 0.412194 3.49301 10 1.4918 1.4 0" biasprm="1.14989 1.61299 2422.17 1 0.412194 3.49301 10 1.4918 1.4 0" />
+	</actuator>
+	<sensor>
+		<touch site="r_foot_touch" />
+		<touch site="r_toes_touch" />
+		<touch site="l_foot_touch" />
+		<touch site="l_toes_touch" />
+	</sensor>
+	<keyframe>
+		<key time="0" qpos="0 0 0.92 0.707388 0 0 -0.706825 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" act="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+		<key time="0" qpos="0 0 0.92 0.707388 0 0 -0.706825 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" act="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+		<key time="0" qpos="0 0 0.92 0.707388 0 0 -0.706825 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" act="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+		<key time="0" qpos="0 0 0.92 0.707388 0 0 -0.706825 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" act="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
+	</keyframe>
+</mujoco>
