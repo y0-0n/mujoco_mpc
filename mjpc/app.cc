@@ -366,6 +366,16 @@ void PhysicsLoop(mj::Simulate& sim) {
           // still accept jobs when simulation is paused
           sim.agent->ExecuteAllRunBeforeStepJobs(m, d);
 
+          // yoon0-0 : Play motion (Left key pressed)
+          if (m && !sim.run && sim.play_motion) {
+            std::cout << sim.motion_frame_index << std::endl;
+            for (int idx=0; idx < sim.motion[sim.motion_frame_index].size(); idx++) {
+              d->qpos[idx] = sim.motion[sim.motion_frame_index][idx];
+            }
+            usleep(10000); // 0.01s
+            sim.motion_frame_index = (sim.motion_frame_index + 1) % sim.motion.size();
+          }
+
           // run mj_forward, to update rendering and joint sliders
           mj_forward(m, d);
           sim.speed_changed = true;

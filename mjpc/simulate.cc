@@ -1513,7 +1513,14 @@ void UiEvent(mjuiState* state) {
     case '9':
       sim->agent->visualize_enabled = !sim->agent->visualize_enabled;
       break;
+
+    // play motion
+    case mjKEY_LEFT: 
+      // yoon0-0
+      sim->play_motion = !sim->play_motion;
+      break;
     }
+    
 
     return;
   }

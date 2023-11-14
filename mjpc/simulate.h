@@ -139,6 +139,8 @@ class MJSIMULATEAPI Simulate {
   // time synchronization
   int real_time_index = 0;
   bool speed_changed = true;
+  bool play_motion = false;
+  int motion_frame_index = 0;
   float measured_slowdown = 1.0;
   // logarithmically spaced realtime slow-down coefficients (percent)
   static constexpr float percentRealTime[] = {
