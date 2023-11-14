@@ -1,7 +1,7 @@
 <mujoco model="Humanoid">
   <include file="../../common.xml"/>
   <include file="../scene_smpl_rig.xml" />
-  <size memory="400K"/>
+  <size memory="1000K"/>
 
   <custom>
     <numeric name="agent_planner" data="0" />
@@ -18,7 +18,8 @@
     <user name="Balance" dim="1" user="6 50.0 0.0 500.0 0.1" />
     <user name="CoM Vel." dim="2" user="0 10.0 0.0 100.0" />
     <user name="Joint Vel." dim="43" user="0 0.01 0.0 0.1" />
-    <user name="Control" dim="20" user="3 0.025 0.0 0.1 0.3" />
+    <user name="Control" dim="26" user="3 0.025 0.0 0.1 0.3" />
+    <user name="Posture" dim="43" user="0 0.025 0 1.0" />
     <framepos name="trace0" objtype="body" objname="pelvis"/>
     <framepos name="torso_position" objtype="body" objname="pelvis"/>
     <framepos name="head_position" objtype="body" objname="head"/>

@@ -21,6 +21,10 @@
 #include "mjpc/task.h"
 #include "mjpc/utilities.h"
 
+#include <iostream>
+
+using namespace std;
+
 namespace mjpc::smpl {
 std::string Walk::XmlPath() const {
   return GetModelPath("smpl/walk/task.xml");
@@ -120,6 +124,7 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
 
   // ----- posture ----- //
   mju_copy(&residual[counter], data->qpos + 7, model->nq - 7);
+  // TODO: nominal pose
   counter += model->nq - 7;
 
   // ----- walk ----- //
