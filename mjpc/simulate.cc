@@ -24,6 +24,8 @@
 #include <optional>
 #include <ratio>
 #include <string>
+#include <fstream>
+#include <nlohmann/json.hpp>
 
 #include "lodepng.h"
 #include <mujoco/mjmodel.h>
@@ -58,6 +60,7 @@ namespace mju = ::mujoco::util_mjpc;
 
 using Seconds = std::chrono::duration<double>;
 using Milliseconds = std::chrono::duration<double, std::milli>;
+using json = nlohmann::json;
 
 //------------------------------------------- global -----------------------------------------------
 
@@ -144,6 +147,24 @@ const char help_title[] =
   "Show UI shortcuts\n"
   "Expand/collapse all";
 
+//-------------------------------- JSON -----------------------------------
+
+void GetMotionJson(mj::Simulate* sim) {
+  std::ifstream f(sim->motion_path);
+  json data = json::parse(f);
+  // auto x1 = data["qpos"];
+  // int n = data["qpos"].size();
+  std::vector <std::vector<float>> motion_vector(data["length"], std::vector<float> (0, 0));
+  int n = 0;
+  for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
+    // std::cout << it[0] << std::endl;
+    for (float x : it[0]) {
+        motion_vector[n].push_back(x);
+    }
+    n++;
+  }
+  sim->motion = motion_vector;
+}
 
 //-------------------------------- profiler, sensor, info, watch -----------------------------------
 
@@ -1196,6 +1217,11 @@ void UiEvent(mjuiState* state) {
       case 1:             // Reset
         if (m) {
           mj_resetData(m, d);
+          // yoon0-0
+          int timestep = 0;
+          for (int idx=0; idx < sim->motion[timestep].size(); idx++) {
+            d->qpos[idx] = sim->motion[timestep][idx];
+          }
           mj_forward(m, d);
           UpdateProfiler(sim);
           UpdateSensor(sim);
@@ -2004,6 +2030,10 @@ void Simulate::InitializeRenderLoop() {
   InitializeProfiler(this);
   InitializeSensor(this);
 
+  // Parse Motion JSON
+  // yoon0-0
+  GetMotionJson(this);
+
   // make empty scene
   mjv_defaultScene(&this->scn);
   mjv_makeScene(nullptr, &this->scn, maxgeom);
@@ -2081,7 +2111,7 @@ void Simulate::RenderLoop() {
     }  // std::lock_guard<std::mutex> (unblocks simulation thread)
 
     // render while simulation is running
-    this->Render();
+    this->Render();    
   }
 
   this->exitrequest.store(true);

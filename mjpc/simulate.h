@@ -91,6 +91,11 @@ class MJSIMULATEAPI Simulate {
 
   mjModel* m = nullptr;
   mjData* d = nullptr;
+  std::string motion_path = "/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/SMPL_M02F4V1.json";
+  std::vector <std::vector<float>> motion;
+  mjtNum** action = nullptr;
+  mjtNum** state = nullptr;
+  int batch_size = 0;
   std::mutex mtx;
   std::condition_variable cond_loadrequest;
 
