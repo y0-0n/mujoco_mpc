@@ -27,6 +27,7 @@
 #include <thread>
 #include <utility>
 #include <vector>
+#include <fstream>
 
 #include <absl/flags/flag.h>
 #include <absl/strings/match.h>
@@ -39,6 +40,7 @@
 #include "mjpc/task.h"
 #include "mjpc/threadpool.h"
 #include "mjpc/utilities.h"
+#include <nlohmann/json.hpp>
 
 ABSL_FLAG(std::string, task, "", "Which model to load on startup.");
 ABSL_FLAG(bool, planner_enabled, false,
@@ -73,6 +75,8 @@ mjData* d = nullptr;
 mjtNum* ctrlnoise = nullptr;
 
 using Seconds = std::chrono::duration<double>;
+using namespace mujoco;
+using json = nlohmann::json;
 
 // --------------------------------- callbacks ---------------------------------
 std::unique_ptr<mj::Simulate> sim;
@@ -93,6 +97,43 @@ void controller(const mjModel* m, mjData* data) {
     sim->agent->ActivePlanner().ActionFromPolicy(
         data->ctrl, &sim->agent->state.state()[0],
         sim->agent->state.time());
+    // yoon0-0
+    // if (sim->batch_size * 100 < sim->agent->state.time()) {
+    if (sim->play_motion && sim->batch_horizon < 1000 && sim->batch_size < 1000*1136) {
+      // std::cout << "batch in" << std::endl;
+      sim->run = true;
+      // action (ctrl)
+      for (int i=0; i<m->nu; i++)
+      {
+        sim->action_batch[sim->batch_size].push_back(data->ctrl[i]);
+      }
+      // state (qpos)
+      for (int i=0; i<m->nq; i++)
+      {
+        sim->qpos_batch[sim->batch_size].push_back(data->qpos[i]);
+      }
+      // state (qvel)
+      for (int i=0; i<m->nv; i++)
+      {
+        sim->qvel_batch[sim->batch_size].push_back(data->qvel[i]);
+      }
+
+      sim->batch_size++;
+      sim->batch_horizon++;
+    } else if (sim->batch_size == 100000) {
+      std::cout << "End" << std::endl;
+      std::map<std::string, std::vector<std::vector<float>>> c_map { {"action", sim->action_batch}, {"qpos", sim->qpos_batch}, {"qvel", sim->qvel_batch} };
+      json j_map(c_map);
+      std::ofstream o("map.json");
+      o << std::setw(4) << j_map << std::endl;
+    } else if (!sim->play_motion) {
+      // std::cout << "no batch in" << std::endl;
+      sim->run = false;
+    } else if (sim->batch_horizon == 1000) {
+      // std::cout << "no batch in" << std::endl;
+      sim->run = false;
+      sim->batch_horizon = 0;
+    }
   }
   // if noise
   if (!sim->agent->allocate_enabled && sim->uiloadrequest.load() == 0 &&

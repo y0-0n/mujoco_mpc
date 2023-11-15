@@ -1,7 +1,7 @@
 <mujoco model="Humanoid Locomotion">
   <include file="../../common.xml"/>
-  <include file="../scene_smpl_rig.xml" />
-  <size memory="1000K"/>
+  <include file="../smpl_rig_rilab.xml" />
+  <size memory="400K"/>
   <custom>
     <!-- agent -->
     <numeric name="agent_planner" data="2" />

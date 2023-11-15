@@ -92,10 +92,12 @@ class MJSIMULATEAPI Simulate {
   mjModel* m = nullptr;
   mjData* d = nullptr;
   std::string motion_path = "/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/SMPL_M02F4V1.json";
-  std::vector <std::vector<float>> motion;
-  mjtNum** action = nullptr;
-  mjtNum** state = nullptr;
+  std::vector<std::vector<float>> motion;
+  std::vector<std::vector<float>> action_batch = std::vector<std::vector<float>> (1000*1136, std::vector<float> (0, 0));
+  std::vector<std::vector<float>> qpos_batch = std::vector<std::vector<float>> (1000*1136, std::vector<float> (0, 0));;
+  std::vector<std::vector<float>> qvel_batch = std::vector<std::vector<float>> (1000*1136, std::vector<float> (0, 0));;
   int batch_size = 0;
+  int batch_horizon = 0;
   std::mutex mtx;
   std::condition_variable cond_loadrequest;
 

@@ -149,12 +149,13 @@ const char help_title[] =
 
 //-------------------------------- JSON -----------------------------------
 
+// yoon0-0
 void GetMotionJson(mj::Simulate* sim) {
   std::ifstream f(sim->motion_path);
   json data = json::parse(f);
   // auto x1 = data["qpos"];
   // int n = data["qpos"].size();
-  std::vector <std::vector<float>> motion_vector(data["length"], std::vector<float> (0, 0));
+  std::vector<std::vector<float>> motion_vector(data["length"], std::vector<float> (0, 0));
   int n = 0;
   for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
     // std::cout << it[0] << std::endl;
@@ -1217,11 +1218,6 @@ void UiEvent(mjuiState* state) {
       case 1:             // Reset
         if (m) {
           mj_resetData(m, d);
-          // yoon0-0
-          int timestep = 0;
-          for (int idx=0; idx < sim->motion[timestep].size(); idx++) {
-            d->qpos[idx] = sim->motion[timestep][idx];
-          }
           mj_forward(m, d);
           UpdateProfiler(sim);
           UpdateSensor(sim);
