@@ -146,7 +146,7 @@ class Task {
   double risk;
   
   // yoon0-0: motion
-  // std::vector<std::vector<double>> motion_vector;
+  std::vector<std::vector<double>> motion_vector;
 
   // residual parameters
   std::vector<double> parameters;
