@@ -40,6 +40,9 @@ class ResidualFn {
 
   virtual void Residual(const mjModel* model, const mjData* data,
                         double* residual) const = 0;
+  // virtual std::vector<std::vector<float>> GetMotionJson(std::string motion_path) = 0;
+  // virtual void ResidualMotion(const mjModel* model, const mjData* data,
+  //                       double* residual) const = 0;
   virtual void CostTerms(double* terms, const double* residual,
                          bool weighted) const = 0;
   virtual double CostValue(const double* residual) const = 0;
@@ -141,6 +144,9 @@ class Task {
   std::vector<double> weight;
   std::vector<double> norm_parameter;
   double risk;
+  
+  // yoon0-0: motion
+  // std::vector<std::vector<double>> motion_vector;
 
   // residual parameters
   std::vector<double> parameters;
