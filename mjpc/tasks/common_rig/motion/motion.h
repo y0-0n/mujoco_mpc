@@ -12,22 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_TASKS_SMPL_WALK_TASK_H_
-#define MJPC_TASKS_SMPL_WALK_TASK_H_
+#ifndef MJPC_TASKS_COMMON_RIG_MOTION_TASK_H_
+#define MJPC_TASKS_COMMON_RIG_MOTION_TASK_H_
 
 #include <mujoco/mujoco.h>
 #include "mjpc/task.h"
 
 namespace mjpc {
-namespace smpl {
+namespace common_rig {
 
-class Walk : public Task {
+class Motion : public Task {
  public:
   class ResidualFn : public mjpc::BaseResidualFn {
    public:
-    explicit ResidualFn(const Walk* task) : mjpc::BaseResidualFn(task) {}
+    explicit ResidualFn(const Motion* task) : mjpc::BaseResidualFn(task) {}
 
-    // ------------------ Residuals for SMPL walk task ------------
+    // ------------------ Residuals for Common Rig Motion task ------------
     //   Number of residuals:
     //     Residual (0): torso height
     //     Residual (1): pelvis-feet aligment
@@ -47,10 +47,9 @@ class Walk : public Task {
     // std::vector<std::vector<float>> GetMotionJson(std::string motion_path) {}
     // std::vector<std::vector<float>> GetMotionJson(std::string motion_path) override;
     // std::vector<std::vector<float>> motion_vector;
-
   };
 
-  Walk() : residual_(this) {}
+  Motion() : residual_(this) {}
 
   std::string Name() const override;
   std::string XmlPath() const override;
@@ -65,7 +64,7 @@ class Walk : public Task {
   ResidualFn residual_;
 };
 
-}  // namespace smpl
+}  // namespace common_rig
 }  // namespace mjpc
 
-#endif  // MJPC_TASKS_SMPL_WALK_TASK_H_
+#endif  // MJPC_TASKS_COMMON_RIG_MOTION_TASK_H_
