@@ -27,6 +27,7 @@
 #include <thread>
 #include <utility>
 #include <vector>
+#include <fstream>
 
 #include <absl/flags/flag.h>
 #include <absl/strings/match.h>
@@ -39,6 +40,7 @@
 #include "mjpc/task.h"
 #include "mjpc/threadpool.h"
 #include "mjpc/utilities.h"
+#include <nlohmann/json.hpp>
 
 ABSL_FLAG(std::string, task, "", "Which model to load on startup.");
 ABSL_FLAG(bool, planner_enabled, false,
@@ -73,6 +75,8 @@ mjData* d = nullptr;
 mjtNum* ctrlnoise = nullptr;
 
 using Seconds = std::chrono::duration<double>;
+using namespace mujoco;
+using json = nlohmann::json;
 
 // --------------------------------- callbacks ---------------------------------
 std::unique_ptr<mj::Simulate> sim;
@@ -93,6 +97,55 @@ void controller(const mjModel* m, mjData* data) {
     sim->agent->ActivePlanner().ActionFromPolicy(
         data->ctrl, &sim->agent->state.state()[0],
         sim->agent->state.time());
+    // yoon0-0
+    // if (sim->batch_size * 100 < sim->agent->state.time()) {
+    if (sim->play_motion && sim->batch_horizon < 1000 && sim->batch_size < 1000*1136) {
+      // std::cout << "batch in" << std::endl;
+      if (sim->motion_frame_index==0) {
+        for (int idx=0; idx < sim->agent->ActiveTask()->motion_vector[0].size(); idx++) {
+          d->qpos[idx] = sim->agent->ActiveTask()->motion_vector[0][idx];
+        }
+        sim->motion_frame_index++;
+      }
+
+      sim->run = true;
+      // action (ctrl)
+      for (int i=0; i<m->nu; i++)
+      {
+        sim->action_batch[sim->batch_size].push_back(data->ctrl[i]);
+      }
+      // state (qpos)
+      for (int i=0; i<m->nq; i++)
+      {
+        sim->qpos_batch[sim->batch_size].push_back(data->qpos[i]);
+      }
+      // state (qvel)
+      for (int i=0; i<m->nv; i++)
+      {
+        sim->qvel_batch[sim->batch_size].push_back(data->qvel[i]);
+      }
+
+      sim->batch_size++;
+      sim->batch_horizon++;
+    } else if (sim->batch_size == 1000*1136) {
+      std::cout << "End" << std::endl;
+      std::ifstream f("map.json");
+      if (f.good()) {
+        std::cout << "Existed" << std::endl;
+      } else {
+        std::map<std::string, std::vector<std::vector<float>>> c_map { {"action", sim->action_batch}, {"qpos", sim->qpos_batch}, {"qvel", sim->qvel_batch} };
+        json j_map(c_map);
+        std::ofstream o("map.json");
+        o << std::setw(4) << j_map << std::endl;
+      }
+    } else if (!sim->play_motion) {
+      // std::cout << "no batch in" << std::endl;
+      // sim->run = false;
+    } else if (sim->batch_horizon == 1000) {
+      // std::cout << "" << std::endl;
+      sim->run = true;
+      sim->batch_horizon = 0;
+    }
   }
   // if noise
   if (!sim->agent->allocate_enabled && sim->uiloadrequest.load() == 0 &&
@@ -365,6 +418,15 @@ void PhysicsLoop(mj::Simulate& sim) {
 
           // still accept jobs when simulation is paused
           sim.agent->ExecuteAllRunBeforeStepJobs(m, d);
+          // yoon0-0 : Play motion (Left key pressed)
+          if (m && !sim.run && sim.play_motion) {
+            std::cout << sim.motion_frame_index << std::endl;
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector[sim.motion_frame_index].size(); idx++) {
+              d->qpos[idx] = sim.agent->ActiveTask()->motion_vector[sim.motion_frame_index][idx];
+            }
+            usleep(50000); // 0.05s
+            sim.motion_frame_index = (sim.motion_frame_index + 1) % sim.agent->ActiveTask()->motion_vector.size();
+          }
 
           // run mj_forward, to update rendering and joint sliders
           mj_forward(m, d);
@@ -382,7 +444,29 @@ void PhysicsLoop(mj::Simulate& sim) {
     }
   }
 }
+//-------------------------------- JSON -----------------------------------
+
+// yoon0-0
+void GetMotionJson(std::string motion_path, std::shared_ptr<mjpc::Agent> agent) {
+  std::ifstream f(motion_path);
+  json data = json::parse(f);
+  // auto x1 = data["qpos"];
+  // int n = data["qpos"].size();
+  std::vector<std::vector<double>> motion_vector(data["length"], std::vector<double> (0, 0));
+  int n = 0;
+  for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
+    // std::cout << it[0] << std::endl;
+    for (float x : it[0]) {
+        motion_vector[n].push_back(x);
+    }
+    n++;
+  }
+  agent->ActiveTask()->motion_vector = motion_vector;
+  // return motion_vector;
+}
+
 }  // namespace
+
 
 // ------------------------------- main ----------------------------------------
 
@@ -445,6 +529,10 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   sim->agent->Allocate();
   sim->agent->Reset();
   sim->agent->PlotInitialize();
+  // motion
+  // yoon0-0
+  // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/SMPL_M02F4V1.json", sim->agent);
+  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
 
   sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);
 

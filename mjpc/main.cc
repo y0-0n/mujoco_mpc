@@ -47,6 +47,7 @@ int main(int argc, char** argv) {
 #endif
   absl::ParseCommandLine(argc, argv);
 
-  mjpc::StartApp(mjpc::GetTasks(), 6);  // start with manipulation bring
+  // yoon0-0: initial task
+  mjpc::StartApp(mjpc::GetTasks(), 19);  // start with manipulation bring
   return 0;
 }
