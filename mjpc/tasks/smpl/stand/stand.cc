@@ -105,6 +105,11 @@ void Stand::ResidualFn::Residual(const mjModel* model, const mjData* data,
   // }
   counter += model->nu;
 
+  // ----- posture ----- //
+  mju_copy(&residual[counter], data->qpos + 7, model->nq - 7);
+  counter += model->nq - 7;
+
+
   // sensor dim sanity check
   // TODO: use this pattern everywhere and make this a utility function
   int user_sensor_dim = 0;

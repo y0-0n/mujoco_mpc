@@ -97,14 +97,14 @@ add_library(
   tasks/swimmer/swimmer.h
   tasks/walker/walker.cc
   tasks/walker/walker.h
-  tasks/smpl_stand/smpl_stand.cc
-  tasks/smpl_stand/smpl_stand.h
   tasks/smpl/stand/stand.cc
   tasks/smpl/stand/stand.h
   tasks/smpl/walk/walk.cc
   tasks/smpl/walk/walk.h
   tasks/smpl/motion/motion.cc
   tasks/smpl/motion/motion.h
+  tasks/myosuite/walk/walk.cc
+  tasks/myosuite/walk/walk.h
   tasks/common_rig/walk/walk.h
   tasks/common_rig/walk/walk.cc
   tasks/common_rig/motion/motion.h

@@ -114,7 +114,7 @@
                 <joint name="ankle_x_right" class="ankle_x" axis="1 0 .5"/>
                 <geom name="foot1_right" class="foot1"/>
                 <geom name="foot2_right" class="foot2"/>
-                <site name="foot_right" pos=".05 .03 0" type="sphere" size=".027"/>
+                <site name="foot_right" pos=".05 .03 0" type="sphere" size=".027" rgba="0 1 0 1" />
                 <site name="sp2" pos="-.07 0 0" type="sphere" size=".027"/>
                 <site name="sp3" pos=".14 0 0" type="sphere" size=".027"/>
                 <body name="heel_right" pos="-0.05 0 0.04">
@@ -141,7 +141,7 @@
                 <joint name="ankle_x_left" class="ankle_x" axis="-1 0 -.5"/>
                 <geom name="foot1_left" class="foot1"/>
                 <geom name="foot2_left" class="foot2"/>
-                <site name="foot_left" pos=".05 -.03 0" type="sphere" size=".027"/>
+                <site name="foot_left" pos=".05 -.03 0" type="sphere" size=".027" rgba="0 1 0 1" />
                 <site name="sp0" pos="-.07 0 0" type="sphere" size=".027"/>
                 <site name="sp1" pos=".14 0 0" type="sphere" size=".027"/>
                 <body name="heel_left" pos="-0.05 0 0.04">

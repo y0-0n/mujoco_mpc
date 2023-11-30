@@ -1,5 +1,16 @@
 <?xml version="1.0"?>
 <mujoco>
+	<default>
+		<default class="body">
+		<!-- joints -->
+		<!-- <joint type="hinge" damping="1." stiffness="2" armature=".1" limited="true" solimplimit="0 .99 .01"/> -->
+		<!-- tracking site -->
+		<default class="tracking_site">
+			<site type="sphere" size="0.027" rgba="1 0 0 1" group="3"/>
+		</default>
+		</default>
+	</default>
+
 	<worldbody>
 		<body name="root" pos="0 0 1" quat="0.707388 0 0 -0.706825">
 			<body name="torso" pos="0 0 0" quat="1 0 0 0">
@@ -75,6 +86,9 @@
 								<site name="RTOE" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.205 0.0297 -0.03" quat="1 0 0 0" />
 								<site name="RMT5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.145 0.0249 0.059" quat="1 0 0 0" />
 								<site name="r_foot_touch" type="box" group="3" rgba="0.8 0.2 0.2 0.4" size="0.1 0.01 0.055" pos="0.09 -0.01 0" quat="1 0 0 0" />
+								<!-- yoon0-0 -->
+								<site name="foot_right" pos=".1 0. 0." type="sphere" size=".027"/>
+								<!-- yoon0-0 -->
 							</body>
 							<inertial mass="0.022372324887888536" pos="0.00593729 0.000343512 -0.00168399" quat="0.467409 0.473348 0.54532 0.509997" diaginertia="4.44391e-06 3.16478e-06 2.61358e-06" />
 							<joint name="ankle_angle_r" type="hinge" pos="0 0 0" group="0" axis="-0.105014 -0.174022 0.979126" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.698132 0.523599" margin="0" user="0" />
@@ -286,6 +300,9 @@
 								<site name="LTOE" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.205 0.0297 0.03" quat="1 0 0 0" />
 								<site name="LMT5" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="0.145 0.0249 -0.059" quat="1 0 0 0" />
 								<site name="l_foot_touch" type="box" group="3" rgba="0.8 0.2 0.2 0.4" size="0.1 0.01 0.055" pos="0.09 -0.01 0" quat="1 0 0 0" />
+								<!-- yoon0-0 -->
+								<site name="foot_left" pos=".1 0. 0." type="sphere" size=".027"/>
+								<!-- yoon0-0 -->
 							</body>
 							<inertial mass="0.022372325060296738" pos="0.00593729 0.000343512 0.00168399" quat="0.473348 0.467409 0.509997 0.54532" diaginertia="4.44391e-06 3.16478e-06 2.61358e-06" />
 							<joint name="ankle_angle_l" type="hinge" pos="0 0 0" group="0" axis="0.105014 0.174022 0.979126" limited="true" solreflimit="0.02 1" solimplimit="0.9 0.95 0.001 0.5 2" stiffness="0" range="-0.698132 0.523599" margin="0" user="0" />
@@ -459,6 +476,9 @@
 				<geom name="PS_at_brim_l_wrap" type="sphere" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.05 0 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.074 -0.06 -0.0656" quat="0.981103 0.13006 0.127199 0.0658971" />
 				<geom name="IL_at_brim_r_wrap" type="sphere" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0549 0 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.071 -0.065 0.0756" quat="0.874257 -0.193832 -0.0376181 0.443495" />
 				<geom name="IL_at_brim_l_wrap" type="sphere" contype="0" conaffinity="0" condim="3" group="3" priority="0" size="0.0549 0 0" material="mat_myolegs" rgba="0.5 0.5 0.9 0.5" friction="1 0.005 0.0001" solmix="1" solref="0.02 1" solimp="0.9 0.95 0.001 0.5 2" margin="0.001" gap="0" pos="-0.071 -0.065 -0.0756" quat="0.874257 0.193832 0.0376181 0.443495" />
+				<!-- yoon0_0 -->
+				<site name="tracking[pelvis]" class="tracking_site" pos="-0.07 0 0" size=".05" />
+				<!-- yoon0_0 -->
 				<site name="addbrev_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0191 -0.094 0.0154" quat="1 0 0 0" />
 				<site name="addlong_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.0076 -0.0889 0.0189" quat="1 0 0 0" />
 				<site name="addmagDist_r-P1" type="sphere" group="3" rgba="0.5 0.5 0.5 1" size="0.001 0.005 0.005" pos="-0.074 -0.1277 0.0398" quat="1 0 0 0" />
@@ -549,13 +569,13 @@
 		<camera name="front_view" mode="trackcom" fovy="45" ipd="0.068000000000000005" pos="0 -3 2.25" quat="0.850651 0.525731 0 0" />
 		<light mode="trackcom" directional="false" castshadow="true" active="true" pos="0 -3 3" dir="0 0.707107 -0.707107" attenuation="1 0 0" cutoff="45" exponent="10" ambient="0 0 0" diffuse="0.5 0.5 0.5" specular="0.25 0.25 0.25" />
 	</worldbody>
-	<compiler angle="radian" autolimits="true" />
+	<compiler angle="radian" autolimits="true" meshdir="../myolegs_v0.55(mj236)"/>
 	<asset>
-		<texture name="textscene" type="2d" height="1024" width="1024" file="textscene.png" />
-		<texture name="texfloor" type="2d" height="1000" width="1000" file="texfloor.png" />
-		<texture name="textlogo" type="2d" height="1024" width="1024" file="textlogo.png" />
-		<texture name="tex_myotorso" type="cube" gridsize="3 3" gridlayout="...ULFRBD" height="762" width="762" file="tex_myotorso.png" />
-		<texture name="tex_myolegs" type="cube" gridsize="3 3" gridlayout="...ULFRBD" height="762" width="762" file="tex_myolegs.png" />
+		<texture name="textscene" type="2d" height="1024" width="1024" file="../myolegs_v0.55(mj236)/textscene.png" />
+		<texture name="texfloor" type="2d" height="1000" width="1000" file="../myolegs_v0.55(mj236)/texfloor.png" />
+		<texture name="textlogo" type="2d" height="1024" width="1024" file="../myolegs_v0.55(mj236)/textlogo.png" />
+		<texture name="tex_myotorso" type="cube" gridsize="3 3" gridlayout="...ULFRBD" height="762" width="762" file="../myolegs_v0.55(mj236)/tex_myotorso.png" />
+		<texture name="tex_myolegs" type="cube" gridsize="3 3" gridlayout="...ULFRBD" height="762" width="762" file="../myolegs_v0.55(mj236)/tex_myolegs.png" />
 		<hfield name="terrain" nrow="100" ncol="100" size="7 7 1 1" />
 		<mesh name="meshscene" file="meshscene.stl" />
 		<mesh name="logo" file="logo.stl" />
@@ -1185,12 +1205,12 @@
 		<general tendon="vaslat_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.295592 0.476057" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="0.754438 1.8 5322.59 1 0.340667 3.5 10 1.80773 1.4 0" biasprm="0.754438 1.8 5322.59 1 0.340667 3.5 10 1.80773 1.4 0" />
 		<general tendon="vasmed_l_tendon" group="0" ctrllimited="true" forcelimited="false" actlimited="false" ctrlrange="0 1" forcerange="0 0" actrange="0 0" lengthrange="0.311214 0.356041" gear="1 0 0 0 0 0" actdim="1" dyntype="muscle" gaintype="muscle" biastype="muscle" dynprm="0.01 0.04 0 0 0 0 0 0 0 0" gainprm="1.14989 1.61299 2422.17 1 0.412194 3.49301 10 1.4918 1.4 0" biasprm="1.14989 1.61299 2422.17 1 0.412194 3.49301 10 1.4918 1.4 0" />
 	</actuator>
-	<sensor>
+	<!-- <sensor>
 		<touch site="r_foot_touch" />
 		<touch site="r_toes_touch" />
 		<touch site="l_foot_touch" />
 		<touch site="l_toes_touch" />
-	</sensor>
+	</sensor> -->
 	<keyframe>
 		<key time="0" qpos="0 0 0.92 0.707388 0 0 -0.706825 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" act="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />
 		<key time="0" qpos="0 0 0.92 0.707388 0 0 -0.706825 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029 0.161153 -0.0279385 -0.041886 0.00247908 0.00101098 0.461137 0.0275069 0.136817 0.334 -0.00117055 -0.000125295 -0.0302192 0.0395202 -0.194029" qvel="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" act="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" />

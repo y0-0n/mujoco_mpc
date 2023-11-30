@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_TASKS_SMPL_WALK_TASK_H_
-#define MJPC_TASKS_SMPL_WALK_TASK_H_
+#ifndef MJPC_TASKS_MYOSUITE_WALK_TASK_H_
+#define MJPC_TASKS_MYOSUITE_WALK_TASK_H_
 
 #include <mujoco/mujoco.h>
 #include "mjpc/task.h"
 
 namespace mjpc {
-namespace smpl {
+namespace myosuite {
 
 class Walk : public Task {
  public:
@@ -27,7 +27,7 @@ class Walk : public Task {
    public:
     explicit ResidualFn(const Walk* task) : mjpc::BaseResidualFn(task) {}
 
-    // ------------------ Residuals for SMPL walk task ------------
+    // ------------------ Residuals for MyoSuite walk task ------------
     //   Number of residuals:
     //     Residual (0): torso height
     //     Residual (1): pelvis-feet aligment
@@ -60,7 +60,7 @@ class Walk : public Task {
   ResidualFn residual_;
 };
 
-}  // namespace smpl
+}  // namespace myosuite
 }  // namespace mjpc
 
-#endif  // MJPC_TASKS_SMPL_WALK_TASK_H_
+#endif  // MJPC_TASKS_MYOSUITE_WALK_TASK_H_

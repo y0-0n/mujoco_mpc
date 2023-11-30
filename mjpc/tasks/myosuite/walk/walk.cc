@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "mjpc/tasks/smpl/walk/walk.h"
+#include "mjpc/tasks/myosuite/walk/walk.h"
 
 #include <iostream>
 #include <string>
@@ -25,13 +25,13 @@
 
 using namespace std;
 
-namespace mjpc::smpl {
+namespace mjpc::myosuite {
 std::string Walk::XmlPath() const {
-  return GetModelPath("smpl/walk/task.xml");
+  return GetModelPath("myosuite/walk/task.xml");
 }
-std::string Walk::Name() const { return "SMPL Walk"; }
+std::string Walk::Name() const { return "MyoSuite Walk"; }
 
-// ------------------ Residuals for SMPL walk task ------------
+// ------------------ Residuals for MyoSuite walk task ------------
 //   Number of residuals:
 //     Residual (0): torso height
 //     Residual (1): pelvis-feet aligment
@@ -52,12 +52,14 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
   // ----- torso height ----- //
   double torso_height = SensorByName(model, data, "torso_position")[2];
   residual[counter++] = torso_height - parameters_[0];
+  // cout << "torso: " << SensorByName(model, data, "torso_position")[0] <<", " << SensorByName(model, data, "torso_position")[1] << ", " << SensorByName(model, data, "torso_position")[2] << endl;
 
   // ----- pelvis / feet ----- //
   double* foot_right = SensorByName(model, data, "foot_right");
   double* foot_left = SensorByName(model, data, "foot_left");
   double pelvis_height = SensorByName(model, data, "pelvis_position")[2];
-
+  // cout << "foot right: " << foot_right[0] <<", " << foot_right[1] << ", " << foot_right[2] << endl;
+  // cout << "foot left: " << foot_left[0] <<", " << foot_left[1] << ", " << foot_left[2] << endl;
   residual[counter++] =
       0.5 * (foot_left[2] + foot_right[2]) - pelvis_height - 0.2;
 
@@ -68,8 +70,8 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
 
   double capture_point[3];
   mju_addScl(capture_point, subcom, subcomvel, 0.3, 3);
+  // cout << "capture_point: " << capture_point[0] << ", " << capture_point[1] << ", " << capture_point[2] << endl;
   capture_point[2] = 1.0e-3;
-
   // project onto line segment
 
   double axis[3];
@@ -78,6 +80,7 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
   double pcp[3];
   mju_sub3(axis, foot_right, foot_left);
   axis[2] = 1.0e-3;
+  
   double length = 0.5 * mju_normalize3(axis) - 0.05;
   mju_add3(center, foot_right, foot_left);
   mju_scl3(center, center, 0.5);
@@ -95,9 +98,11 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
   // is standing
   double standing =
       torso_height / mju_sqrt(torso_height * torso_height + 0.45 * 0.45) - 0.4;
-
+  
   mju_sub(&residual[counter], capture_point, pcp, 2);
   mju_scl(&residual[counter], &residual[counter], standing, 2);
+
+  // cout << residual[counter] << ", " << residual[counter+1] << endl;
 
   counter += 2;
 
@@ -190,4 +195,4 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
   }
 }
 
-}  // namespace mjpc::smpl
+}  // namespace mjpc::myosuite

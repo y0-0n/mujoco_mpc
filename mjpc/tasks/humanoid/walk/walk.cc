@@ -21,6 +21,10 @@
 #include "mjpc/task.h"
 #include "mjpc/utilities.h"
 
+#include <iostream>
+
+using namespace std;
+
 namespace mjpc::humanoid {
 std::string Walk::XmlPath() const {
   return GetModelPath("humanoid/walk/task.xml");
@@ -53,6 +57,7 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
   double* foot_right = SensorByName(model, data, "foot_right");
   double* foot_left = SensorByName(model, data, "foot_left");
   double pelvis_height = SensorByName(model, data, "pelvis_position")[2];
+
   residual[counter++] =
       0.5 * (foot_left[2] + foot_right[2]) - pelvis_height - 0.2;
 
@@ -60,7 +65,7 @@ void Walk::ResidualFn::Residual(const mjModel* model, const mjData* data,
   // capture point
   double* subcom = SensorByName(model, data, "torso_subcom");
   double* subcomvel = SensorByName(model, data, "torso_subcomvel");
-
+  // cout << "subcom: " << subcom << endl << "subcomvel: " << subcomvel << endl;
   double capture_point[3];
   mju_addScl(capture_point, subcom, subcomvel, 0.3, 3);
   capture_point[2] = 1.0e-3;

@@ -38,6 +38,7 @@
 #include "mjpc/tasks/smpl/motion/motion.h"
 #include "mjpc/tasks/common_rig/walk/walk.h"
 #include "mjpc/tasks/common_rig/motion/motion.h"
+#include "mjpc/tasks/myosuite/walk/walk.h"
 
 // #include "mjpc/tasks/smpl_stand/smpl_stand.h"
 
@@ -67,6 +68,7 @@ std::vector<std::shared_ptr<Task>> GetTasks() {
     std::make_shared<smpl::Motion>(),
     std::make_shared<common_rig::Walk>(),
     std::make_shared<common_rig::Motion>(),
+    std::make_shared<myosuite::Walk>(),
   };
 }
 }  // namespace mjpc
