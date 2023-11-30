@@ -103,8 +103,12 @@ add_library(
   tasks/smpl/stand/stand.h
   tasks/smpl/walk/walk.cc
   tasks/smpl/walk/walk.h
+  tasks/smpl/motion/motion.cc
+  tasks/smpl/motion/motion.h
   tasks/common_rig/walk/walk.h
   tasks/common_rig/walk/walk.cc
+  tasks/common_rig/motion/motion.h
+  tasks/common_rig/motion/motion.cc
   planners/planner.cc
   planners/planner.h
   planners/policy.h

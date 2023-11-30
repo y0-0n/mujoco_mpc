@@ -46,8 +46,13 @@
 #include "mjpc/trajectory.h"
 #include "mjpc/utilities.h"
 
+#include <fstream>
+#include <nlohmann/json.hpp>
+
+
 namespace mjpc {
 namespace mju = ::mujoco::util_mjpc;
+using json = nlohmann::json;
 
 namespace {
 // ----- agent constants ----- //

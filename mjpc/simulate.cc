@@ -150,22 +150,22 @@ const char help_title[] =
 //-------------------------------- JSON -----------------------------------
 
 // yoon0-0
-void GetMotionJson(mj::Simulate* sim) {
-  std::ifstream f(sim->motion_path);
-  json data = json::parse(f);
-  // auto x1 = data["qpos"];
-  // int n = data["qpos"].size();
-  std::vector<std::vector<float>> motion_vector(data["length"], std::vector<float> (0, 0));
-  int n = 0;
-  for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
-    // std::cout << it[0] << std::endl;
-    for (float x : it[0]) {
-        motion_vector[n].push_back(x);
-    }
-    n++;
-  }
-  sim->motion = motion_vector;
-}
+// void GetMotionJson(mj::Simulate* sim) {
+//   std::ifstream f(sim->motion_path);
+//   json data = json::parse(f);
+//   // auto x1 = data["qpos"];
+//   // int n = data["qpos"].size();
+//   std::vector<std::vector<float>> motion_vector(data["length"], std::vector<float> (0, 0));
+//   int n = 0;
+//   for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
+//     // std::cout << it[0] << std::endl;
+//     for (float x : it[0]) {
+//         motion_vector[n].push_back(x);
+//     }
+//     n++;
+//   }
+//   sim->motion = motion_vector;
+// }
 
 //-------------------------------- profiler, sensor, info, watch -----------------------------------
 
@@ -2035,7 +2035,7 @@ void Simulate::InitializeRenderLoop() {
 
   // Parse Motion JSON
   // yoon0-0
-  GetMotionJson(this);
+  // GetMotionJson(this);
 
   // make empty scene
   mjv_defaultScene(&this->scn);
