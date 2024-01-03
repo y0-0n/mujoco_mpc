@@ -1,6 +1,6 @@
 <mujoco model="Humanoid Locomotion">
   <include file="../../common.xml"/>
-  <include file="../smpl_rig_rilab.xml" />
+  <include file="../scene_smpl_rig.xml" />
   <size memory="400K"/>
   <custom>
     <!-- agent -->
@@ -24,9 +24,10 @@
 
   <sensor>
     <!-- cost -->
+    <!-- <user name="Height" dim="1" user="7 5.0 0 25.0 0.1 4.0" /> -->
     <user name="Balance" dim="2" user="1 5.0 0.0 25.0 0.02 4.0" />
     <user name="Root Motion" dim="7" user="0 1.0 0.1 4.0" />
-    <user name="Joint Motion" dim="43" user="0 1.0 0.1 4.0" />
+    <user name="Joint Motion" dim="37" user="0 1.0 0.1 4.0" />
     <!-- <user name="Height" dim="1" user="7 5.0 0 25.0 0.1 4.0" />
     <user name="Pelvis/Feet" dim="1" user="8 1.0 0.0 10.0 0.05" />
     <user name="Balance" dim="2" user="1 5.0 0.0 25.0 0.02 4.0" />
@@ -38,11 +39,9 @@
 
     <!-- estimator measurements -->
     <framepos name="pelvis" objtype="site" objname="tracking[pelvis]" />
-    <framepos name="right_foot" objtype="site" objname="foot_left" />
-    <framepos name="left_foot" objtype="site" objname="foot_right" />
     <framepos name="right_hand" objtype="site" objname="tracking[rhand]" />
     <framepos name="left_hand" objtype="site" objname="tracking[lhand]" />
-    <jointpos name="abdomen_z" joint="pelvis3"/>
+    <!-- <jointpos name="abdomen_z" joint="pelvis3"/>
     <jointpos name="abdomen_y" joint="pelvis2"/>
     <jointpos name="abdomen_x" joint="pelvis1"/>
     <jointpos name="hip_x_right" joint="r_hip1"/>
@@ -62,26 +61,26 @@
     <jointpos name="elbow_right" joint="r_elbow"/>
     <jointpos name="shoulder1_left" joint="l_shoulder1"/>
     <jointpos name="shoulder2_left" joint="l_shoulder2"/>
-    <jointpos name="elbow_left" joint="l_elbow" />
+    <jointpos name="elbow_left" joint="l_elbow" /> -->
 
     <!-- trace -->
-    <framepos name="trace0" objtype="body" objname="pelvis"/>
+    <!-- <framepos name="trace0" objtype="body" objname="root"/> -->
 
     <!-- residual -->
-    <framepos name="torso_position" objtype="body" objname="spine3"/>
-    <subtreecom name="torso_subcom" body="spine3"/>
-    <subtreelinvel name="torso_subcomvel" body="spine3"/>
+    <framepos name="torso_position" objtype="body" objname="root"/>
+    <subtreecom name="torso_subcom" body="root"/>
+    <subtreelinvel name="torso_subcomvel" body="root"/>
     <framepos name="foot_right" objtype="body" objname="right_ankle"/>
     <framepos name="foot_left" objtype="body" objname="left_ankle"/>
-    <framepos name="pelvis_position" objtype="body" objname="pelvis"/>
-    <framezaxis name="torso_up" objtype="xbody" objname="spine3"/>
-    <framezaxis name="pelvis_up" objtype="xbody" objname="pelvis"/>
-    <framezaxis name="foot_right_up" objtype="xbody" objname="right_ankle"/>
+    <!-- <framepos name="pelvis_position" objtype="body" objname="pelvis"/> -->
+    <!-- <framezaxis name="torso_up" objtype="xbody" objname="root"/> -->
+    <!-- <framezaxis name="pelvis_up" objtype="xbody" objname="pelvis"/> -->
+    <!-- <framezaxis name="foot_right_up" objtype="xbody" objname="right_ankle"/>
     <framezaxis name="foot_left_up" objtype="xbody" objname="left_ankle"/>
     <framexaxis name="torso_forward" objtype="xbody" objname="spine3"/>
     <framexaxis name="pelvis_forward" objtype="xbody" objname="pelvis"/>
     <framexaxis name="foot_right_forward" objtype="xbody" objname="right_ankle"/>
-    <framexaxis name="foot_left_forward" objtype="xbody" objname="left_ankle"/>
+    <framexaxis name="foot_left_forward" objtype="xbody" objname="left_ankle"/> -->
     <!-- <subtreelinvel name="waist_lower_subcomvel" body="waist_lower"/> -->
     <framelinvel name="torso_velocity" objtype="body" objname="spine3"/>
     <framelinvel name="foot_right_velocity" objtype="body" objname="right_ankle"/>
