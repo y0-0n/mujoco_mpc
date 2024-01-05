@@ -1,7 +1,7 @@
 <mujoco model="Humanoid Locomotion">
   <include file="../../common.xml"/>
   <include file="../scene_smpl_rig.xml" />
-  <size memory="400K"/>
+  <size memory="1000K"/>
   <custom>
     <!-- agent -->
     <numeric name="agent_planner" data="2" />
@@ -10,24 +10,25 @@
     <numeric name="sampling_spline_points" data="3" />
     <numeric name="sampling_exploration" data="0.05" />
     <numeric name="gradient_spline_points" data="5" />
-    <numeric name="residual_Torso" data="1.3 0.8 1.5" />
-    <numeric name="residual_Speed" data="0.5 -3.0 3.0" />
+    <!-- <numeric name="residual_Torso" data="1.3 0.8 1.5" />
+    <numeric name="residual_Speed" data="0.5 -3.0 3.0" /> -->
 
     <!-- estimator -->
-    <numeric name="estimator" data="0" />
+    <!-- <numeric name="estimator" data="0" />
     <numeric name="estimator_sensor_start" data="8" />
     <numeric name="estimator_number_sensor" data="26" />
     <numeric name="estimator_timestep" data="0.0075" />
     <numeric name="batch_configuration_length" data="3" />
-    <numeric name="batch_scale_prior" data="1.0e-3" />
+    <numeric name="batch_scale_prior" data="1.0e-3" /> -->
   </custom>
 
   <sensor>
     <!-- cost -->
     <!-- <user name="Height" dim="1" user="7 5.0 0 25.0 0.1 4.0" /> -->
     <user name="Balance" dim="2" user="1 5.0 0.0 25.0 0.02 4.0" />
-    <user name="Root Motion" dim="7" user="0 1.0 0.1 4.0" />
+    <!-- <user name="Root Motion" dim="7" user="0 1.0 0.1 4.0" /> -->
     <user name="Joint Motion" dim="37" user="0 1.0 0.1 4.0" />
+    <!-- <user name="Joint Velocity" dim="43" user="0 1.0 0.1 4.0" /> -->
     <!-- <user name="Height" dim="1" user="7 5.0 0 25.0 0.1 4.0" />
     <user name="Pelvis/Feet" dim="1" user="8 1.0 0.0 10.0 0.05" />
     <user name="Balance" dim="2" user="1 5.0 0.0 25.0 0.02 4.0" />
@@ -82,7 +83,7 @@
     <framexaxis name="foot_right_forward" objtype="xbody" objname="right_ankle"/>
     <framexaxis name="foot_left_forward" objtype="xbody" objname="left_ankle"/> -->
     <!-- <subtreelinvel name="waist_lower_subcomvel" body="waist_lower"/> -->
-    <framelinvel name="torso_velocity" objtype="body" objname="spine3"/>
+    <framelinvel name="torso_velocity" objtype="body" objname="root"/>
     <framelinvel name="foot_right_velocity" objtype="body" objname="right_ankle"/>
     <framelinvel name="foot_left_velocity" objtype="body" objname="left_ankle"/>
   </sensor>

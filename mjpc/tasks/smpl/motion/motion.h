@@ -43,7 +43,6 @@ class Motion : public Task {
     // ----------------------------------------------------------------
     void Residual(const mjModel* model, const mjData* data,
                   double* residual) const override;
-
     // std::vector<std::vector<float>> GetMotionJson(std::string motion_path) {}
     // std::vector<std::vector<float>> GetMotionJson(std::string motion_path) override;
     // std::vector<std::vector<float>> motion_vector;

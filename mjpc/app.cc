@@ -101,12 +101,13 @@ void controller(const mjModel* m, mjData* data) {
     // if (sim->batch_size * 100 < sim->agent->state.time()) {
     if (sim->play_motion && sim->batch_horizon < 1000 && sim->batch_size < 1000*1136) {
       // std::cout << "batch in" << std::endl;
-      if (sim->motion_frame_index==0) {
-        for (int idx=0; idx < sim->agent->ActiveTask()->motion_vector[0].size(); idx++) {
-          d->qpos[idx] = sim->agent->ActiveTask()->motion_vector[0][idx];
-        }
-        sim->motion_frame_index++;
-      }
+      // assign motion
+      // if (sim->motion_frame_index==0) {
+      //   for (int idx=0; idx < sim->agent->ActiveTask()->motion_vector[0].size(); idx++) {
+      //     d->qpos[idx] = sim->agent->ActiveTask()->motion_vector[0][idx];
+      //   }
+      //   sim->motion_frame_index++;
+      // }
 
       sim->run = true;
       // action (ctrl)
@@ -141,9 +142,9 @@ void controller(const mjModel* m, mjData* data) {
     } else if (!sim->play_motion) {
       // std::cout << "no batch in" << std::endl;
       // sim->run = false;
-    } else if (sim->batch_horizon == 1000) {
+    } else if (sim->batch_horizon == 1000) { // 한번의  끝났을 때
       // std::cout << "" << std::endl;
-      sim->run = true;
+      sim->run = false;
       sim->batch_horizon = 0;
     }
   }
@@ -419,13 +420,22 @@ void PhysicsLoop(mj::Simulate& sim) {
           // still accept jobs when simulation is paused
           sim.agent->ExecuteAllRunBeforeStepJobs(m, d);
           // yoon0-0 : Play motion (Left key pressed)
-          if (m && !sim.run && sim.play_motion) {
+          if (m && sim.play_motion) {
             std::cout << sim.motion_frame_index << std::endl;
-            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector[sim.motion_frame_index].size(); idx++) {
-              d->qpos[idx] = sim.agent->ActiveTask()->motion_vector[sim.motion_frame_index][idx];
+            for (int idx=7; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+              d->qpos[idx-7] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            }
+            for (int idx=6; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
+              d->qvel[idx-6] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
             }
             usleep(50000); // 0.05s
-            sim.motion_frame_index = (sim.motion_frame_index + 1) % sim.agent->ActiveTask()->motion_vector.size();
+            // yoon0-0: fixed base
+            // d->qpos[2] += 0.2;
+
+            // initialize time
+            sim.agent->ActiveTask()->reference_time = d->time;
+            sim.agent->ActiveTask()->first_frame = sim.motion_frame_index;
+            sim.motion_frame_index = (sim.motion_frame_index + 1) % sim.agent->ActiveTask()->motion_vector_qpos.size();
           }
 
           // run mj_forward, to update rendering and joint sliders
@@ -452,16 +462,25 @@ void GetMotionJson(std::string motion_path, std::shared_ptr<mjpc::Agent> agent) 
   json data = json::parse(f);
   // auto x1 = data["qpos"];
   // int n = data["qpos"].size();
-  std::vector<std::vector<double>> motion_vector(data["length"], std::vector<double> (0, 0));
+  std::vector<std::vector<double>> motion_vector_qpos(data["length"], std::vector<double> (0, 0));
+  std::vector<std::vector<double>> motion_vector_qvel(data["length"], std::vector<double> (0, 0));
   int n = 0;
   for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
     // std::cout << it[0] << std::endl;
     for (float x : it[0]) {
-        motion_vector[n].push_back(x);
+        motion_vector_qpos[n].push_back(x);
     }
     n++;
   }
-  agent->ActiveTask()->motion_vector = motion_vector;
+  for (auto it=data["qvel"].begin();it!=data["qvel"].end();++it) {
+    // std::cout << it[0] << std::endl;
+    for (float x : it[0]) {
+        motion_vector_qvel[n].push_back(x);
+    }
+    n++;
+  }
+  agent->ActiveTask()->motion_vector_qpos = motion_vector_qpos;
+  agent->ActiveTask()->motion_vector_qvel = motion_vector_qvel;
   // return motion_vector;
 }
 
@@ -531,8 +550,8 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   sim->agent->PlotInitialize();
   // motion
   // yoon0-0
-  // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/SMPL_M02F4V1.json", sim->agent);
-  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
+  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk.json", sim->agent);
+  // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
 
   sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);
 

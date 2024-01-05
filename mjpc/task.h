@@ -146,7 +146,10 @@ class Task {
   double risk;
   
   // yoon0-0: motion
-  std::vector<std::vector<double>> motion_vector;
+  std::vector<std::vector<double>> motion_vector_qpos;
+  std::vector<std::vector<double>> motion_vector_qvel;
+  int reference_time = 0;
+  int first_frame = 0;
 
   // residual parameters
   std::vector<double> parameters;
