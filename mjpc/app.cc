@@ -99,7 +99,7 @@ void controller(const mjModel* m, mjData* data) {
         sim->agent->state.time());
     // yoon0-0
     // if (sim->batch_size * 100 < sim->agent->state.time()) {
-    if (sim->play_motion && sim->batch_horizon < 1000 && sim->batch_size < 1000*1136) {
+    if (sim->play_motion && sim->batch_horizon < 1000 && sim->batch_size < 1000*113) {
       // std::cout << "batch in" << std::endl;
       // assign motion
       // if (sim->motion_frame_index==0) {
@@ -128,11 +128,11 @@ void controller(const mjModel* m, mjData* data) {
 
       sim->batch_size++;
       sim->batch_horizon++;
-    } else if (sim->batch_size == 1000*1136) {
+    } else if (sim->batch_size == 1000*113) {
       std::cout << "End" << std::endl;
       std::ifstream f("map.json");
       if (f.good()) {
-        std::cout << "Existed" << std::endl;
+        std::cout << "file existed" << std::endl;
       } else {
         std::map<std::string, std::vector<std::vector<float>>> c_map { {"action", sim->action_batch}, {"qpos", sim->qpos_batch}, {"qvel", sim->qvel_batch} };
         json j_map(c_map);
@@ -150,7 +150,7 @@ void controller(const mjModel* m, mjData* data) {
   }
   // if noise
   if (!sim->agent->allocate_enabled && sim->uiloadrequest.load() == 0 &&
-      sim->ctrl_noise_std) {
+      sim->ctrl_noise_std) { // yoon0-0
     for (int j = 0; j < sim->m->nu; j++) {
       data->ctrl[j] += ctrlnoise[j];
     }
@@ -422,13 +422,39 @@ void PhysicsLoop(mj::Simulate& sim) {
           // yoon0-0 : Play motion (Left key pressed)
           if (m && sim.play_motion) {
             std::cout << sim.motion_frame_index << std::endl;
-            for (int idx=7; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-              d->qpos[idx-7] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            // sim.agent->Reset();
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+              if (idx > 6) {
+                d->qpos[idx] = 0;//+ctrlnoise[idx];
+              }
+              // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
             }
-            for (int idx=6; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
-              d->qvel[idx-6] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
+            d->qpos[0] = 0;
+            d->qpos[1] = 0;
+            d->qpos[2] = 0.95;
+            d->qpos[3] = 1;
+            d->qpos[4] = 0;
+            d->qpos[5] = 0;
+            d->qpos[6] = 0;
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+              if (idx > -1) {
+                d->qvel[idx] = 0;//+ctrlnoise[idx];
+              }
+              // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
             }
-            usleep(50000); // 0.05s
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+              if (idx > -1) {
+                d->qacc[idx] = 0;//+ctrlnoise[idx];
+              }
+              // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            }
+            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+            //   d->qpos[idx] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            // }
+            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
+            //   d->qvel[idx] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
+            // }
+            // usleep(50000); // 0.05s
             // yoon0-0: fixed base
             // d->qpos[2] += 0.2;
 

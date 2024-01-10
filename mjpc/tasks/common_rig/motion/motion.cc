@@ -127,7 +127,7 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
   double q_loss[42];
   for (int i = 0; i < model->nq; i++) {
     // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
-    q_loss[i] = (data->qpos)[i] - this->task_->motion_vector[tick][i];
+    q_loss[i] = (data->qpos)[i] - this->task_->motion_vector_qpos[tick][i];
   }
   // std::cout << data->time << std::endl;
 
