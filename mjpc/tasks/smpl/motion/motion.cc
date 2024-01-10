@@ -128,10 +128,10 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
   // ----- posture ----- //
   // cout << "motion: " << tick << endl;
 
-  double qpos_loss[37];
+  double qpos_loss[44];
   for (int i = 0; i < model->nq; i++) {
     // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
-    qpos_loss[i] = abs((data->qpos)[i] - this->task_->motion_vector_qpos[tick][i+7]);
+    qpos_loss[i] = abs((data->qpos)[i] - this->task_->motion_vector_qpos[tick][i]);
   }
   mju_copy(&residual[counter], qpos_loss, model->nq);
   counter += model->nq;

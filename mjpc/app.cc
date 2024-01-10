@@ -423,40 +423,38 @@ void PhysicsLoop(mj::Simulate& sim) {
           if (m && sim.play_motion) {
             std::cout << sim.motion_frame_index << std::endl;
             // sim.agent->Reset();
-            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-              if (idx > 6) {
-                d->qpos[idx] = 0;//+ctrlnoise[idx];
-              }
-              // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            }
-            d->qpos[0] = 0;
-            d->qpos[1] = 0;
-            d->qpos[2] = 0.95;
-            d->qpos[3] = 1;
-            d->qpos[4] = 0;
-            d->qpos[5] = 0;
-            d->qpos[6] = 0;
-            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-              if (idx > -1) {
-                d->qvel[idx] = 0;//+ctrlnoise[idx];
-              }
-              // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            }
-            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-              if (idx > -1) {
-                d->qacc[idx] = 0;//+ctrlnoise[idx];
-              }
-              // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            }
             // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-            //   d->qpos[idx] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            //     // d->qpos[idx] = 0;//+ctrlnoise[idx];
+            //   sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
             // }
-            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
-            //   d->qvel[idx] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
+            // d->qpos[0] = 0;
+            // d->qpos[1] = 0;
+            // d->qpos[2] = 0.95;
+            // d->qpos[3] = 1;
+            // d->qpos[4] = 0;
+            // d->qpos[5] = 0;
+            // d->qpos[6] = 0;
+            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+            //   if (idx > -1) {
+            //     d->qvel[idx] = 0;//+ctrlnoise[idx];
+            //   }
+            //   // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
             // }
+            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+            //   if (idx > -1) {
+            //     d->qacc[idx] = 0;//+ctrlnoise[idx];
+            //   }
+            //   // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            // }
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+              d->qpos[idx] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            }
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
+              d->qvel[idx] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
+            }
             // usleep(50000); // 0.05s
             // yoon0-0: fixed base
-            // d->qpos[2] += 0.2;
+            // d->qpos[2] -= 0.4;
 
             // initialize time
             sim.agent->ActiveTask()->reference_time = d->time;
@@ -491,10 +489,16 @@ void GetMotionJson(std::string motion_path, std::shared_ptr<mjpc::Agent> agent) 
   std::vector<std::vector<double>> motion_vector_qpos(data["length"], std::vector<double> (0, 0));
   std::vector<std::vector<double>> motion_vector_qvel(data["length"], std::vector<double> (0, 0));
   int n = 0;
+  
   for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
+    int m = 0;
     // std::cout << it[0] << std::endl;
     for (float x : it[0]) {
+        if (m == 2) {
+          x -= 0.2;
+        }
         motion_vector_qpos[n].push_back(x);
+        m++;
     }
     n++;
   }
