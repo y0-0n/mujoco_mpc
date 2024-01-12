@@ -49,6 +49,8 @@ using ::agent::PlannerStepRequest;
 using ::agent::PlannerStepResponse;
 using ::agent::ResetRequest;
 using ::agent::ResetResponse;
+using ::agent::SetAnythingRequest;
+using ::agent::SetAnythingResponse;
 using ::agent::SetCostWeightsRequest;
 using ::agent::SetCostWeightsResponse;
 using ::agent::SetModeRequest;
@@ -71,7 +73,7 @@ grpc::Status UiAgentService::Init(grpc::ServerContext* context,
   // fake a UI event where the task changes
   // TODO(nimrod): get rid of this hack
   mjuiItem it = {0};
-  it.itemid = 3;
+  it.itemid = 2;
   sim_->agent->TaskEvent(&it, sim_->d, sim_->uiloadrequest, sim_->run);
 
   // set real time speed
@@ -204,6 +206,16 @@ grpc::Status UiAgentService::GetMode(grpc::ServerContext* context,
                                    mjData* data) {
         return grpc_agent_util::GetMode(request, agent, response);
       });
+}
+
+grpc::Status UiAgentService::SetAnything(grpc::ServerContext* context,
+                                         const SetAnythingRequest* request,
+                                         SetAnythingResponse* response) {
+  return RunBeforeStep(context, [request, response](mjpc::Agent* agent,
+                                                    const mjModel* model,
+                                                    mjData* data) {
+    return grpc_agent_util::SetAnything(request, agent, model, data, response);
+  });
 }
 
 namespace {
