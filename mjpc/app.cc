@@ -92,6 +92,8 @@ void controller(const mjModel* m, mjData* data) {
   if (data != d) {
     return;
   }
+  // episode size
+  int planning_horizon = 1000;
   // if simulation:
   if (sim->agent->action_enabled) {
     sim->agent->ActivePlanner().ActionFromPolicy(
@@ -99,7 +101,7 @@ void controller(const mjModel* m, mjData* data) {
         sim->agent->state.time());
     // yoon0-0
     // if (sim->batch_size * 100 < sim->agent->state.time()) {
-    if (sim->play_motion && sim->batch_horizon < 1000 && sim->batch_size < 1000*113) {
+    if (sim->play_motion && sim->batch_horizon < planning_horizon && sim->batch_size < planning_horizon*113) {
       // std::cout << "batch in" << std::endl;
       // assign motion
       // if (sim->motion_frame_index==0) {
@@ -128,7 +130,7 @@ void controller(const mjModel* m, mjData* data) {
 
       sim->batch_size++;
       sim->batch_horizon++;
-    } else if (sim->batch_size == 1000*113) {
+    } else if (sim->batch_size >= planning_horizon*113) {
       std::cout << "End" << std::endl;
       std::ifstream f("map.json");
       if (f.good()) {
@@ -142,7 +144,7 @@ void controller(const mjModel* m, mjData* data) {
     } else if (!sim->play_motion) {
       // std::cout << "no batch in" << std::endl;
       // sim->run = false;
-    } else if (sim->batch_horizon == 1000) { // 한번의  끝났을 때
+    } else if (sim->batch_horizon == planning_horizon) { // 한번의  끝났을 때
       // std::cout << "" << std::endl;
       sim->run = false;
       sim->batch_horizon = 0;
@@ -488,24 +490,63 @@ void PhysicsLoop(mj::Simulate& sim) {
 void GetMotionJson(std::string motion_path, std::shared_ptr<mjpc::Agent> agent) {
   std::ifstream f(motion_path);
   json data = json::parse(f);
-  // auto x1 = data["qpos"];
-  // int n = data["qpos"].size();
+  // TODO: fix hard coding (n_body = 61)
+  // std::vector<std::vector<std::vector<double>>> motion_vector_xpos(data["length"], std::vector<std::vector<double>> (61, std::vector<double> (0, 0)));
+  std::vector<std::vector<double>> motion_vector_xpos(data["length"], std::vector<double> (0, 0));
   std::vector<std::vector<double>> motion_vector_qpos(data["length"], std::vector<double> (0, 0));
   std::vector<std::vector<double>> motion_vector_qvel(data["length"], std::vector<double> (0, 0));
-  int n = 0;
   
+  // 2d array json parsing
+  double height_offset = 0.25;
+  int n = 0;
   for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
     int m = 0;
     // std::cout << it[0] << std::endl;
     for (float x : it[0]) {
         if (m == 2) {
-          x -= 0.2;
+          x -= height_offset;
         }
         motion_vector_qpos[n].push_back(x);
         m++;
     }
     n++;
   }
+  
+  // 3d array json parsing
+  n = 0;
+  for (auto it : data["xpos"]) {
+    for (auto it_ : it) {
+      int m = 0;
+      for (float it__ : it_) {
+        if (m == 2) {
+          it__ -= height_offset;
+        }
+        motion_vector_xpos[n].push_back(it__);
+      }
+      m++;
+    }
+    n++;
+  }
+
+  // n = 0;
+  // for (auto it : data["xpos"]) {
+  //   int m = 0;
+  //   for (auto it_ : it) {
+  //     int l = 0;
+  //     for (float it__ : it_) {
+  //       if (l == 2) {
+  //         it__ -= height_offset;
+  //       }
+  //       motion_vector_xpos[n][m].push_back(it__);
+  //       l++;
+  //     }
+  //     m++;
+  //   }
+  //   n++;
+  // }
+
+  // 2d array json parsing
+  n = 0;
   for (auto it=data["qvel"].begin();it!=data["qvel"].end();++it) {
     // std::cout << it[0] << std::endl;
     for (float x : it[0]) {
@@ -513,6 +554,7 @@ void GetMotionJson(std::string motion_path, std::shared_ptr<mjpc::Agent> agent) 
     }
     n++;
   }
+  agent->ActiveTask()->motion_vector_xpos = motion_vector_xpos;
   agent->ActiveTask()->motion_vector_qpos = motion_vector_qpos;
   agent->ActiveTask()->motion_vector_qvel = motion_vector_qvel;
   // return motion_vector;
@@ -584,7 +626,7 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   sim->agent->PlotInitialize();
   // motion
   // yoon0-0
-  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk.json", sim->agent);
+  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15.json", sim->agent);
   // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
 
   sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);

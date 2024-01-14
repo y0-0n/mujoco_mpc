@@ -48,6 +48,6 @@ int main(int argc, char** argv) {
   absl::ParseCommandLine(argc, argv);
 
   // yoon0-0: start with specific task
-  mjpc::StartApp(mjpc::GetTasks(), 17);  // start with manipulation bring
+  mjpc::StartApp(mjpc::GetTasks(), 18);  // start with manipulation bring
   return 0;
 }

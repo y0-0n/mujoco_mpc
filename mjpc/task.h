@@ -146,6 +146,8 @@ class Task {
   double risk;
   
   // yoon0-0: motion
+  // std::vector<std::vector<std::vector<double>>> motion_vector_xpos;
+  std::vector<std::vector<double>> motion_vector_xpos;
   std::vector<std::vector<double>> motion_vector_qpos;
   std::vector<std::vector<double>> motion_vector_qvel;
   int reference_time = 0;
