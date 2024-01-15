@@ -16,7 +16,7 @@
 .vs/
 # Exclude temporary folders
 *.egg-info/
-build/
+build*/
 build_cmake/
 # Exclude macOS folder attributes
 .DS_Store
