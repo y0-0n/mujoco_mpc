@@ -110,6 +110,9 @@ void controller(const mjModel* m, mjData* data) {
       //   }
       //   sim->motion_frame_index++;
       // }
+      if (sim->batch_horizon == 0) {
+        usleep(5000000);
+      }
 
       sim->run = true;
       // action (ctrl)
@@ -128,7 +131,6 @@ void controller(const mjModel* m, mjData* data) {
         sim->qvel_batch[sim->batch_size].push_back(data->qvel[i]);
       }
 
-      sim->batch_size++;
       sim->batch_horizon++;
     } else if (sim->batch_size >= planning_horizon*113) {
       std::cout << "End" << std::endl;
@@ -148,6 +150,7 @@ void controller(const mjModel* m, mjData* data) {
       // std::cout << "" << std::endl;
       sim->run = false;
       sim->batch_horizon = 0;
+      sim->batch_size++;
     }
   }
   // if noise
@@ -428,39 +431,25 @@ void PhysicsLoop(mj::Simulate& sim) {
           // yoon0-0 : Play motion (Left key pressed)
           if (m && sim.play_motion) {
             std::cout << sim.motion_frame_index << std::endl;
-            // sim.agent->Reset();
-            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-            //     // d->qpos[idx] = 0;//+ctrlnoise[idx];
-            //   sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            // }
-            // d->qpos[0] = 0;
-            // d->qpos[1] = 0;
-            // d->qpos[2] = 0.95;
-            // d->qpos[3] = 1;
-            // d->qpos[4] = 0;
-            // d->qpos[5] = 0;
-            // d->qpos[6] = 0;
-            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-            //   if (idx > -1) {
-            //     d->qvel[idx] = 0;//+ctrlnoise[idx];
-            //   }
-            //   // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            // }
-            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-            //   if (idx > -1) {
-            //     d->qacc[idx] = 0;//+ctrlnoise[idx];
-            //   }
-            //   // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            // }
-            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-              d->qpos[idx] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            }
-            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
-              d->qvel[idx] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
-            }
+
+            // reset agent
+            sim.agent->Reset();
+
+            mju_zero(d->qpos, m->nq);
+
+            d->qpos[0] = 0;
+            d->qpos[1] = 0;
+            d->qpos[2] = 0.95;
+            d->qpos[3] = 1;
+            d->qpos[4] = 0;
+            d->qpos[5] = 0;
+            d->qpos[6] = 0;
+
+            mju_zero(d->ctrl, m->nu);
+            mju_zero(d->qvel, m->nv);
+            mju_zero(d->qacc, m->nv);
+
             // usleep(50000); // 0.05s
-            // yoon0-0: fixed base
-            // d->qpos[2] -= 0.4;
 
             // initialize time
             sim.agent->ActiveTask()->reference_time = d->time;
