@@ -93,7 +93,7 @@ void controller(const mjModel* m, mjData* data) {
     return;
   }
   // episode size
-  int planning_horizon = 1000;
+  int planning_horizon = 200;
   // if simulation:
   if (sim->agent->action_enabled) {
     sim->agent->ActivePlanner().ActionFromPolicy(
@@ -110,9 +110,6 @@ void controller(const mjModel* m, mjData* data) {
       //   }
       //   sim->motion_frame_index++;
       // }
-      if (sim->batch_horizon == 0) {
-        usleep(5000000);
-      }
 
       sim->run = true;
       // action (ctrl)
@@ -342,6 +339,9 @@ void PhysicsLoop(mj::Simulate& sim) {
 
         // running
         if (sim.run) {
+          if (sim.play_motion && sim.batch_horizon == 1) {
+            std::this_thread::sleep_for(std::chrono::seconds(3));
+          }
           // record cpu time at start of iteration
           const auto startCPU = mj::Simulate::Clock::now();
 
@@ -432,9 +432,6 @@ void PhysicsLoop(mj::Simulate& sim) {
           if (m && sim.play_motion) {
             std::cout << sim.motion_frame_index << std::endl;
 
-            // reset agent
-            sim.agent->Reset();
-
             mju_zero(d->qpos, m->nq);
 
             d->qpos[0] = 0;
@@ -449,7 +446,11 @@ void PhysicsLoop(mj::Simulate& sim) {
             mju_zero(d->qvel, m->nv);
             mju_zero(d->qacc, m->nv);
 
-            // usleep(50000); // 0.05s
+            // reset agent
+            // sim.agent->Initialize(m);
+            sim.agent->Reset();
+
+            // usleep(500000); // 0.05s
 
             // initialize time
             sim.agent->ActiveTask()->reference_time = d->time;
