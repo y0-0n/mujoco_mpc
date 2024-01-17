@@ -150,7 +150,7 @@ class Task {
   std::vector<std::vector<double>> motion_vector_xpos;
   std::vector<std::vector<double>> motion_vector_qpos;
   std::vector<std::vector<double>> motion_vector_qvel;
-  int reference_time = 0;
+  float reference_time = 0;
   int first_frame = 0;
 
   // residual parameters

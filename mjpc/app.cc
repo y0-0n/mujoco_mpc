@@ -93,7 +93,8 @@ void controller(const mjModel* m, mjData* data) {
     return;
   }
   // episode size
-  int planning_horizon = 200;
+  // int planning_horizon = 50;
+  // int max_batch_size = 1000;
   // if simulation:
   if (sim->agent->action_enabled) {
     sim->agent->ActivePlanner().ActionFromPolicy(
@@ -101,7 +102,7 @@ void controller(const mjModel* m, mjData* data) {
         sim->agent->state.time());
     // yoon0-0
     // if (sim->batch_size * 100 < sim->agent->state.time()) {
-    if (sim->play_motion && sim->batch_horizon < planning_horizon && sim->batch_size < planning_horizon*113) {
+    if (sim->play_motion && sim->batch_horizon < sim->planning_horizon && sim->batch_size < sim->max_batch_size) {
       // std::cout << "batch in" << std::endl;
       // assign motion
       // if (sim->motion_frame_index==0) {
@@ -113,23 +114,25 @@ void controller(const mjModel* m, mjData* data) {
 
       sim->run = true;
       // action (ctrl)
-      for (int i=0; i<m->nu; i++)
-      {
-        sim->action_batch[sim->batch_size].push_back(data->ctrl[i]);
-      }
-      // state (qpos)
-      for (int i=0; i<m->nq; i++)
-      {
-        sim->qpos_batch[sim->batch_size].push_back(data->qpos[i]);
-      }
-      // state (qvel)
-      for (int i=0; i<m->nv; i++)
-      {
-        sim->qvel_batch[sim->batch_size].push_back(data->qvel[i]);
+      if (sim->batch_horizon >= 0) {
+        for (int i=0; i<m->nu; i++)
+        {
+          sim->action_batch[sim->batch_size].push_back(data->ctrl[i]);
+        }
+        // state (qpos)
+        for (int i=0; i<m->nq; i++)
+        {
+          sim->qpos_batch[sim->batch_size].push_back(data->qpos[i]);
+        }
+        // state (qvel)
+        for (int i=0; i<m->nv; i++)
+        {
+          sim->qvel_batch[sim->batch_size].push_back(data->qvel[i]);
+        }
       }
 
       sim->batch_horizon++;
-    } else if (sim->batch_size >= planning_horizon*113) {
+    } else if (sim->batch_size >= sim->max_batch_size) {
       std::cout << "End" << std::endl;
       std::ifstream f("map.json");
       if (f.good()) {
@@ -143,10 +146,10 @@ void controller(const mjModel* m, mjData* data) {
     } else if (!sim->play_motion) {
       // std::cout << "no batch in" << std::endl;
       // sim->run = false;
-    } else if (sim->batch_horizon == planning_horizon) { // 한번의  끝났을 때
+    } else if (sim->batch_horizon == sim->planning_horizon) { // 한번의  끝났을 때
       // std::cout << "" << std::endl;
       sim->run = false;
-      sim->batch_horizon = 0;
+      sim->batch_horizon = -1;
       sim->batch_size++;
     }
   }
@@ -268,6 +271,7 @@ void PhysicsLoop(mj::Simulate& sim) {
   // cpu-sim synchronization point
   std::chrono::time_point<mj::Simulate::Clock> syncCPU;
   mjtNum syncSim = 0;
+  // bool next = true;
 
   // run until asked to exit
   while (!sim.exitrequest.load()) {
@@ -333,13 +337,17 @@ void PhysicsLoop(mj::Simulate& sim) {
     {
       // lock the sim mutex
       const std::lock_guard<std::mutex> lock(sim.mtx);
-
       if (m) {  // run only if model is present
         sim.agent->ActiveTask()->Transition(m, d);
 
         // running
         if (sim.run) {
-          if (sim.play_motion && sim.batch_horizon == 1) {
+          // if (sim.play_motion && next ) {
+          //   std::this_thread::sleep_for(std::chrono::seconds(3));
+          //   next = false;
+          // }
+          if (sim.play_motion && sim.agent->ActiveTask()->reference_time == float(d->time)) {//sim.action_batch[sim.batch_size].size() == 1850) {
+            // next = true;
             std::this_thread::sleep_for(std::chrono::seconds(3));
           }
           // record cpu time at start of iteration
