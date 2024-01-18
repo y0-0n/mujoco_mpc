@@ -48,60 +48,60 @@ std::string Motion::Name() const { return "SMPL Motion"; }
 void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
                                 double* residual) const {
   int counter = 0;
-  int tick = (this->task_->first_frame + int((data->time - this->task_->reference_time) / 0.0083)) % 298; // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
+  int tick = (this->task_->first_frame + int((data->time - this->task_->reference_time) / 0.0083)) % 470; // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
   // cout << tick << endl;
   // this->task_->batch_horizon = 1;
 
-  // ----- torso height ----- //
-  double torso_height = SensorByName(model, data, "torso_position")[2];
-  // residual[counter++] = torso_height - parameters_[0];
+  // // ----- torso height ----- //
+  // double torso_height = SensorByName(model, data, "torso_position")[2];
+  // // residual[counter++] = torso_height - parameters_[0];
 
-  // // ----- pelvis / feet ----- //
-  double* foot_right = SensorByName(model, data, "foot_right");
-  double* foot_left = SensorByName(model, data, "foot_left");
-  // double pelvis_height = SensorByName(model, data, "pelvis_position")[2];
-  // residual[counter++] =
-  //     0.5 * (foot_left[2] + foot_right[2]) - pelvis_height - 0.2;
+  // // // ----- pelvis / feet ----- //
+  // double* foot_right = SensorByName(model, data, "foot_right");
+  // double* foot_left = SensorByName(model, data, "foot_left");
+  // // double pelvis_height = SensorByName(model, data, "pelvis_position")[2];
+  // // residual[counter++] =
+  // //     0.5 * (foot_left[2] + foot_right[2]) - pelvis_height - 0.2;
 
-  // // ----- balance ----- //
-  // capture point
-  double* subcom = SensorByName(model, data, "torso_subcom");
-  double* subcomvel = SensorByName(model, data, "torso_subcomvel");
+  // // // ----- balance ----- //
+  // // capture point
+  // double* subcom = SensorByName(model, data, "torso_subcom");
+  // double* subcomvel = SensorByName(model, data, "torso_subcomvel");
 
-  double capture_point[3];
-  mju_addScl(capture_point, subcom, subcomvel, 0.3, 3);
-  capture_point[2] = 1.0e-3;
+  // double capture_point[3];
+  // mju_addScl(capture_point, subcom, subcomvel, 0.3, 3);
+  // capture_point[2] = 1.0e-3;
 
-  // project onto line segment
+  // // project onto line segment
 
-  double axis[3];
-  double center[3];
-  double vec[3];
-  double pcp[3];
-  mju_sub3(axis, foot_right, foot_left);
-  axis[2] = 1.0e-3;
-  double length = 0.5 * mju_normalize3(axis) - 0.05;
-  mju_add3(center, foot_right, foot_left);
-  mju_scl3(center, center, 0.5);
-  mju_sub3(vec, capture_point, center);
+  // double axis[3];
+  // double center[3];
+  // double vec[3];
+  // double pcp[3];
+  // mju_sub3(axis, foot_right, foot_left);
+  // axis[2] = 1.0e-3;
+  // double length = 0.5 * mju_normalize3(axis) - 0.05;
+  // mju_add3(center, foot_right, foot_left);
+  // mju_scl3(center, center, 0.5);
+  // mju_sub3(vec, capture_point, center);
 
-  // project onto axis
-  double t = mju_dot3(vec, axis);
+  // // project onto axis
+  // double t = mju_dot3(vec, axis);
 
-  // clamp
-  t = mju_max(-length, mju_min(length, t));
-  mju_scl3(vec, axis, t);
-  mju_add3(pcp, vec, center);
-  pcp[2] = 1.0e-3;
+  // // clamp
+  // t = mju_max(-length, mju_min(length, t));
+  // mju_scl3(vec, axis, t);
+  // mju_add3(pcp, vec, center);
+  // pcp[2] = 1.0e-3;
 
-  // is standing
-  double standing =
-      torso_height / mju_sqrt(torso_height * torso_height + 0.45 * 0.45) - 0.4;
+  // // is standing
+  // double standing =
+  //     torso_height / mju_sqrt(torso_height * torso_height + 0.45 * 0.45) - 0.4;
 
-  mju_sub(&residual[counter], capture_point, pcp, 2);
-  mju_scl(&residual[counter], &residual[counter], standing, 2);
+  // mju_sub(&residual[counter], capture_point, pcp, 2);
+  // mju_scl(&residual[counter], &residual[counter], standing, 2);
 
-  counter += 2;
+  // counter += 2;
 
   // // ----- upright ----- //
   // double* torso_up = SensorByName(model, data, "torso_up");
@@ -135,6 +135,18 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
   }
   mju_copy(&residual[counter], qpos_loss, model->nq);
   counter += model->nq;
+
+  double xpos_loss[61] = {0};
+  for (int i = 0; i < model->nbody-1; i++) {
+    xpos_loss[i] += abs((data->xpos[3*i+3]) - this->task_->motion_vector_xpos[tick][3*i]);
+    xpos_loss[i] += abs((data->xpos[3*i+4]) - this->task_->motion_vector_xpos[tick][3*i+1]);
+    xpos_loss[i] += abs((data->xpos[3*i+5]) - this->task_->motion_vector_xpos[tick][3*i+2]);
+  }
+  // TODO: fix hard coding (n_body=61)
+  mju_scl(xpos_loss, xpos_loss, 1./3., 61);
+  mju_copy(&residual[counter], xpos_loss, 61);
+  counter += model->nbody-1;
+  
 
   // ----- joint velocity ----- //
   // double qvel_loss[43];

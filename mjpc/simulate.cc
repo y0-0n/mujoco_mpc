@@ -42,9 +42,7 @@
 // box to ask the user where to put the file. Since the dialog box logic needs
 // to be written in Cost-C, we separate it into a different source file.
 #ifdef __APPLE__
-std::string GetSavePath(const char* filename) {
-  return filename;
-}
+std::string GetSavePath(const char* filename);
 #else
 static std::string GetSavePath(const char* filename) {
   return filename;
