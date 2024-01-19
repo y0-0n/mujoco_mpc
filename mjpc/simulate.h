@@ -94,7 +94,7 @@ class MJSIMULATEAPI Simulate {
   // std::string motion_path = "/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/SMPL_M02F4V1.json";
   // yoon0-0 : 
   int planning_horizon = 100;
-  int max_batch_size = 1000;
+  int max_batch_size = 100;
   std::vector<std::vector<float>> motion;
   std::vector<std::vector<float>> action_batch = std::vector<std::vector<float>> (max_batch_size, std::vector<float> (0, 0));
   std::vector<std::vector<float>> qpos_batch = std::vector<std::vector<float>> (max_batch_size, std::vector<float> (0, 0));;
@@ -159,6 +159,11 @@ class MJSIMULATEAPI Simulate {
   double ctrl_noise_std = 0.0;
   double ctrl_noise_rate = 0.0;
 
+  // yoon0-0 : qpos noise
+  double qpos_noise_std = 0.0;
+  double qpos_noise_rate = 0.0;
+
+
   // watch
   char field[mjMAXUITEXT] = "qpos";
   int index = 0;
@@ -217,7 +222,7 @@ class MJSIMULATEAPI Simulate {
 
 
   // simulation section of UI
-  const mjuiDef def_simulation[12] = {
+  const mjuiDef def_simulation[14] = {
     {mjITEM_SECTION,   "Simulation",    0, nullptr,              "AS"},
     {mjITEM_RADIO,     "",              2, &this->run,           "Pause\nRun"},
     {mjITEM_BUTTON,    "Reset",         2, nullptr,              " #259"},
@@ -229,6 +234,8 @@ class MJSIMULATEAPI Simulate {
     {mjITEM_BUTTON,    "Save key",      3},
     {mjITEM_SLIDERNUM, "Noise scale",   2, &this->ctrl_noise_std,  "0 2"},
     {mjITEM_SLIDERNUM, "Noise rate",    2, &this->ctrl_noise_rate, "0 2"},
+    {mjITEM_SLIDERNUM, "Noise scale (qpos)",   2, &this->ctrl_noise_std,  "0 2"},
+    {mjITEM_SLIDERNUM, "Noise rate (qpos)",    2, &this->ctrl_noise_rate, "0 2"},
     {mjITEM_END}
   };
 

@@ -73,6 +73,7 @@ mjData* d = nullptr;
 
 // control noise variables
 mjtNum* ctrlnoise = nullptr;
+mjtNum* qposnoise = nullptr;
 
 using Seconds = std::chrono::duration<double>;
 using namespace mujoco;
@@ -158,6 +159,14 @@ void controller(const mjModel* m, mjData* data) {
       sim->ctrl_noise_std) { // yoon0-0
     for (int j = 0; j < sim->m->nu; j++) {
       data->ctrl[j] += ctrlnoise[j];
+    }
+  }
+
+  // yoon0-0
+  if (!sim->agent->allocate_enabled && sim->uiloadrequest.load() == 0 &&
+      sim->qpos_noise_std) { 
+    for (int j = 0; j < sim->m->nq; j++) {
+      data->qpos[j] += qposnoise[j];
     }
   }
 }
@@ -312,6 +321,12 @@ void PhysicsLoop(mj::Simulate& sim) {
         free(ctrlnoise);
         ctrlnoise = static_cast<mjtNum*>(malloc(sizeof(mjtNum) * m->nu));
         mju_zero(ctrlnoise, m->nu);
+
+        // yoon0-0
+        free(qposnoise);
+        qposnoise = static_cast<mjtNum*>(malloc(sizeof(mjtNum) * (m->nq)));
+        mju_zero(qposnoise, m->nq);
+
       }
 
       // decrement counter
@@ -371,6 +386,21 @@ void PhysicsLoop(mj::Simulate& sim) {
               // noise added in controller callback
             }
           }
+          // yoon0-0
+          if (sim.qpos_noise_std) {
+            // convert rate and scale to discrete time (Ornstein–Uhlenbeck)
+            mjtNum rate = mju_exp(-m->opt.timestep / sim.qpos_noise_rate);
+            mjtNum scale = sim.qpos_noise_std * mju_sqrt(1 - rate * rate);
+
+            for (int i = 0; i < m->nq; i++) {
+              // update noise
+              qposnoise[i] =
+                  rate * qposnoise[i] + scale * mju_standardNormal(nullptr);
+
+              // noise added in controller callback
+            }
+          }
+
 
           // requested slow-down factor
           double slowdown = 100 / sim.percentRealTime[sim.real_time_index];
@@ -616,6 +646,12 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   ctrlnoise = (mjtNum*)malloc(sizeof(mjtNum) * m->nu);
   mju_zero(ctrlnoise, m->nu);
 
+  // yoon0-0
+  free(qposnoise);
+  qposnoise = static_cast<mjtNum*>(malloc(sizeof(mjtNum) * (m->nq)));
+  mju_zero(qposnoise, m->nq);
+
+
   // agent
   sim->agent->estimator_enabled = absl::GetFlag(FLAGS_estimator_enabled);
   sim->agent->Initialize(m);
@@ -624,7 +660,7 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   sim->agent->PlotInitialize();
   // motion
   // yoon0-0
-  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15.json", sim->agent);
+  GetMotionJson("/home/yoonbyeong/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15.json", sim->agent);
   // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
 
   sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);
