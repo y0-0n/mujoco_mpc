@@ -93,7 +93,7 @@ class MJSIMULATEAPI Simulate {
   mjData* d = nullptr;
   // std::string motion_path = "/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/SMPL_M02F4V1.json";
   // yoon0-0 : 
-  int planning_horizon = 100;
+  int planning_horizon = 300;
   int max_batch_size = 100;
   std::vector<std::vector<float>> motion;
   std::vector<std::vector<float>> action_batch = std::vector<std::vector<float>> (max_batch_size, std::vector<float> (0, 0));
@@ -234,8 +234,8 @@ class MJSIMULATEAPI Simulate {
     {mjITEM_BUTTON,    "Save key",      3},
     {mjITEM_SLIDERNUM, "Noise scale",   2, &this->ctrl_noise_std,  "0 2"},
     {mjITEM_SLIDERNUM, "Noise rate",    2, &this->ctrl_noise_rate, "0 2"},
-    {mjITEM_SLIDERNUM, "Noise scale (qpos)",   2, &this->ctrl_noise_std,  "0 2"},
-    {mjITEM_SLIDERNUM, "Noise rate (qpos)",    2, &this->ctrl_noise_rate, "0 2"},
+    {mjITEM_SLIDERNUM, "Noise scale (qpos)",   2, &this->qpos_noise_std,  "0 0.01"},
+    {mjITEM_SLIDERNUM, "Noise rate (qpos)",    2, &this->qpos_noise_rate, "0 0.01"},
     {mjITEM_END}
   };
 
