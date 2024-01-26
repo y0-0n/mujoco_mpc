@@ -468,22 +468,13 @@ void PhysicsLoop(mj::Simulate& sim) {
           sim.agent->ExecuteAllRunBeforeStepJobs(m, d);
           // yoon0-0 : Play motion (Left key pressed)
           if (m && sim.play_motion) {
-            std::cout << sim.motion_frame_index << std::endl;
 
-            mju_zero(d->qpos, m->nq);
-
-            d->qpos[0] = 0;
-            d->qpos[1] = 0;
-            d->qpos[2] = 0.95;
-            d->qpos[3] = 1;
-            d->qpos[4] = 0;
-            d->qpos[5] = 0;
-            d->qpos[6] = 0;
-
-            mju_zero(d->ctrl, m->nu);
-            mju_zero(d->qvel, m->nv);
-            mju_zero(d->qacc, m->nv);
-
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
+              d->qpos[idx] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
+            }
+            for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
+              d->qvel[idx] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
+            }
             // reset agent
             // sim.agent->Initialize(m);
             sim.agent->Reset();
