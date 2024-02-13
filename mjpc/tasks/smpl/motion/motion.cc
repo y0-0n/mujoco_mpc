@@ -48,7 +48,12 @@ std::string Motion::Name() const { return "SMPL Motion"; }
 void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
                                 double* residual) const {
   int counter = 0;
+<<<<<<< HEAD
   int tick = min((this->task_->first_frame + int((data->time - this->task_->reference_time) / 0.002)), 1954); // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
+=======
+  int tick = (this->task_->first_frame + int((data->time - this->task_->reference_time) / 0.0083)) % 470; // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
+  tick = max(0, tick);
+>>>>>>> e1669ed715cebdc93fd3960e7a8ee78f6b657710
   // cout << tick << endl;
   // this->task_->batch_horizon = 1;
 
@@ -136,16 +141,19 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
   mju_copy(&residual[counter], qpos_loss, model->nq);
   counter += model->nq;
 
-  double xpos_loss[61] = {0};
-  for (int i = 0; i < model->nbody-1; i++) {
-    xpos_loss[i] += abs((data->xpos[3*i+3]) - this->task_->motion_vector_xpos[tick][3*i]);
-    xpos_loss[i] += abs((data->xpos[3*i+4]) - this->task_->motion_vector_xpos[tick][3*i+1]);
-    xpos_loss[i] += abs((data->xpos[3*i+5]) - this->task_->motion_vector_xpos[tick][3*i+2]);
+  double xpos_loss[21] = {0};
+  int body_idx[21] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 31, 32, 33, 34, 55, 56, 57, 58, 59, 60}; // Exclude hand
+  // for (int i = 0; i < model->nbody-1; i++) {
+  for (int i = 0; i < 21; i++) {
+    int idx = body_idx[i];
+    xpos_loss[idx] += abs((data->xpos[3*idx+3]) - this->task_->motion_vector_xpos[tick][3*idx]);
+    xpos_loss[idx] += abs((data->xpos[3*idx+4]) - this->task_->motion_vector_xpos[tick][3*idx+1]);
+    xpos_loss[idx] += abs((data->xpos[3*idx+5]) - this->task_->motion_vector_xpos[tick][3*idx+2]);
   }
   // TODO: fix hard coding (n_body=61)
-  mju_scl(xpos_loss, xpos_loss, 1./3., 61);
-  mju_copy(&residual[counter], xpos_loss, 61);
-  counter += model->nbody-1;
+  mju_scl(xpos_loss, xpos_loss, 1./3., 21);
+  mju_copy(&residual[counter], xpos_loss, 21);
+  counter += 21;
   
 
   // ----- joint velocity ----- //

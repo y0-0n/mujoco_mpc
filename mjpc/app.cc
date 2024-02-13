@@ -73,6 +73,7 @@ mjData* d = nullptr;
 
 // control noise variables
 mjtNum* ctrlnoise = nullptr;
+mjtNum* qposnoise = nullptr;
 
 using Seconds = std::chrono::duration<double>;
 using namespace mujoco;
@@ -93,7 +94,8 @@ void controller(const mjModel* m, mjData* data) {
     return;
   }
   // episode size
-  int planning_horizon = 500;
+  // int planning_horizon = 50;
+  // int max_batch_size = 1000;
   // if simulation:
   if (sim->agent->action_enabled) {
     sim->agent->ActivePlanner().ActionFromPolicy(
@@ -101,7 +103,7 @@ void controller(const mjModel* m, mjData* data) {
         sim->agent->state.time());
     // yoon0-0
     // if (sim->batch_size * 100 < sim->agent->state.time()) {
-    if (sim->play_motion && sim->batch_horizon < planning_horizon && sim->batch_size < planning_horizon*113) {
+    if (sim->play_motion && sim->batch_horizon < sim->planning_horizon && sim->batch_size < sim->max_batch_size) {
       // std::cout << "batch in" << std::endl;
       // assign motion
       // if (sim->motion_frame_index==0) {
@@ -113,24 +115,25 @@ void controller(const mjModel* m, mjData* data) {
 
       sim->run = true;
       // action (ctrl)
-      for (int i=0; i<m->nu; i++)
-      {
-        sim->action_batch[sim->batch_size].push_back(data->ctrl[i]);
-      }
-      // state (qpos)
-      for (int i=0; i<m->nq; i++)
-      {
-        sim->qpos_batch[sim->batch_size].push_back(data->qpos[i]);
-      }
-      // state (qvel)
-      for (int i=0; i<m->nv; i++)
-      {
-        sim->qvel_batch[sim->batch_size].push_back(data->qvel[i]);
+      if (sim->batch_horizon >= 0) {
+        for (int i=0; i<m->nu; i++)
+        {
+          sim->action_batch[sim->batch_size].push_back(data->ctrl[i]);
+        }
+        // state (qpos)
+        for (int i=0; i<m->nq; i++)
+        {
+          sim->qpos_batch[sim->batch_size].push_back(data->qpos[i]);
+        }
+        // state (qvel)
+        for (int i=0; i<m->nv; i++)
+        {
+          sim->qvel_batch[sim->batch_size].push_back(data->qvel[i]);
+        }
       }
 
-      sim->batch_size++;
       sim->batch_horizon++;
-    } else if (sim->batch_size >= planning_horizon*113) {
+    } else if (sim->batch_size >= sim->max_batch_size) {
       std::cout << "End" << std::endl;
       std::ifstream f("map.json");
       if (f.good()) {
@@ -144,10 +147,11 @@ void controller(const mjModel* m, mjData* data) {
     } else if (!sim->play_motion) {
       // std::cout << "no batch in" << std::endl;
       // sim->run = false;
-    } else if (sim->batch_horizon == planning_horizon) { // 한번의  끝났을 때
+    } else if (sim->batch_horizon == sim->planning_horizon) { // 한번의  끝났을 때
       // std::cout << "" << std::endl;
       sim->run = false;
-      sim->batch_horizon = 0;
+      sim->batch_horizon = -1;
+      sim->batch_size++;
     }
   }
   // if noise
@@ -155,6 +159,14 @@ void controller(const mjModel* m, mjData* data) {
       sim->ctrl_noise_std) { // yoon0-0
     for (int j = 0; j < sim->m->nu; j++) {
       data->ctrl[j] += ctrlnoise[j];
+    }
+  }
+
+  // yoon0-0
+  if (!sim->agent->allocate_enabled && sim->uiloadrequest.load() == 0 &&
+      sim->qpos_noise_std) { 
+    for (int j = 7; j < sim->m->nq; j++) {
+      data->qpos[j] += qposnoise[j];
     }
   }
 }
@@ -268,6 +280,7 @@ void PhysicsLoop(mj::Simulate& sim) {
   // cpu-sim synchronization point
   std::chrono::time_point<mj::Simulate::Clock> syncCPU;
   mjtNum syncSim = 0;
+  // bool next = true;
 
   // run until asked to exit
   while (!sim.exitrequest.load()) {
@@ -308,6 +321,12 @@ void PhysicsLoop(mj::Simulate& sim) {
         free(ctrlnoise);
         ctrlnoise = static_cast<mjtNum*>(malloc(sizeof(mjtNum) * m->nu));
         mju_zero(ctrlnoise, m->nu);
+
+        // yoon0-0
+        free(qposnoise);
+        qposnoise = static_cast<mjtNum*>(malloc(sizeof(mjtNum) * (m->nq)));
+        mju_zero(qposnoise, m->nq);
+
       }
 
       // decrement counter
@@ -333,12 +352,19 @@ void PhysicsLoop(mj::Simulate& sim) {
     {
       // lock the sim mutex
       const std::lock_guard<std::mutex> lock(sim.mtx);
-
       if (m) {  // run only if model is present
         sim.agent->ActiveTask()->Transition(m, d);
 
         // running
         if (sim.run) {
+          // if (sim.play_motion && next ) {
+          //   std::this_thread::sleep_for(std::chrono::seconds(3));
+          //   next = false;
+          // }
+          if (sim.play_motion && sim.agent->ActiveTask()->reference_time == float(d->time)) {//sim.action_batch[sim.batch_size].size() == 1850) {
+            // next = true;
+            std::this_thread::sleep_for(std::chrono::seconds(3));
+          }
           // record cpu time at start of iteration
           const auto startCPU = mj::Simulate::Clock::now();
 
@@ -360,6 +386,21 @@ void PhysicsLoop(mj::Simulate& sim) {
               // noise added in controller callback
             }
           }
+          // yoon0-0
+          if (sim.qpos_noise_std) {
+            // convert rate and scale to discrete time (Ornstein–Uhlenbeck)
+            mjtNum rate = mju_exp(-m->opt.timestep / sim.qpos_noise_rate);
+            mjtNum scale = sim.qpos_noise_std * mju_sqrt(1 - rate * rate);
+
+            for (int i = 0; i < m->nq; i++) {
+              // update noise
+              qposnoise[i] =
+                  rate * qposnoise[i] + scale * mju_standardNormal(nullptr);
+
+              // noise added in controller callback
+            }
+          }
+
 
           // requested slow-down factor
           double slowdown = 100 / sim.percentRealTime[sim.real_time_index];
@@ -427,40 +468,18 @@ void PhysicsLoop(mj::Simulate& sim) {
           sim.agent->ExecuteAllRunBeforeStepJobs(m, d);
           // yoon0-0 : Play motion (Left key pressed)
           if (m && sim.play_motion) {
-            std::cout << sim.motion_frame_index << std::endl;
-            // sim.agent->Reset();
-            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-            //     // d->qpos[idx] = 0;//+ctrlnoise[idx];
-            //   sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            // }
-            // d->qpos[0] = 0;
-            // d->qpos[1] = 0;
-            // d->qpos[2] = 0.95;
-            // d->qpos[3] = 1;
-            // d->qpos[4] = 0;
-            // d->qpos[5] = 0;
-            // d->qpos[6] = 0;
-            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-            //   if (idx > -1) {
-            //     d->qvel[idx] = 0;//+ctrlnoise[idx];
-            //   }
-            //   // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            // }
-            // for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
-            //   if (idx > -1) {
-            //     d->qacc[idx] = 0;//+ctrlnoise[idx];
-            //   }
-            //   // sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
-            // }
+
             for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index].size(); idx++) {
               d->qpos[idx] = sim.agent->ActiveTask()->motion_vector_qpos[sim.motion_frame_index][idx];
             }
             for (int idx=0; idx < sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index].size(); idx++) {
               d->qvel[idx] = sim.agent->ActiveTask()->motion_vector_qvel[sim.motion_frame_index][idx];
             }
-            // usleep(50000); // 0.05s
-            // yoon0-0: fixed base
-            // d->qpos[2] -= 0.4;
+            // reset agent
+            // sim.agent->Initialize(m);
+            sim.agent->Reset();
+
+            // usleep(500000); // 0.05s
 
             // initialize time
             sim.agent->ActiveTask()->reference_time = d->time;
@@ -618,6 +637,12 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   ctrlnoise = (mjtNum*)malloc(sizeof(mjtNum) * m->nu);
   mju_zero(ctrlnoise, m->nu);
 
+  // yoon0-0
+  free(qposnoise);
+  qposnoise = static_cast<mjtNum*>(malloc(sizeof(mjtNum) * (m->nq)));
+  mju_zero(qposnoise, m->nq);
+
+
   // agent
   sim->agent->estimator_enabled = absl::GetFlag(FLAGS_estimator_enabled);
   sim->agent->Initialize(m);
@@ -626,7 +651,7 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   sim->agent->PlotInitialize();
   // motion
   // yoon0-0
-  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15_zpos_edited.json", sim->agent);
+  GetMotionJson("/home/yoonbyeong/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15_zpos_edited.json", sim->agent);
   // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
 
   sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);

@@ -448,9 +448,9 @@
                         <site name="foot_left" pos=".05 -.03 -0.05" type="sphere" rgba="0 1 0 1"  size=".027"/>
                         <site name="sp0" pos="-.07 0 -0.05" type="sphere" size=".027"/>
                         <site name="sp1" pos=".14 0 -0.05" type="sphere" size=".027"/>
-                        <joint name="l_ankle1" type="hinge" pos="0 0 0" axis="0 1 0" range="-0.3 0.3"  armature="0.0008" class="ankle_y"/>
-                        <joint name="l_ankle2" type="hinge" pos="0 0 0" axis="1 0 0" range="-0.3 0.3" armature="0.0006" class="ankle_x"/>
-                        <joint name="l_ankle3" type="hinge" pos="0 0 0" axis="0 0 1" range="-0.3 0.3" armature="0.0006" />
+                        <joint name="l_ankle1" type="hinge" pos="0 0 0" axis="0 1 0" range="-1.3 1.3"  armature="0.0008" class="ankle_y"/>
+                        <joint name="l_ankle2" type="hinge" pos="0 0 0" axis="1 0 0" range="-1.3 1.3" armature="0.0006" class="ankle_x"/>
+                        <joint name="l_ankle3" type="hinge" pos="0 0 0" axis="0 0 1" range="-1.3 1.3" armature="0.0006" />
                     </body>
                 </body>
             </body>
@@ -475,9 +475,9 @@
                         <site name="foot_right" pos=".05 .03 -0.05" type="sphere" size=".027" rgba="0 1 0 1" />
                         <site name="sp2" pos="-.07 0 -0.05" type="sphere" size=".027"/>
                         <site name="sp3" pos=".14 0 -0.05" type="sphere" size=".027"/>
-                        <joint name="r_ankle1" type="hinge" pos="0 0 0" axis="0 1 0" range="-0.3 0.3" armature="0.0008" class="ankle_y"/>
-                        <joint name="r_ankle2" type="hinge" pos="0 0 0" axis="1 0 0" range="-0.3 0.3" armature="0.0006" class="ankle_x"/>
-                        <joint name="r_ankle3" type="hinge" pos="0 0 0" axis="0 0 1" range="-0.3 0.3" armature="0.0006" />
+                        <joint name="r_ankle1" type="hinge" pos="0 0 0" axis="0 1 0" range="-1.3 1.3" armature="0.0008" class="ankle_y"/>
+                        <joint name="r_ankle2" type="hinge" pos="0 0 0" axis="1 0 0" range="-1.3 1.3" armature="0.0006" class="ankle_x"/>
+                        <joint name="r_ankle3" type="hinge" pos="0 0 0" axis="0 0 1" range="-1.3 1.3" armature="0.0006" />
                     </body>
                 </body>
             </body>
