@@ -93,7 +93,7 @@ void controller(const mjModel* m, mjData* data) {
     return;
   }
   // episode size
-  int planning_horizon = 1000;
+  int planning_horizon = 500;
   // if simulation:
   if (sim->agent->action_enabled) {
     sim->agent->ActivePlanner().ActionFromPolicy(
@@ -497,7 +497,7 @@ void GetMotionJson(std::string motion_path, std::shared_ptr<mjpc::Agent> agent) 
   std::vector<std::vector<double>> motion_vector_qvel(data["length"], std::vector<double> (0, 0));
   
   // 2d array json parsing
-  double height_offset = 0.25;
+  double height_offset = 0.0;
   int n = 0;
   for (auto it=data["qpos"].begin();it!=data["qpos"].end();++it) {
     int m = 0;
@@ -626,7 +626,7 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   sim->agent->PlotInitialize();
   // motion
   // yoon0-0
-  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15.json", sim->agent);
+  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15_zpos_edited.json", sim->agent);
   // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
 
   sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);

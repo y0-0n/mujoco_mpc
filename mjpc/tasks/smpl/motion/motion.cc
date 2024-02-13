@@ -48,7 +48,7 @@ std::string Motion::Name() const { return "SMPL Motion"; }
 void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
                                 double* residual) const {
   int counter = 0;
-  int tick = (this->task_->first_frame + int((data->time - this->task_->reference_time) / 0.0083)) % 470; // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
+  int tick = min((this->task_->first_frame + int((data->time - this->task_->reference_time) / 0.002)), 1954); // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
   // cout << tick << endl;
   // this->task_->batch_horizon = 1;
 
@@ -149,13 +149,13 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
   
 
   // ----- joint velocity ----- //
-  // double qvel_loss[43];
-  // for (int i = 0; i < model->nq; i++) {
-  //   // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
-  //   qvel_loss[i] = abs((data->qvel)[i] - this->task_->motion_vector_qvel[tick][i]);
-  // }
-  // mju_copy(&residual[counter], qvel_loss, model->nv);
-  // counter += model->nv;
+  double qvel_loss[43];
+  for (int i = 0; i < model->nq; i++) {
+    // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
+    qvel_loss[i] = abs((data->qvel)[i] - this->task_->motion_vector_qvel[tick][i]);
+  }
+  mju_copy(&residual[counter], qvel_loss, model->nv);
+  counter += model->nv;
 
   // // ----- walk ----- //
   // double* torso_forward = SensorByName(model, data, "torso_forward");
