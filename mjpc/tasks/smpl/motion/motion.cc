@@ -48,8 +48,9 @@ std::string Motion::Name() const { return "SMPL Motion"; }
 void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
                                 double* residual) const {
   int counter = 0;
-  int tick = (this->task_->first_frame + int((data->time - this->task_->reference_time) / 0.0083)) % 470; // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
-  tick = max(0, tick);
+  int tick = min((this->task_->first_frame + max(int((data->time - this->task_->reference_time) / 0.002), 0)), 1954); // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
+  // cout << tick << endl;
+  // this->task_->batch_horizon = 1;
 
   double qpos_loss[42];
   for (int i = 2; i < model->nq; i++) {
@@ -72,7 +73,7 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
     }
     // xpos_loss[idx] += abs((data->xpos[3*idx+3]) - this->task_->motion_vector_xpos[tick][3*idx]);
     // xpos_loss[idx] += abs((data->xpos[3*idx+4]) - this->task_->motion_vector_xpos[tick][3*idx+1]);
-    xpos_loss[idx] += abs((data->xpos[3*idx+5]) - this->task_->motion_vector_xpos[tick][3*idx+2]);
+    xpos_loss[i] += abs((data->xpos[3*idx+5]) - this->task_->motion_vector_xpos[tick][3*idx+2]);
   }
   // TODO: fix hard coding (n_body=61)
   mju_scl(xpos_loss, xpos_loss, 1./3., 21);
@@ -81,13 +82,13 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
   
 
   // ----- joint velocity ----- //
-  // double qvel_loss[43];
-  // for (int i = 0; i < model->nq; i++) {
-  //   // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
-  //   qvel_loss[i] = abs((data->qvel)[i] - this->task_->motion_vector_qvel[tick][i]);
-  // }
-  // mju_copy(&residual[counter], qvel_loss, model->nv);
-  // counter += model->nv;
+  double qvel_loss[43];
+  for (int i = 0; i < model->nq; i++) {
+    // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
+    qvel_loss[i] = abs((data->qvel)[i] - this->task_->motion_vector_qvel[tick][i]);
+  }
+  mju_copy(&residual[counter], qvel_loss, model->nv);
+  counter += model->nv;
 
   // sensor dim sanity check
   // TODO: use this pattern everywhere and make this a utility function

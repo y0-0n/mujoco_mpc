@@ -93,8 +93,8 @@ class MJSIMULATEAPI Simulate {
   mjData* d = nullptr;
   // std::string motion_path = "/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/SMPL_M02F4V1.json";
   // yoon0-0 : 
-  int planning_horizon = 460;
-  int max_batch_size = 1;
+  int planning_horizon = 500;
+  int max_batch_size = 1954;
   std::vector<std::vector<float>> motion;
   std::vector<std::vector<float>> action_batch = std::vector<std::vector<float>> (max_batch_size, std::vector<float> (0, 0));
   std::vector<std::vector<float>> qpos_batch = std::vector<std::vector<float>> (max_batch_size, std::vector<float> (0, 0));;
