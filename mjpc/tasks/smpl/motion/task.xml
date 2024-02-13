@@ -31,7 +31,8 @@
     <!-- cost -->
     <!-- <user name="Height" dim="1" user="7 5.0 0 25.0 0.1 4.0" /> -->
     <!-- <user name="Balance" dim="2" user="1 5.0 0.0 25.0 0.02 4.0" /> -->
-    <user name="Root Motion" dim="7" user="0 1.0 0.1 4.0" />
+    <user name="Root Position" dim="1" user="0 1.0 0.1 4.0" />
+    <user name="Root Rotation" dim="4" user="0 1.0 0.1 4.0" />
     <user name="Joint Motion" dim="37" user="0 1.0 0.1 4.0" />
     <user name="Task Space" dim="21" user="0 0.1 0.001 1.0" />
     <!-- <user name="Joint Velocity" dim="43" user="0 1.0 0.1 4.0" /> -->
