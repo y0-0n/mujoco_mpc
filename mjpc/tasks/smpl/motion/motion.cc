@@ -48,7 +48,7 @@ std::string Motion::Name() const { return "SMPL Motion"; }
 void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
                                 double* residual) const {
   int counter = 0;
-  int tick = min((this->task_->first_frame + max(int((data->time - this->task_->reference_time) / 0.002), 0)), 1954); // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
+  int tick = min((this->task_->first_frame + max(int((data->time - this->task_->reference_time) / 0.002), 0)), 1311); // this->task_->batch_horizon % 299; // int(data->time / 0.0083333);
   // cout << tick << endl;
   // this->task_->batch_horizon = 1;
 
@@ -67,12 +67,12 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
     int idx = body_idx[i];
     if (idx == 57 || idx == 60) {
       if (data->xpos[3*idx+5] <= 0.14) {
-          xpos_loss[idx] = 0;
+          xpos_loss[i] = 0;
           continue;
       }
     }
-    // xpos_loss[idx] += abs((data->xpos[3*idx+3]) - this->task_->motion_vector_xpos[tick][3*idx]);
-    // xpos_loss[idx] += abs((data->xpos[3*idx+4]) - this->task_->motion_vector_xpos[tick][3*idx+1]);
+    xpos_loss[i] += abs((data->xpos[3*idx+3]) - this->task_->motion_vector_xpos[tick][3*idx]);
+    xpos_loss[i] += abs((data->xpos[3*idx+4]) - this->task_->motion_vector_xpos[tick][3*idx+1]);
     xpos_loss[i] += abs((data->xpos[3*idx+5]) - this->task_->motion_vector_xpos[tick][3*idx+2]);
   }
   // TODO: fix hard coding (n_body=61)
@@ -83,7 +83,7 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
 
   // ----- joint velocity ----- //
   double qvel_loss[43];
-  for (int i = 0; i < model->nq; i++) {
+  for (int i = 0; i < model->nv; i++) {
     // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
     qvel_loss[i] = abs((data->qvel)[i] - this->task_->motion_vector_qvel[tick][i]);
   }

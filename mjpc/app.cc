@@ -484,7 +484,7 @@ void PhysicsLoop(mj::Simulate& sim) {
             // initialize time
             sim.agent->ActiveTask()->reference_time = d->time;
             sim.agent->ActiveTask()->first_frame = sim.motion_frame_index;
-            sim.motion_frame_index = (sim.motion_frame_index + 1) % sim.agent->ActiveTask()->motion_vector_qpos.size();
+            sim.motion_frame_index = (sim.motion_frame_index + 4) % sim.agent->ActiveTask()->motion_vector_qpos.size();
           }
 
           // run mj_forward, to update rendering and joint sliders
