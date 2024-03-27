@@ -57,7 +57,7 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
     // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
     qpos_loss[i-2] = abs((data->qpos)[i] - this->task_->motion_vector_qpos[tick][i]);
   }
-  mju_scl(qpos_loss, qpos_loss, 1./42., 42);
+  // mju_scl(qpos_loss, qpos_loss, 1.42., 42);
   mju_copy(&residual[counter], qpos_loss, model->nq-2);
   counter += model->nq-2;
 
@@ -77,7 +77,7 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
     xpos_loss[i] += abs((data->xpos[3*idx+5]) - this->task_->motion_vector_xpos[tick][3*idx+2]);
   }
   // TODO: fix hard coding (n_body=61)
-  mju_scl(xpos_loss, xpos_loss, 1./21., 21);
+  // mju_scl(xpos_loss, xpos_loss, 1./21., 21);
   mju_copy(&residual[counter], xpos_loss, 21);
   counter += 21;
   
@@ -88,9 +88,13 @@ void Motion::ResidualFn::Residual(const mjModel* model, const mjData* data,
     // cout << i << ":" << (data->qpos+7)[i] << this->task_->motion_vector[0][i] << endl;
     qvel_loss[i] = abs((data->qvel)[i] - this->task_->motion_vector_qvel[tick][i]);
   }
-  mju_scl(qpos_loss, qpos_loss, 1./43., 43);
+  // mju_scl(qpos_loss, qpos_loss, 1./43., 43);
   mju_copy(&residual[counter], qvel_loss, model->nv);
   counter += model->nv;
+
+  // ----- action ----- //
+  mju_copy(&residual[counter], data->ctrl, model->nu);
+  counter += model->nu;
 
   // sensor dim sanity check
   // TODO: use this pattern everywhere and make this a utility function
