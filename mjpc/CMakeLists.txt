@@ -74,6 +74,10 @@ add_library(
   tasks/smpl/motion/motion.h
   tasks/myosuite/walk/walk.cc
   tasks/myosuite/walk/walk.h
+  tasks/atlas/stand/stand.cc
+  tasks/atlas/stand/stand.h
+  tasks/atlas/motion/motion.cc
+  tasks/atlas/motion/motion.h
   tasks/common_rig/walk/walk.h
   tasks/common_rig/walk/walk.cc
   tasks/common_rig/motion/motion.h

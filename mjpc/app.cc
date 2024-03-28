@@ -655,7 +655,8 @@ MjpcApp::MjpcApp(std::vector<std::shared_ptr<mjpc::Task>> tasks, int task_id) {
   sim->agent->PlotInitialize();
   // motion
   // yoon0-0
-  GetMotionJson("/home/yoonbyeong/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_16_15_zpos_edited.json", sim->agent);
+  // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/smpl/smplrig_cmu_walk_optimized_recon.json", sim->agent);
+  GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/atlas/atlas_cmu_walk_optimized_recon.json", sim->agent);
   // GetMotionJson("/Users/yoonbyung/Dev/mujoco_mpc/mjpc/tasks/common_rig/common_rig_v2_walk.json", sim->agent);
 
   sim->agent->plan_enabled = absl::GetFlag(FLAGS_planner_enabled);

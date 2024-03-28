@@ -33,6 +33,8 @@
 #include "mjpc/tasks/swimmer/swimmer.h"
 #include "mjpc/tasks/walker/walker.h"
 // RILAB IMPORT
+#include "mjpc/tasks/atlas/stand/stand.h"
+#include "mjpc/tasks/atlas/motion/motion.h"
 #include "mjpc/tasks/smpl/stand/stand.h"
 #include "mjpc/tasks/smpl/walk/walk.h"
 #include "mjpc/tasks/smpl/motion/motion.h"
@@ -64,6 +66,8 @@ std::vector<std::shared_ptr<Task>> GetTasks() {
     std::make_shared<Swimmer>(),
     std::make_shared<Walker>(),
     // RILAB TASKS
+    std::make_shared<atlas::Stand>(),
+    std::make_shared<atlas::Motion>(),
     std::make_shared<smpl::Stand>(),
     std::make_shared<smpl::Walk>(),
     std::make_shared<smpl::Motion>(),
