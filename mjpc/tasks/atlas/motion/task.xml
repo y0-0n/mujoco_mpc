@@ -35,6 +35,7 @@
     <user name="Joint Motion" dim="30" user="0 0.25 0.1 4.0" />
     <user name="Task Space" dim="31" user="0 0.7 0.1 1.0" />
     <user name="Joint Velocity" dim="36" user="0 0.0001 0.00001 0.01" />
+    <user name="Joint Torque" dim="30" user="0 0.4 0 2" />
     <!-- <user name="Height" dim="1" user="7 5.0 0 25.0 0.1 4.0" />
     <user name="Pelvis/Feet" dim="1" user="8 1.0 0.0 10.0 0.05" />
     <user name="Balance" dim="2" user="1 5.0 0.0 25.0 0.02 4.0" />
