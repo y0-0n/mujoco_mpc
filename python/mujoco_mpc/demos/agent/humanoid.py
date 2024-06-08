@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 # %%
 import matplotlib.pyplot as plt
 import mediapy as media
@@ -20,7 +21,6 @@ import os
 import pathlib
 from mujoco_viewer import MujocoViewer
 import time as time_
-
 # set current directory: mujoco_mpc/python/mujoco_mpc
 from mujoco_mpc import agent as agent_lib
 
@@ -30,7 +30,7 @@ from mujoco_mpc import agent as agent_lib
 # model
 model_path = (
         pathlib.Path(os.path.abspath("")).parent.parent.parent.parent.parent
-        / "mujoco_mpc/mjpc/tasks/cartpole/task.xml"
+        / "mujoco_mpc/mjpc/tasks/humanoid/tracking/task.xml"
     )
 model = mujoco.MjModel.from_xml_path(str(model_path))
 
@@ -45,21 +45,23 @@ viewer = MujocoViewer(
     model,data,mode='window',title="Cartpole",
     width=1200,height=800,hide_menus=True
     )
+
+
 # %%
 # agent
-agent = agent_lib.Agent(task_id="Cartpole", model=model)
+agent = agent_lib.Agent(task_id="Humanoid Track", model=model)
 
-# weights
-agent.set_cost_weights({"Velocity": 0.15})
-print("Cost weights:", agent.get_cost_weights())
+# # weights
+# agent.set_cost_weights({"Velocity": 0.15})
+# print("Cost weights:", agent.get_cost_weights())
 
-# parameters
-agent.set_task_parameter("Goal", -1.0)
-print("Parameters:", agent.get_task_parameters())
+# # parameters
+# agent.set_task_parameter("Goal", -1.0)
+# print("Parameters:", agent.get_task_parameters())
 
 # %%
 # rollout horizon
-T = 1500
+T = 500
 
 # trajectories
 qpos = np.zeros((model.nq, T))
@@ -88,7 +90,6 @@ for t in range(T - 1):
   if t % 100 == 0:
     print("t = ", t)
   t0 = time_.time()
-
   # set planner state
   agent.set_state(
       time=data.time,
@@ -129,8 +130,7 @@ for t in range(T - 1):
   # renderer.update_scene(data)
   viewer.render()
 
-  # pixels = renderer.render()
-  # frames.append(pixels)
+  # renderer.render()
 
 # reset
 agent.reset()

@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 # %%
 import matplotlib.pyplot as plt
 import mediapy as media
@@ -20,59 +21,34 @@ import os
 import pathlib
 from mujoco_viewer import MujocoViewer
 import time as time_
-
 # set current directory: mujoco_mpc/python/mujoco_mpc
 from mujoco_mpc import agent as agent_lib
+import ray
+from MPC_ray import RayMPC
 
 # %matplotlib inline
-
+# os.environ["DISPLAY"] = ":10.0"
 # %%
 # model
 model_path = (
         pathlib.Path(os.path.abspath("")).parent.parent.parent.parent.parent
-        / "mujoco_mpc/mjpc/tasks/cartpole/task.xml"
+        / "mujoco_mpc/mjpc/tasks/smpl/tracking/task.xml"
     )
-model = mujoco.MjModel.from_xml_path(str(model_path))
 
-# data
-data = mujoco.MjData(model)
+num_worker = 5
 
-# renderer
-# renderer = mujoco.Renderer(model)
-
-# create the viewer object
-viewer = MujocoViewer(
-    model,data,mode='window',title="Cartpole",
-    width=1200,height=800,hide_menus=True
-    )
+rayMPC = [RayMPC.remote(model_path=model_path, worker_id=i) for i in range(num_worker)]
 # %%
-# agent
-agent = agent_lib.Agent(task_id="Cartpole", model=model)
+# ray rollout
+work = [worker.loop.remote() for worker in rayMPC]
+ray.get(work)
 
-# weights
-agent.set_cost_weights({"Velocity": 0.15})
-print("Cost weights:", agent.get_cost_weights())
-
-# parameters
-agent.set_task_parameter("Goal", -1.0)
-print("Parameters:", agent.get_task_parameters())
 
 # %%
-# rollout horizon
-T = 1500
-
-# trajectories
-qpos = np.zeros((model.nq, T))
-qvel = np.zeros((model.nv, T))
-ctrl = np.zeros((model.nu, T - 1))
-time = np.zeros(T)
-
-# costs
-cost_total = np.zeros(T - 1)
-cost_terms = np.zeros((len(agent.get_cost_term_values()), T - 1))
 
 # rollout
-mujoco.mj_resetData(model, data)
+# mujoco.mj_resetData(model, data)
+mujoco.mj_resetDataKeyframe(model, data, 0)
 
 # cache initial state
 qpos[:, 0] = data.qpos
@@ -88,34 +64,45 @@ for t in range(T - 1):
   if t % 100 == 0:
     print("t = ", t)
   t0 = time_.time()
-
   # set planner state
-  agent.set_state(
-      time=data.time,
-      qpos=data.qpos,
-      qvel=data.qvel,
-      act=data.act,
-      mocap_pos=data.mocap_pos,
-      mocap_quat=data.mocap_quat,
-      userdata=data.userdata,
-  )
+  def agent_step(data, agent):
 
-  # run planner for num_steps
-  num_steps = 1
-  for _ in range(num_steps):
-    agent.planner_step()
+    agent.set_state(
+        time=data.time,
+        qpos=data.qpos,
+        qvel=data.qvel,
+        act=data.act,
+        mocap_pos=data.mocap_pos,
+        mocap_quat=data.mocap_quat,
+        userdata=data.userdata,
+    )
 
-  # get costs
-  cost_total[t] = agent.get_total_cost()
-  for i, c in enumerate(agent.get_cost_term_values().items()):
-    cost_terms[i, t] = c[1]
+    # run planner for num_steps
+    num_steps = 1
+    for _ in range(num_steps):
+      agent.planner_step()
 
-  # set ctrl from agent policy
-  data.ctrl = agent.get_action()
-  ctrl[:, t] = data.ctrl
+    # get costs
+    cost_total[t] = agent.get_total_cost()
+    for i, c in enumerate(agent.get_cost_term_values().items()):
+      cost_terms[i, t] = c[1]
 
-  # step
-  mujoco.mj_step(model, data)
+    # set ctrl from agent policy
+    data.ctrl = agent.get_action()
+    ctrl[:, t] = data.ctrl
+
+    # step
+    mujoco.mj_step(model, data)
+
+  remote_agent_step = ray.remote(agent_step)
+
+  s1 = remote_agent_step.remote(data, agent)
+  s2 = remote_agent_step.remote(data, agent)
+
+  ray.get(s1)
+  ray.get(s2)
+
+  agent_step(data, agent)
 
   # cache
   qpos[:, t + 1] = data.qpos
@@ -129,14 +116,13 @@ for t in range(T - 1):
   # renderer.update_scene(data)
   viewer.render()
 
-  # pixels = renderer.render()
-  # frames.append(pixels)
+  # renderer.render()
 
 # reset
 agent.reset()
 
 # display video
-SLOWDOWN = 0.5
+SLOWDOWN = 1
 media.show_video(frames, fps=SLOWDOWN * FPS)
 
 # %%

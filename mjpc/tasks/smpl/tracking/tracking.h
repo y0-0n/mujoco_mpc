@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef MJPC_TASKS_HUMANOID_TRACKING_TASK_H_
-#define MJPC_TASKS_HUMANOID_TRACKING_TASK_H_
+#ifndef MJPC_TASKS_SMPL_TRACKING_TASK_H_
+#define MJPC_TASKS_SMPL_TRACKING_TASK_H_
 
 #include <mujoco/mujoco.h>
 #include "mjpc/task.h"
 
 namespace mjpc {
-namespace humanoid {
+namespace smpl {
 
 class Tracking : public Task {
  public:
@@ -31,7 +31,7 @@ class Tracking : public Task {
           current_mode_(current_mode),
           reference_time_(reference_time) {}
 
-    // ------------- Residuals for humanoid tracking task -------------
+    // ------------- Residuals for smpl tracking task -------------
     //   Number of residuals:
     //     Residual (0): Joint vel: minimise joint velocity
     //     Residual (1): Control: minimise control
@@ -51,7 +51,7 @@ class Tracking : public Task {
 
   Tracking() : residual_(this) {}
 
-  // --------------------- Transition for humanoid task ------------------------
+  // --------------------- Transition for smpl task ------------------------
   //   Set `data->mocap_pos` based on `data->time` to move the mocap sites.
   //   Linearly interpolate between two consecutive key frames in order to
   //   smooth the transitions between keyframes.
@@ -74,7 +74,7 @@ class Tracking : public Task {
   ResidualFn residual_;
 };
 
-}  // namespace humanoid
+}  // namespace smpl
 }  // namespace mjpc
 
-#endif  // MJPC_TASKS_HUMANOID_TRACKING_TASK_H_
+#endif  // MJPC_TASKS_SMPL_TRACKING_TASK_H_

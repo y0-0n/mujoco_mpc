@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 # %%
 import matplotlib.pyplot as plt
 import mediapy as media
@@ -20,17 +21,16 @@ import os
 import pathlib
 from mujoco_viewer import MujocoViewer
 import time as time_
-
 # set current directory: mujoco_mpc/python/mujoco_mpc
 from mujoco_mpc import agent as agent_lib
 
 # %matplotlib inline
-
+# os.environ["DISPLAY"] = ":10.0"
 # %%
 # model
 model_path = (
         pathlib.Path(os.path.abspath("")).parent.parent.parent.parent.parent
-        / "mujoco_mpc/mjpc/tasks/cartpole/task.xml"
+        / "mujoco_mpc/mjpc/tasks/smpl/tracking/task.xml"
     )
 model = mujoco.MjModel.from_xml_path(str(model_path))
 
@@ -42,24 +42,26 @@ data = mujoco.MjData(model)
 
 # create the viewer object
 viewer = MujocoViewer(
-    model,data,mode='window',title="Cartpole",
+    model,data,mode='window',title="SMPL",
     width=1200,height=800,hide_menus=True
     )
+
+
 # %%
 # agent
-agent = agent_lib.Agent(task_id="Cartpole", model=model)
+agent = agent_lib.Agent(task_id="SMPL Track", model=model)
 
-# weights
-agent.set_cost_weights({"Velocity": 0.15})
-print("Cost weights:", agent.get_cost_weights())
+# # weights
+# agent.set_cost_weights({"Velocity": 0.15})
+# print("Cost weights:", agent.get_cost_weights())
 
-# parameters
-agent.set_task_parameter("Goal", -1.0)
-print("Parameters:", agent.get_task_parameters())
+# # parameters
+# agent.set_task_parameter("Goal", -1.0)
+# print("Parameters:", agent.get_task_parameters())
 
 # %%
 # rollout horizon
-T = 1500
+T = 315
 
 # trajectories
 qpos = np.zeros((model.nq, T))
@@ -72,7 +74,8 @@ cost_total = np.zeros(T - 1)
 cost_terms = np.zeros((len(agent.get_cost_term_values()), T - 1))
 
 # rollout
-mujoco.mj_resetData(model, data)
+# mujoco.mj_resetData(model, data)
+mujoco.mj_resetDataKeyframe(model, data, 100)
 
 # cache initial state
 qpos[:, 0] = data.qpos
@@ -88,7 +91,6 @@ for t in range(T - 1):
   if t % 100 == 0:
     print("t = ", t)
   t0 = time_.time()
-
   # set planner state
   agent.set_state(
       time=data.time,
@@ -115,7 +117,8 @@ for t in range(T - 1):
   ctrl[:, t] = data.ctrl
 
   # step
-  mujoco.mj_step(model, data)
+  if t > 20:
+    mujoco.mj_step(model, data)
 
   # cache
   qpos[:, t + 1] = data.qpos
@@ -129,14 +132,13 @@ for t in range(T - 1):
   # renderer.update_scene(data)
   viewer.render()
 
-  # pixels = renderer.render()
-  # frames.append(pixels)
+  # renderer.render()
 
 # reset
 agent.reset()
 
 # display video
-SLOWDOWN = 0.5
+SLOWDOWN = 1
 media.show_video(frames, fps=SLOWDOWN * FPS)
 
 # %%
